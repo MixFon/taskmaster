@@ -47,4 +47,9 @@ print("Welcom to Taskmaster!")
 //let parser = Process(data: data)
 //parser.delegate = self as? XMLParserDelegate
 //parser.parse()
-let process = Process()
+//let process = Process()
+let manager = XMLDataManager()
+let processes = manager.getProcesses(xmlFile: "server_config.xml")
+for process in processes {
+	print(process.command!)
+}
