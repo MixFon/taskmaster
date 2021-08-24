@@ -1,29 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE recipe>
-<recipe name="хлеб" preptime="5min" cooktime="180min">
-   <title>
-	  Простой хлеб
-   </title>
-   <composition>
-	  <ingredient amount="3" unit="стакан">Мука</ingredient>
-	  <ingredient amount="0.25" unit="грамм">Дрожжи</ingredient>
-	  <ingredient amount="1.5" unit="стакан">Тёплая вода</ingredient>
-   </composition>
-   <instructions>
-	 <step>
-		Смешать все ингредиенты и тщательно замесить.
-	 </step>
-	 <step>
-		Закрыть тканью и оставить на один час в тёплом помещении.
-	 </step>
-	 <!--
-		<step>
-		   Почитать вчерашнюю газету.
-		</step>
-		 - это сомнительный шаг...
-	  -->
-	 <step>
-		Замесить ещё раз, положить на противень и поставить в духовку.
-	 </step>
-   </instructions>
-</recipe>
+<configuration>
+	<process>
+		<command>one</command>
+		<arguments>des -a conf</arguments>
+		<numberprocces>23</numberprocces>
+		<autostart>true</autostart>
+		<autorestart>unexpected</autorestart>
+		<exitcodes>-1 2 0</exitcodes>
+		<starttime>4</starttime>
+		<startretries>5</startretries>
+		<stopsignal>USER1</stopsignal>
+		<stoptime>1</stoptime>
+		<stdout>/usr/proces_one.stdout</stdout>
+		<stderr>/usr/proces_one.stderr</stderr>
+		<environmenst>HOME=/tmp</environmenst>
+		<workingdir>/tmp</workingdir>
+		<umask>022</umask>
+	</process>
+	<process>
+		<command>two</command>
+		<arguments>base64 -a   -i inf </arguments>
+	</process>
+</configuration>

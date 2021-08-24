@@ -51,5 +51,7 @@ print("Welcom to Taskmaster!")
 let manager = XMLDataManager()
 let processes = manager.getProcesses(xmlFile: "server_config.xml")
 for process in processes {
-	print(process.command!)
+	//print(process.command!, process.arguments!)
+	print(process)
 }
+
