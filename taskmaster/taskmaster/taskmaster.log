@@ -1,0 +1,17 @@
+The following program name was read: one
+The following program arguments were read: des -a conf
+A integer variable has been read: 23
+A boolean variable has been read: true
+The reboot option has been read: unexpected
+The return codes were read: -1 2 0
+A integer variable has been read: 4
+A integer variable has been read: 5
+Read stop signal: USER1
+A integer variable has been read: 1
+The following stdout was read: /usr/proces_one.stdout
+The following stderr was read: /usr/proces_one.stderr
+The following Environmenst was read: HOME:/tmp
+The following working dir was read: /tmp
+A integer variable has been read: 022
+The following program name was read: two
+The following program arguments were read: base64 -a   -i inf

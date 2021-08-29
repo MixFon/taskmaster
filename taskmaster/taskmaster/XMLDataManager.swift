@@ -11,7 +11,7 @@ class XMLDataManager: NSObject  {
 	var parser: XMLParser?
 	var pracesses: [Process] = []
 	var process: Process?
-	var fillData: ((String) -> Void)?
+	var fillData: ((String, Int, Int) -> Void)?
 	
 	/// Считывает xml файл настроек и возвращает массив процессов
 	/// - Parameters:
@@ -30,98 +30,104 @@ class XMLDataManager: NSObject  {
 		return self.pracesses
 	}
 	
-	/// Считывает программу, котору. необходимо запустить.
-	private func readCommand(data: String) {
+	/// Считывает имя программы, которую. необходимо запустить.
+	private func readCommand(data: String, line: Int, column: Int) {
 		if self.process == nil { return }
 		self.process?.command = data
+		Logs.writeLogsToFileLogs(massage: "The following program name was read: \(data)")
 	}
 	
 	/// Считывает аргументы предаваемые в запускаемый процесс.
-	private func readArguments(data: String) {
+	private func readArguments(data: String, line: Int, column: Int) {
 		if self.process == nil { return }
 		self.process?.arguments = data.split() { $0 == " " }.map{ String($0) }
+		Logs.writeLogsToFileLogs(massage: "The following program arguments were read: \(data)")
 	}
 	
 	/// Считывает  количество процессов, которое нужно запустить и поддерживать работу
-	private func readNumberProcess(data: String) {
+	private func readNumberProcess(data: String, line: Int, column: Int) {
 		if self.process == nil { return }
-		self.process?.numberProcess = Int(data)
+		self.process?.numberProcess = convertStringToInt(data: data, line: line, column: column)
 	}
 	
 	/// Считывает переменную bool для определения нужно ли запускать приложение при старте.
-	private func readAautoStart(data: String) {
+	private func readAautoStart(data: String, line: Int, column: Int) {
 		if self.process == nil { return }
 		self.process?.autoStart = Bool(data)
+		if self.process?.autoStart == nil {
+			Logs.writeLogsToFileLogs(massage:
+				"Error reading a variable of type bool. \(data) line \(line), collumn \(column)")
+		} else {
+			Logs.writeLogsToFileLogs(massage: "A boolean variable has been read: \(data)")
+		}
 	}
 	
-	/// Считывает переменную never, always, or unexpected которая горит, слудует ли перезагружать программу.
-	private func readAutoRestart(data: String) {
+	/// Считывает переменную never, always, или unexpected которая горит, слудует ли перезагружать программу.
+	private func readAutoRestart(data: String, line: Int, column: Int) {
 		if self.process == nil { return }
 		if data == "always" || data == "never" || data == "unexpected" {
 			self.process?.autoRestart = data
+			Logs.writeLogsToFileLogs(massage: "The reboot option has been read: \(data)")
 		}
 		else {
-			print("Error \(data)")
-			//!!!!!!!!!!!!!!!!!
+			Logs.writeLogsToFileLogs(massage:
+				"Invalid reboot option (never, always, or unexpected). \(data) line \(line), collumn \(column)")
 		}
 	}
 	
 	/// Считывает ожидаемые коды возврата приложения.
-	private func readExitCodes(data: String) {
+	private func readExitCodes(data: String, line: Int, column: Int) {
 		if self.process == nil { return }
 		self.process?.exitCodes = data.split() { $0 == " " }.compactMap{ Int($0) }
+		if self.process?.exitCodes == nil {
+			Logs.writeLogsToFileLogs(massage:
+				"Error reading the return codes. \(data) line \(line), collumn \(column)")
+		} else {
+			Logs.writeLogsToFileLogs(massage: "The return codes were read: \(data)")
+		}
 	}
 	
 	/// Считывает как долго должна быть запущена программа, чтобы считалсть успешно запущенной..
-	private func readStartTime(data: String) {
+	private func readStartTime(data: String, line: Int, column: Int) {
 		if self.process == nil { return }
-		self.process?.startTime = Int(data)
-		guard let time = self.process?.startTime else { return }
-		if time < 0 {
-			print("Error time \(time)")
-		}
+		self.process?.startTime = convertStringToInt(data: data, line: line, column: column)
 	}
 	
 	/// Считывает количество повторов перезапуска программы.
-	private func readStartRetries(data: String) {
+	private func readStartRetries(data: String, line: Int, column: Int) {
 		if self.process == nil { return }
-		self.process?.startRetries = Int(data)
-		guard let retries = self.process?.startRetries else { return }
-		if retries < 0 {
-			print("Error retries \(retries)")
-		}
+		self.process?.startRetries = convertStringToInt(data: data, line: line, column: column)
 	}
 	
 	/// Считывает сигнал, используемый для остановки программы.
-	private func readStopSignal(data: String) {
+	private func readStopSignal(data: String, line: Int, column: Int) {
 		if self.process == nil { return }
 		self.process?.stopSignal = data
+		Logs.writeLogsToFileLogs(massage: "Read stop signal: \(data)")
 	}
 	
 	/// Считывает как долго ждать после остановки программы перед тем как убить процесс
-	private func readStopTime(data: String) {
+	private func readStopTime(data: String, line: Int, column: Int) {
 		if self.process == nil { return }
-		self.process?.stopTime = Int(data)
-		guard let stopTime = self.process?.stopTime else { return }
-		if stopTime < 0 {
-			print("Error stop time \(stopTime)")
-		}
+		self.process?.stopTime = convertStringToInt(data: data, line: line, column: column)
 	}
 	
 	/// Считывает куда направлять выходной поток программы.
-	private func readStdOut(data: String) {
+	private func readStdOut(data: String, line: Int, column: Int) {
 		if self.process == nil { return }
 		self.process?.stdOut = data
+		Logs.writeLogsToFileLogs(massage: "The following stdout was read: \(data)")
 	}
 	
 	/// Считывает куда направлять выходной поток программы.
-	private func readStdErr(data: String) {
+	private func readStdErr(data: String, line: Int, column: Int) {
 		if self.process == nil { return }
 		self.process?.stdErr = data
+		Logs.writeLogsToFileLogs(massage: "The following stderr was read: \(data)")
 	}
 	
 	/// Считывает переменные окружения
-	private func readEnvironmenst(data: String) {
+	private func readEnvironmenst(data: String, line: Int, column: Int) {
 		if self.process == nil { return }
 		let words = data.split(){ $0 == " " }.map( { String($0) } )
 		for word in words {
@@ -131,24 +137,38 @@ class XMLDataManager: NSObject  {
 					self.process?.environmenst = [String: String]()
 				}
 				self.process?.environmenst?[env[0]] = env[1]
+				Logs.writeLogsToFileLogs(massage: "The following Environmenst was read: \(env[0]):\(env[1])")
 			}
 		}
 	}
 	
 	/// Считывает рабочую директорию запускаемой программы.
-	private func readWorkingDir(data: String) {
+	private func readWorkingDir(data: String, line: Int, column: Int) {
 		if self.process == nil { return }
 		self.process?.workingDir = data
+		Logs.writeLogsToFileLogs(massage: "The following working dir was read: \(data)")
 	}
 	
 	/// Считывает права доступа
-	private func readUMask(data: String) {
+	private func readUMask(data: String, line: Int, column: Int) {
 		if self.process == nil { return }
-		self.process?.umask = Int(data)
-		guard let umask = self.process?.umask else { return }
-		if umask < 0 {
-			print("Error stop time \(umask)")
+		self.process?.umask = convertStringToInt(data: data, line: line, column: column)
+	}
+	
+	/// Переводит строку в целочисленный тип
+	private func convertStringToInt(data: String, line: Int, column: Int) -> Int? {
+		guard let number = Int(data) else {
+			Logs.writeLogsToFileLogs(massage:
+				"Error reading a variable of type int. \(data) line \(line), collumn \(column)")
+			return nil
 		}
+		if number < 0 {
+			Logs.writeLogsToFileLogs(massage: "Negative integer: \(number) line \(line), collumn \(column)")
+			return nil
+		} else {
+			Logs.writeLogsToFileLogs(massage: "A integer variable has been read: \(data)")
+		}
+		return number
 	}
 }
 
@@ -216,7 +236,8 @@ extension XMLDataManager: XMLParserDelegate {
 		let data = string.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
 		if data.isEmpty { return }
 		guard let fillData = self.fillData else { return }
-		fillData(data)
+		print(parser.lineNumber, parser.columnNumber)
+		fillData(data, parser.lineNumber, parser.columnNumber)
 	}
 	
 	// Called when a CDATA block is found
