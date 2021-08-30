@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <configuration>
 	<process>
-		<command>one</command>
-		<arguments>des -a conf</arguments>
-		<numberprocces>23</numberprocces>
+		<command>/Users/mixfon/MyFiles/Swift/taskmaster/taskmaster/taskmaster/test_tasks/task_one</command>
+		<arguments>arg_one arg_two conf</arguments>
+		<numberprocces>1</numberprocces>
 		<autostart>true</autostart>
 		<autorestart>unexpected</autorestart>
 		<exitcodes>-1 2 0</exitcodes>
@@ -11,14 +11,25 @@
 		<startretries>5</startretries>
 		<stopsignal>USER1</stopsignal>
 		<stoptime>1</stoptime>
-		<stdout>/usr/proces_one.stdout</stdout>
-		<stderr>/usr/proces_one.stderr</stderr>
+		<stdout>/Users/mixfon/MyFiles/Swift/taskmaster/taskmaster/taskmaster/test_tasks/stdout.out</stdout>
+		<stderr>/Users/mixfon/MyFiles/Swift/taskmaster/taskmaster/taskmaster/test_tasks/stderr.err</stderr>
 		<environmenst>HOME=/tmp</environmenst>
-		<workingdir>/tmp</workingdir>
+		<workingdir>/Users/mixfon/MyFiles/Swift/taskmaster/taskmaster/taskmaster/test_tasks</workingdir>
 		<umask>022</umask>
 	</process>
 	<process>
-		<command>two</command>
-		<arguments>base64 -a   -i inf </arguments>
+		<command>/bin/ls</command>
+		<arguments>-a</arguments>
+		<numberprocces>1</numberprocces>
+		<autostart>true</autostart>
+		<autorestart>unexpected</autorestart>
+		<exitcodes>-1 2 0</exitcodes>
+		<starttime>4</starttime>
+		<startretries>5</startretries>
+		<stopsignal>USER1</stopsignal>
+		<stoptime>1</stoptime>
+		<environmenst>HOME=/tmp</environmenst>
+		<workingdir>/Users/mixfon/MyFiles/Swift/taskmaster/taskmaster/taskmaster/test_tasks</workingdir>
+		<umask>022</umask>
 	</process>
 </configuration>

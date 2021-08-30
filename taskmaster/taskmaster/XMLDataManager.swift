@@ -9,15 +9,15 @@ import Foundation
 
 class XMLDataManager: NSObject  {
 	var parser: XMLParser?
-	var pracesses: [Process] = []
-	var process: Process?
+	var pracesses: [DataProcess] = []
+	var process: DataProcess?
 	var fillData: ((String, Int, Int) -> Void)?
 	
 	/// Считывает xml файл настроек и возвращает массив процессов
 	/// - Parameters:
 	///   - xmlFile: Относительный путь до файла.
 	/// - Returns: Массив процессов, считанных из файла.
-	func getProcesses(xmlFile: String) -> [Process] {
+	func getProcesses(xmlFile: String) -> [DataProcess]? {
 		let manager = FileManager.default
 		let currentDirURL = URL(fileURLWithPath: manager.currentDirectoryPath)
 		let fileURL = currentDirURL.appendingPathComponent(xmlFile)
@@ -26,7 +26,9 @@ class XMLDataManager: NSObject  {
 		}
 		self.parser = XMLParser(contentsOf: fileURL)
 		parser.delegate = self
-		parser.parse()
+		if !parser.parse() {
+			return nil
+		}
 		return self.pracesses
 	}
 	
@@ -176,7 +178,7 @@ extension XMLDataManager: XMLParserDelegate {
 	// Called when opening tag (`<elementName>`) is found
 	func parser(_ parser: XMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [String : String] = [:]) {
 		if self.process == nil {
-			self.process = Process()
+			self.process = DataProcess()
 		}
 		switch elementName {
 		case "command":
@@ -212,11 +214,6 @@ extension XMLDataManager: XMLParserDelegate {
 		default:
 			break
 		}
-//		print("<\(elementName)>")
-//		//print("attributes {\(attributeDict)}")
-//		//var process = Process()
-//		//process.command = elementName
-//		//self.pracesses.append(process)
 	}
 	
 	// Called when closing tag (`</elementName>`) is found
@@ -226,7 +223,6 @@ extension XMLDataManager: XMLParserDelegate {
 			guard let process = self.process else { return }
 			self.pracesses.append(process)
 			self.process = nil
-			//self.parser = nil
 		}
 	}
 	
@@ -236,7 +232,6 @@ extension XMLDataManager: XMLParserDelegate {
 		let data = string.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
 		if data.isEmpty { return }
 		guard let fillData = self.fillData else { return }
-		print(parser.lineNumber, parser.columnNumber)
 		fillData(data, parser.lineNumber, parser.columnNumber)
 	}
 	
@@ -251,8 +246,8 @@ extension XMLDataManager: XMLParserDelegate {
 	
 	// For debugging
 	func parser(_ parser: XMLParser, parseErrorOccurred parseError: Error) {
-		print("debugging \(parseError)")
-		print("on:", parser.lineNumber, "at:", parser.columnNumber)
+		Logs.writeLogsToFileLogs(massage:
+			"on: \(parser.lineNumber), at: \(parser.columnNumber) \(parseError.localizedDescription)")
 	}
 
 }

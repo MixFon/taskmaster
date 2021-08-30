@@ -17,7 +17,8 @@ class Logs {
 	
 	/// Запись в файл логов. По умолчанию это файл "taskmaster.log"
 	static func writeLogsToFileLogs(massage: String) {
-		let messageData = massage + "\n";
+		let currentDate = DateFormatter.getCurrentDate()
+		let messageData = "\(currentDate) \(massage)\n";
 		let manager = FileManager.default
 		let currntDirURL = URL(fileURLWithPath: manager.currentDirectoryPath)
 		let fileURL = currntDirURL.appendingPathComponent(self.fileLogs)
@@ -36,5 +37,13 @@ class Logs {
 		} catch {
 			fputs("Error writing to the \(self.fileLogs) file.\n", stderr)
 		}
+	}
+}
+
+extension DateFormatter {
+	static func getCurrentDate() -> String {
+		let dateFormatter = DateFormatter()
+		dateFormatter.dateFormat = "[dd/MM/yyyy HH:mm:ss]"
+		return dateFormatter.string(from: Date())
 	}
 }

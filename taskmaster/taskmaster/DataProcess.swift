@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Process {
+struct DataProcess {
 	var command: String?
 	var arguments: [String]?
 	var numberProcess: Int?
