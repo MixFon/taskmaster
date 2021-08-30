@@ -6,3 +6,7 @@ ac[0] = {/Users/mixfon/MyFiles/Swift/taskmaster/taskmaster/taskmaster/test_tasks
 ac[1] = {arg_one}
 ac[2] = {arg_two}
 ac[3] = {conf}
+ac[0] = {/Users/mixfon/MyFiles/Swift/taskmaster/taskmaster/taskmaster/test_tasks/task_one}
+ac[1] = {arg_one}
+ac[2] = {arg_two}
+ac[3] = {conf}

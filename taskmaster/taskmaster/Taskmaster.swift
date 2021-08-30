@@ -35,36 +35,35 @@ class Taskmaster {
 		if let workingDir = dataProcess.workingDir {
 			process.currentDirectoryURL = URL(fileURLWithPath: workingDir)
 		}
-//		let outputPipe = Pipe()
-//		process.standardOutput = outputPipe
-//		let errorPipe = Pipe()
-//		process.standardError = errorPipe
 		if let pathStdout = dataProcess.stdOut {
-			if let fileHandle = FileHandle(forWritingAtPath: pathStdout) {
-				fileHandle.seekToEndOfFile()
-				//_ = try? fileHandle?.seekToEnd()
-				//_ = try? fileHandle?.synchronize()
-				process.standardOutput = fileHandle
-	//			let outputPipe = Pipe()
-	//			process.standardOutput = outputPipe
-				//print(process.standardOutput)
-			} else {
-				
-			}
+			process.standardOutput = getFileHandle(path: pathStdout)
 		}
 		if let pathStderr = dataProcess.stdErr {
-			process.standardError = FileHandle(forWritingAtPath: pathStderr)
-			//print(process.standardError)
+			process.standardError = getFileHandle(path: pathStderr)
 		}
 		do {
 			try process.run()
-//			let outputData = outputPipe.fileHandleForReading.readDataToEndOfFile()
-//			let errorData = errorPipe.fileHandleForReading.readDataToEndOfFile()
-//			print(String(decoding: outputData, as: UTF8.self) )
-//			print(String(decoding: errorData, as: UTF8.self) )
 		} catch {
-			print("Invalid run \(dataProcess.command!)")
+			Logs.writeLogsToFileLogs(massage: "Invalid run command: \(command)")
 		}
-		
+	}
+	
+	/// Возвращает file hendle. Если файл не создан, создает его.
+	private func getFileHandle(path: String) -> Any? {
+		let fileManager = FileManager.default
+		if !fileManager.fileExists(atPath: path) {
+			do {
+				let fileURL = URL(fileURLWithPath: path)
+				try "".write(to: fileURL, atomically: true, encoding: .utf8)
+			} catch {
+				Logs.writeLogsToFileLogs(massage: "Invalid exist file \(path)")
+				return nil
+			}
+		}
+		if let fileHandle = FileHandle(forWritingAtPath: path) {
+			fileHandle.seekToEndOfFile()
+			return fileHandle
+		}
+		return nil
 	}
 }
