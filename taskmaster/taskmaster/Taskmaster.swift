@@ -38,7 +38,7 @@ class Taskmaster {
 			case .start:
 				startAllProcesses()
 			case .status:
-				startAllProcesses()
+				printStatus()
 			case .stop:
 				stopAllProcesses()
 			case .exit:
@@ -51,12 +51,32 @@ class Taskmaster {
 	
 	/// Вывод статуса по процессам.
 	private func printStatus() {
-		
+		guard let dataProcesses = self.dataProcesses else { return }
+		printMessage("State\tPID\tName")
+		let strStop = "   stop"
+		for data in dataProcesses {
+			var state = ""
+			if let process = data.process {
+				state = process.isRunning ? "running" : strStop
+			} else {
+				state = strStop
+			}
+			printMessage(String(format:
+				"%@\t%5d\t%@", state, data.process?.processIdentifier ?? -1, data.nameProcess ?? ""))
+			//printMessage(String(format: "%8s %d".replacingOccurrences(of: "%s", with: "%@"), state, 5))
+					//"%7.7s pid %5.5d %s", state, data.process?.processIdentifier ?? -1, data.nameProcess ?? ""))
+//									"%7s pid %5d %d", state.localizedStri, data.process?.processIdentifier ?? -1, 5))
+		}
+	}
+	
+	private func printMessage(_ string: String) {
+		print(string)
 	}
 	
 	/// Завершение работы основной программы
 	private func exitTaskmaster() {
 		Logs.writeLogsToFileLogs(massage: "Taskmaster stop")
+		stopAllProcesses()
 		exit(0)
 	}
 	
