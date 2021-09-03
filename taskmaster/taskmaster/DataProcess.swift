@@ -8,6 +8,7 @@
 import Foundation
 
 struct DataProcess {
+	var status: Status?
 	var nameProcess: String?
 	var command: String?
 	var arguments: [String]?
@@ -25,4 +26,12 @@ struct DataProcess {
 	var workingDir: String?
 	var umask: Int?
 	var process: Process?
+	
+	
+	enum Status: String {
+		case noStart
+		case running
+		case stop
+		case errorStart
+	}
 }

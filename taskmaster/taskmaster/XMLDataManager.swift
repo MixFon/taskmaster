@@ -48,14 +48,14 @@ class XMLDataManager: NSObject  {
 		if self.process?.nameProcess == nil {
 			self.process?.nameProcess = self.process?.command
 		}
-		Logs.writeLogsToFileLogs(massage: "The following program name was read: \(data)")
+		Logs.writeLogsToFileLogs("The following program name was read: \(data)")
 	}
 	
 	/// Считывает аргументы предаваемые в запускаемый процесс.
 	private func readArguments(data: String, line: Int, column: Int) {
 		if self.process == nil { return }
 		self.process?.arguments = data.split() { $0 == " " }.map{ String($0) }
-		Logs.writeLogsToFileLogs(massage: "The following program arguments were read: \(data)")
+		Logs.writeLogsToFileLogs("The following program arguments were read: \(data)")
 	}
 	
 	/// Считывает  количество процессов, которое нужно запустить и поддерживать работу
@@ -69,10 +69,10 @@ class XMLDataManager: NSObject  {
 		if self.process == nil { return }
 		self.process?.autoStart = Bool(data)
 		if self.process?.autoStart == nil {
-			Logs.writeLogsToFileLogs(massage:
+			Logs.writeLogsToFileLogs(
 				"Error reading a variable of type bool. \(data) line \(line), collumn \(column)")
 		} else {
-			Logs.writeLogsToFileLogs(massage: "A boolean variable has been read: \(data)")
+			Logs.writeLogsToFileLogs("A boolean variable has been read: \(data)")
 		}
 	}
 	
@@ -81,10 +81,10 @@ class XMLDataManager: NSObject  {
 		if self.process == nil { return }
 		if data == "always" || data == "never" || data == "unexpected" {
 			self.process?.autoRestart = data
-			Logs.writeLogsToFileLogs(massage: "The reboot option has been read: \(data)")
+			Logs.writeLogsToFileLogs("The reboot option has been read: \(data)")
 		}
 		else {
-			Logs.writeLogsToFileLogs(massage:
+			Logs.writeLogsToFileLogs(
 				"Invalid reboot option (never, always, or unexpected). \(data) line \(line), collumn \(column)")
 		}
 	}
@@ -94,10 +94,10 @@ class XMLDataManager: NSObject  {
 		if self.process == nil { return }
 		self.process?.exitCodes = data.split() { $0 == " " }.compactMap{ Int($0) }
 		if self.process?.exitCodes == nil {
-			Logs.writeLogsToFileLogs(massage:
+			Logs.writeLogsToFileLogs(
 				"Error reading the return codes. \(data) line \(line), collumn \(column)")
 		} else {
-			Logs.writeLogsToFileLogs(massage: "The return codes were read: \(data)")
+			Logs.writeLogsToFileLogs("The return codes were read: \(data)")
 		}
 	}
 	
@@ -117,7 +117,7 @@ class XMLDataManager: NSObject  {
 	private func readStopSignal(data: String, line: Int, column: Int) {
 		if self.process == nil { return }
 		self.process?.stopSignal = data
-		Logs.writeLogsToFileLogs(massage: "Read stop signal: \(data)")
+		Logs.writeLogsToFileLogs("Read stop signal: \(data)")
 	}
 	
 	/// Считывает как долго ждать после остановки программы перед тем как убить процесс
@@ -130,14 +130,14 @@ class XMLDataManager: NSObject  {
 	private func readStdOut(data: String, line: Int, column: Int) {
 		if self.process == nil { return }
 		self.process?.stdOut = data
-		Logs.writeLogsToFileLogs(massage: "The following stdout was read: \(data)")
+		Logs.writeLogsToFileLogs("The following stdout was read: \(data)")
 	}
 	
 	/// Считывает куда направлять выходной поток программы.
 	private func readStdErr(data: String, line: Int, column: Int) {
 		if self.process == nil { return }
 		self.process?.stdErr = data
-		Logs.writeLogsToFileLogs(massage: "The following stderr was read: \(data)")
+		Logs.writeLogsToFileLogs("The following stderr was read: \(data)")
 	}
 	
 	/// Считывает переменные окружения
@@ -151,7 +151,7 @@ class XMLDataManager: NSObject  {
 					self.process?.environmenst = [String: String]()
 				}
 				self.process?.environmenst?[env[0]] = env[1]
-				Logs.writeLogsToFileLogs(massage: "The following Environmenst was read: \(env[0]):\(env[1])")
+				Logs.writeLogsToFileLogs("The following Environmenst was read: \(env[0]):\(env[1])")
 			}
 		}
 	}
@@ -160,7 +160,7 @@ class XMLDataManager: NSObject  {
 	private func readWorkingDir(data: String, line: Int, column: Int) {
 		if self.process == nil { return }
 		self.process?.workingDir = data
-		Logs.writeLogsToFileLogs(massage: "The following working dir was read: \(data)")
+		Logs.writeLogsToFileLogs("The following working dir was read: \(data)")
 	}
 	
 	/// Считывает права доступа
@@ -172,15 +172,15 @@ class XMLDataManager: NSObject  {
 	/// Переводит строку в целочисленный тип
 	private func convertStringToInt(data: String, line: Int, column: Int) -> Int? {
 		guard let number = Int(data) else {
-			Logs.writeLogsToFileLogs(massage:
+			Logs.writeLogsToFileLogs(
 				"Error reading a variable of type int. \(data) line \(line), collumn \(column)")
 			return nil
 		}
 		if number < 0 {
-			Logs.writeLogsToFileLogs(massage: "Negative integer: \(number) line \(line), collumn \(column)")
+			Logs.writeLogsToFileLogs("Negative integer: \(number) line \(line), collumn \(column)")
 			return nil
 		} else {
-			Logs.writeLogsToFileLogs(massage: "A integer variable has been read: \(data)")
+			Logs.writeLogsToFileLogs("A integer variable has been read: \(data)")
 		}
 		return number
 	}
@@ -258,7 +258,7 @@ extension XMLDataManager: XMLParserDelegate {
 	
 	// For debugging
 	func parser(_ parser: XMLParser, parseErrorOccurred parseError: Error) {
-		Logs.writeLogsToFileLogs(massage:
+		Logs.writeLogsToFileLogs(
 			"on: \(parser.lineNumber), at: \(parser.columnNumber) \(parseError.localizedDescription)")
 	}
 

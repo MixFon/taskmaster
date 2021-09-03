@@ -16,7 +16,7 @@ class Logs {
 	}
 	
 	/// Запись в файл логов. По умолчанию это файл "taskmaster.log"
-	static func writeLogsToFileLogs(massage: String) {
+	static func writeLogsToFileLogs(_ massage: String) {
 		let currentDate = DateFormatter.getCurrentDate()
 		let messageData = "\(currentDate) \(massage)\n";
 		let manager = FileManager.default

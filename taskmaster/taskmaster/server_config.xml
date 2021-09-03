@@ -37,7 +37,7 @@
 	<process>
 		<command>/bin/ls</command>
 		<arguments>-a</arguments>
-		<numberprocces>3</numberprocces>
+		<numberprocces>1</numberprocces>
 		<autostart>true</autostart>
 		<autorestart>unexpected</autorestart>
 		<exitcodes>-1 2 0</exitcodes>

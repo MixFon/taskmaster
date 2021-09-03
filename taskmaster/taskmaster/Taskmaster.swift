@@ -23,6 +23,7 @@ class Taskmaster {
 		// Тут Чтение настроек запуска сервера.
 		let xmlManager = XMLDataManager()
 		self.dataProcesses = xmlManager.getProcesses(xmlFile: self.fileProcessSetting)
+		creatingAllProcesses()
 		startProcessesAutostart()
 	}
 	
@@ -30,13 +31,14 @@ class Taskmaster {
 	func runTaskmaster() {
 		while let line = readLine() {
 			guard let command = Commands(rawValue: line) else {
-				Logs.writeLogsToFileLogs(massage: "Invalid command: \(line)")
+				Logs.writeLogsToFileLogs("Invalid command: \(line)")
 				continue
 			}
 			print("command: \(command.rawValue)")
 			switch command {
 			case .start:
-				startAllProcesses()
+				startAllProcess()
+				//creatingAllProcesses()
 			case .status:
 				printStatus()
 			case .stop:
@@ -49,23 +51,29 @@ class Taskmaster {
 		}
 	}
 	
+	/// Создание всех процессов на основе считанной информации из файла конфигураций
+	private func creatingAllProcesses() {
+		guard let dataProcesses = self.dataProcesses else { return }
+		creatingArrayProcesses(dataProcesses: dataProcesses)
+	}
+	
+	/// Запуск всех процессов
+	private func startAllProcess() {
+		guard let dataProcesses = self.dataProcesses else { return }
+		let dataProcessNoStart = dataProcesses.filter( { $0.status == .noStart } )
+		//creatingArrayProcesses(dataProcesses: dataProcessNoStart)
+		//let process = dataProcessNoStart.compactMap( { $0.process } )
+		startArrayProcesses(dataProcesses: dataProcessNoStart)
+	}
+	
 	/// Вывод статуса по процессам.
 	private func printStatus() {
 		guard let dataProcesses = self.dataProcesses else { return }
 		printMessage("State\tPID\tName")
-		let strStop = "   stop"
 		for data in dataProcesses {
-			var state = ""
-			if let process = data.process {
-				state = process.isRunning ? "running" : strStop
-			} else {
-				state = strStop
-			}
+			guard let status = data.status else { continue }
 			printMessage(String(format:
-				"%@\t%5d\t%@", state, data.process?.processIdentifier ?? -1, data.nameProcess ?? ""))
-			//printMessage(String(format: "%8s %d".replacingOccurrences(of: "%s", with: "%@"), state, 5))
-					//"%7.7s pid %5.5d %s", state, data.process?.processIdentifier ?? -1, data.nameProcess ?? ""))
-//									"%7s pid %5d %d", state.localizedStri, data.process?.processIdentifier ?? -1, 5))
+				"%@\t%5d\t%@", status.rawValue, data.process?.processIdentifier ?? -1, data.nameProcess ?? ""))
 		}
 	}
 	
@@ -75,37 +83,61 @@ class Taskmaster {
 	
 	/// Завершение работы основной программы
 	private func exitTaskmaster() {
-		Logs.writeLogsToFileLogs(massage: "Taskmaster stop")
+		Logs.writeLogsToFileLogs("Taskmaster stop")
 		stopAllProcesses()
 		exit(0)
 	}
 	
+	/// Перезапуск всех процессов
 	private func restartAllProcesses() {
 		stopAllProcesses()
-		startAllProcesses()
+		creatingAllProcesses()
+		startAllProcess()
 	}
 	
 	/// Запуск процессов, которые должны запускаться вместе со стартом программы.
 	private func startProcessesAutostart() {
 		guard let dataProcesses = self.dataProcesses else { return }
-		let processes = dataProcesses.filter(){ $0.autoStart == true }
-		startArrayProcesses(dataProcesses: processes)
+		let data = dataProcesses.filter(){ $0.autoStart == true }
+		startArrayProcesses(dataProcesses: data)
 	}
 	
-	/// Запуск всех процессов, которы не были запучены
-	private func startAllProcesses() {
-		guard let dataProcesses = self.dataProcesses else { return }
-		let notRunProcess = dataProcesses.filter( { data in
-			guard let process = data.process else { return true }
-			return process.isRunning == false
-		})
-		startArrayProcesses(dataProcesses: notRunProcess)
+	/// Запускает массив процессов.
+	private func startArrayProcesses(dataProcesses: [DataProcess]) {
+		for dataProcess in dataProcesses {
+			startProcess(dataProcess)
+		}
+	}
+	
+	/// Уставнока заданного статуса
+	private func setStatus(dataProcess: DataProcess, status: DataProcess.Status) {
+		guard let index = findElement(dataProcess: dataProcess) else { return }
+		self.dataProcesses?[index].status = status
+	}
+	
+	/// Запускает одит переданный процесс
+	private func startProcess(_ dataProcess: DataProcess) {
+		guard let process = dataProcess.process else { return }
+		do {
+			try process.run()
+			setStatus(dataProcess: dataProcess, status: .running)
+			Logs.writeLogsToFileLogs("Start task: \(process.processIdentifier)")
+			print("run process \(process.processIdentifier)")
+		} catch {
+			setStatus(dataProcess: dataProcess, status: .errorStart)
+			Logs.writeLogsToFileLogs("Invalid run process: \(process.processIdentifier)")
+		}
 	}
 	
 	/// Вызивается при завершении работы процесса.
 	private func taskFinish(process: Process) {
 		print(process.processIdentifier)
-		Logs.writeLogsToFileLogs(massage: "Stop task: \(process.processIdentifier)")
+		guard let index = self.dataProcesses?.firstIndex(where:
+			{ $0.process?.processIdentifier == process.processIdentifier } ) else { return }
+		self.dataProcesses?[index].status = .stop
+		self.dataProcesses?[index].process = nil
+		guard let name = self.dataProcesses?[index].nameProcess else { return }
+		Logs.writeLogsToFileLogs("Stop task: \(process.processIdentifier) (\(name))")
 	}
 	
 	/// Остановка всех процессов.
@@ -122,34 +154,46 @@ class Taskmaster {
 		}
 	}
 	
-	/// Запуск массива процессов.
-	private func startArrayProcesses(dataProcesses: [DataProcess]) {
+	/// Поитк заданного элемента.
+	private func findElement(dataProcess: DataProcess) -> Array<DataProcess>.Index? {
+		guard let index = self.dataProcesses?.firstIndex(where:
+			{ $0.nameProcess == dataProcess.nameProcess } ) else { return nil }
+		return index
+	}
+	
+	/// Создание массива процессов.
+	private func creatingArrayProcesses(dataProcesses: [DataProcess]) {
 		for var dataProcess in dataProcesses {
-			if let number = dataProcess.numberProcess {
-				dataProcess.numberProcess = 1
-				if number > 1 {
-					for i in 0..<number {
-						var newProcess = dataProcess
-						guard let nameProcess = newProcess.nameProcess else { continue }
-						newProcess.nameProcess = "\(nameProcess)_\(i)"
-						newProcess.process = startProcess(dataProcess: newProcess)
-						self.dataProcesses?.append(newProcess)
-					}
-				} else {
-					if let index = self.dataProcesses?.firstIndex(where: { $0.nameProcess == dataProcess.nameProcess}) {
-						self.dataProcesses?[index].process = startProcess(dataProcess: dataProcess)
-					}
-				}
+			guard let number = dataProcess.numberProcess else { continue }
+			dataProcess.numberProcess = 1
+			guard let index = findElement(dataProcess: dataProcess) else { continue }
+			if number > 1 {
+				self.dataProcesses?[index].numberProcess = 1
+				creatingDublicateProcess(dataProcess: dataProcess, count: number - 1)
 			}
+			self.dataProcesses?[index].process = creatingProcess(dataProcess: dataProcess)
+			setStatus(dataProcess: dataProcess, status: .noStart)
 		}
 	}
 	
-	/// Запуск одного дочернего процесса на основе считанной информации.
+	/// Создание будликатов процессов заданного количества и добавление их в общий массив.
+	private func creatingDublicateProcess(dataProcess: DataProcess, count: Int) {
+		for i in 0..<count {
+			var newProcess = dataProcess
+			guard let nameProcess = newProcess.nameProcess else { continue }
+			newProcess.nameProcess = "\(nameProcess)_\(i)"
+			newProcess.process = creatingProcess(dataProcess: newProcess)
+			newProcess.status = .noStart
+			self.dataProcesses?.append(newProcess)
+		}
+	}
+	
+	/// Создание одного дочернего процесса на основе считанной информации.
 	/// - Parameters:
 	///   - dataProcess: Информация о процессе, который должен быть запущен
 	/// - Returns:
-	/// 	созданый процесс
-	private func startProcess(dataProcess: DataProcess) -> Process? {
+	/// 	Созданый процесс
+	private func creatingProcess(dataProcess: DataProcess) -> Process? {
 		let process = Process()
 		guard let command = dataProcess.command else { return nil }
 		process.executableURL = URL(fileURLWithPath: command)
@@ -164,13 +208,6 @@ class Taskmaster {
 		}
 		if let pathStderr = dataProcess.stdErr {
 			process.standardError = getFileHandle(path: pathStderr)
-		}
-		do {
-			try process.run()
-			Logs.writeLogsToFileLogs(massage: "Start task: \(process.processIdentifier) (\(dataProcess.nameProcess ?? ""))")
-			print("run process \(dataProcess.nameProcess!)")
-		} catch {
-			Logs.writeLogsToFileLogs(massage: "Invalid run command: \(command)")
 		}
 		return process
 	}
@@ -188,7 +225,7 @@ class Taskmaster {
 				let fileURL = URL(fileURLWithPath: path)
 				try "".write(to: fileURL, atomically: true, encoding: .utf8)
 			} catch {
-				Logs.writeLogsToFileLogs(massage: "Invalid exist file \(path)")
+				Logs.writeLogsToFileLogs("Invalid exist file \(path)")
 				return nil
 			}
 		}
