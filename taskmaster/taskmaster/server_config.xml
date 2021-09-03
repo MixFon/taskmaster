@@ -18,9 +18,26 @@
 		<umask>022</umask>
 	</process>
 	<process>
+		<command>/Users/mixfon/MyFiles/Swift/taskmaster/taskmaster/taskmaster/test_tasks/task_two</command>
+		<arguments>arg_one arg_two 2222</arguments>
+		<numberprocces>1</numberprocces>
+		<autostart>false</autostart>
+		<autorestart>unexpected</autorestart>
+		<exitcodes>-1 2 0</exitcodes>
+		<starttime>4</starttime>
+		<startretries>5</startretries>
+		<stopsignal>USER1</stopsignal>
+		<stoptime>1</stoptime>
+		<stdout>/Users/mixfon/MyFiles/Swift/taskmaster/taskmaster/taskmaster/test_tasks/stdout_2.out</stdout>
+		<stderr>/Users/mixfon/MyFiles/Swift/taskmaster/taskmaster/taskmaster/test_tasks/stderr_2.err</stderr>
+		<environmenst>HOME=/tmp</environmenst>
+		<workingdir>/Users/mixfon/MyFiles/Swift/taskmaster/taskmaster/taskmaster/test_tasks</workingdir>
+		<umask>022</umask>
+	</process>
+	<process>
 		<command>/bin/ls</command>
 		<arguments>-a</arguments>
-		<numberprocces>1</numberprocces>
+		<numberprocces>3</numberprocces>
 		<autostart>true</autostart>
 		<autorestart>unexpected</autorestart>
 		<exitcodes>-1 2 0</exitcodes>

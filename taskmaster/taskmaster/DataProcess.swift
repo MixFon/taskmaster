@@ -8,6 +8,7 @@
 import Foundation
 
 struct DataProcess {
+	var nameProcess: String?
 	var command: String?
 	var arguments: [String]?
 	var numberProcess: Int?
@@ -23,4 +24,5 @@ struct DataProcess {
 	var environmenst: [String: String]?
 	var workingDir: String?
 	var umask: Int?
+	var process: Process?
 }

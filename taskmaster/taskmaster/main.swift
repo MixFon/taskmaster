@@ -8,10 +8,7 @@
 import Foundation
 
 print("Welcom to Taskmaster!")
-while let str = readLine() {
-	print(str)
-	let task = Taskmaster()
-	task.run()
-}
+let task = Taskmaster()
+task.runTaskmaster()
 
 

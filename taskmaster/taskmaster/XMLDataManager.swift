@@ -32,10 +32,22 @@ class XMLDataManager: NSObject  {
 		return self.pracesses
 	}
 	
-	/// Считывает имя программы, которую. необходимо запустить.
+	/// Парсит путь до команды и возвращает имя запускаемой программы
+	private func getProcessName(command: String?) -> String? {
+		guard let command = command else { return nil }
+		let elements = command.split() {$0 == "/"}.map( { String($0) } )
+		guard let lastElem = elements.last else { return nil }
+		return lastElem
+	}
+	
+	/// Считывает путь до программы, которую. необходимо запустить. Так же заполняет имя процесса.
 	private func readCommand(data: String, line: Int, column: Int) {
 		if self.process == nil { return }
 		self.process?.command = data
+		self.process?.nameProcess = getProcessName(command: data)
+		if self.process?.nameProcess == nil {
+			self.process?.nameProcess = self.process?.command
+		}
 		Logs.writeLogsToFileLogs(massage: "The following program name was read: \(data)")
 	}
 	
