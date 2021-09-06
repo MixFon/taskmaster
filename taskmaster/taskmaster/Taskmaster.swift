@@ -30,14 +30,18 @@ class Taskmaster {
 	/// Чтение и исполнение команд.
 	func runTaskmaster() {
 		while let line = readLine() {
-			guard let command = Commands(rawValue: line) else {
+			let commands = getCommands(line: line)
+			if commands.count < 1 { continue }
+			guard let first = commands.first else { continue }
+			let arguments = commands[1...].map( {String($0)} )
+			guard let command = Commands(rawValue: first) else {
 				Logs.writeLogsToFileLogs("Invalid command: \(line)")
 				continue
 			}
 			print("command: \(command.rawValue)")
 			switch command {
 			case .start:
-				startAllProcess()
+				commandStart(arguments: arguments)
 				//creatingAllProcesses()
 			case .status:
 				printStatus()
@@ -49,6 +53,34 @@ class Taskmaster {
 				restartAllProcesses()
 			}
 		}
+	}
+	
+	/// Запуск процессов переданных в виде аргументов.
+	private func commandStart(arguments: [String]) {
+		if let first = arguments.first {
+			if first.lowercased() == "all" {
+				startAllProcess()
+			}
+			return
+		} else {
+			printUsege()
+			return
+		}
+		let processes = getProcessesIDName(arguments: arguments)
+	}
+	
+	/// Печатает подсказку
+	private func printUsege() {
+		
+	}
+	
+	private func getProcessesIDName(arguments: [String]) -> [DataProcess] {
+		return []
+	}
+	
+	private func getCommands(line: String) -> [String] {
+		let commands = line.split() { $0 == " " }.map( { String($0) } )
+		return commands
 	}
 	
 	/// Создание всех процессов на основе считанной информации из файла конфигураций
