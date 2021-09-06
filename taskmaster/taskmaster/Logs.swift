@@ -46,4 +46,16 @@ extension DateFormatter {
 		dateFormatter.dateFormat = "[dd/MM/yyyy HH:mm:ss]"
 		return dateFormatter.string(from: Date())
 	}
+	
+	/// Получение интервала между двумя точками даты.
+	static func getTimeInterval(_ start: Date?, _ stop: Date?) -> String {
+		let formatter = DateFormatter()
+		formatter.dateFormat = "mm:ss:SSS"
+		guard let start = start else { return "00:00:00" }
+		if let stop = stop {
+			return formatter.string(from: Date(timeIntervalSinceReferenceDate: stop.timeIntervalSince(start)))
+		} else {
+			return formatter.string(from: Date(timeIntervalSinceReferenceDate: Date().timeIntervalSince(start)))
+		}
+	}
 }

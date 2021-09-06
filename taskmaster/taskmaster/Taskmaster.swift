@@ -69,11 +69,18 @@ class Taskmaster {
 	/// Вывод статуса по процессам.
 	private func printStatus() {
 		guard let dataProcesses = self.dataProcesses else { return }
-		printMessage("State\tPID\tName")
+		printMessage("State\tPID\tName\tTime")
 		for data in dataProcesses {
 			guard let status = data.status else { continue }
+			if let process = data.process {
+				if !process.isRunning {
+					//print("termination Status: ", process.terminationStatus)
+					//print("termination Reason: ", process.terminationReason)
+				}
+			}
+			let time = DateFormatter.getTimeInterval(data.timeStartProcess, data.timeStopProcess)
 			printMessage(String(format:
-				"%@\t%5d\t%@", status.rawValue, data.process?.processIdentifier ?? -1, data.nameProcess ?? ""))
+				"%@\t%5d\t%@\t%@", status.rawValue, data.process?.processIdentifier ?? -1, data.nameProcess ?? "", time))
 		}
 	}
 	
@@ -122,6 +129,9 @@ class Taskmaster {
 			try process.run()
 			setStatus(dataProcess: dataProcess, status: .running)
 			Logs.writeLogsToFileLogs("Start task: \(process.processIdentifier)")
+			guard let index = findElement(dataProcess: dataProcess) else { return }
+			self.dataProcesses?[index].timeStartProcess = Date()
+			self.dataProcesses?[index].timeStopProcess = nil
 			print("run process \(process.processIdentifier)")
 		} catch {
 			setStatus(dataProcess: dataProcess, status: .errorStart)
@@ -131,13 +141,15 @@ class Taskmaster {
 	
 	/// Вызивается при завершении работы процесса.
 	private func taskFinish(process: Process) {
-		print(process.processIdentifier)
+		print("finish:", process.processIdentifier)
+		print("terminatio Statio", process.terminationStatus)
 		guard let index = self.dataProcesses?.firstIndex(where:
 			{ $0.process?.processIdentifier == process.processIdentifier } ) else { return }
-		self.dataProcesses?[index].status = .stop
-		self.dataProcesses?[index].process = nil
+		self.dataProcesses?[index].status = .finish
+		//self.dataProcesses?[index].process = nil
+		self.dataProcesses?[index].timeStopProcess = Date()
 		guard let name = self.dataProcesses?[index].nameProcess else { return }
-		Logs.writeLogsToFileLogs("Stop task: \(process.processIdentifier) (\(name))")
+		Logs.writeLogsToFileLogs("Finish task: \(process.processIdentifier) (\(name))")
 	}
 	
 	/// Остановка всех процессов.

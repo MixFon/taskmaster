@@ -20,7 +20,7 @@
 	<process>
 		<command>/Users/mixfon/MyFiles/Swift/taskmaster/taskmaster/taskmaster/test_tasks/task_two</command>
 		<arguments>arg_one arg_two 2222</arguments>
-		<numberprocces>1</numberprocces>
+		<numberprocces>3</numberprocces>
 		<autostart>false</autostart>
 		<autorestart>unexpected</autorestart>
 		<exitcodes>-1 2 0</exitcodes>

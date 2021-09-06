@@ -26,12 +26,14 @@ struct DataProcess {
 	var workingDir: String?
 	var umask: Int?
 	var process: Process?
+	var timeStartProcess: Date?
+	var timeStopProcess: Date?
 	
 	
 	enum Status: String {
 		case noStart
 		case running
-		case stop
+		case finish
 		case errorStart
 	}
 }

@@ -1,0 +1,1099 @@
+[04/09/2021 08:30:43] The following program name was read: /Users/mixfon/MyFiles/Swift/taskmaster/taskmaster/taskmaster/test_tasks/task_one
+[04/09/2021 08:30:43] The following program arguments were read: arg_one arg_two conf
+[04/09/2021 08:30:43] A integer variable has been read: 1
+[04/09/2021 08:30:43] A boolean variable has been read: true
+[04/09/2021 08:30:43] The reboot option has been read: unexpected
+[04/09/2021 08:30:43] The return codes were read: -1 2 0
+[04/09/2021 08:30:43] A integer variable has been read: 4
+[04/09/2021 08:30:43] A integer variable has been read: 5
+[04/09/2021 08:30:43] Read stop signal: USER1
+[04/09/2021 08:30:43] A integer variable has been read: 1
+[04/09/2021 08:30:43] The following stdout was read: /Users/mixfon/MyFiles/Swift/taskmaster/taskmaster/taskmaster/test_tasks/stdout.out
+[04/09/2021 08:30:43] The following stderr was read: /Users/mixfon/MyFiles/Swift/taskmaster/taskmaster/taskmaster/test_tasks/stderr.err
+[04/09/2021 08:30:43] The following Environmenst was read: HOME:/tmp
+[04/09/2021 08:30:43] The following working dir was read: /Users/mixfon/MyFiles/Swift/taskmaster/taskmaster/taskmaster/test_tasks
+[04/09/2021 08:30:43] A integer variable has been read: 022
+[04/09/2021 08:30:43] The following program name was read: /Users/mixfon/MyFiles/Swift/taskmaster/taskmaster/taskmaster/test_tasks/task_two
+[04/09/2021 08:30:43] The following program arguments were read: arg_one arg_two 2222
+[04/09/2021 08:30:43] A integer variable has been read: 3
+[04/09/2021 08:30:43] A boolean variable has been read: false
+[04/09/2021 08:30:43] The reboot option has been read: unexpected
+[04/09/2021 08:30:43] The return codes were read: -1 2 0
+[04/09/2021 08:30:43] A integer variable has been read: 4
+[04/09/2021 08:30:43] A integer variable has been read: 5
+[04/09/2021 08:30:43] Read stop signal: USER1
+[04/09/2021 08:30:43] A integer variable has been read: 1
+[04/09/2021 08:30:43] The following stdout was read: /Users/mixfon/MyFiles/Swift/taskmaster/taskmaster/taskmaster/test_tasks/stdout_2.out
+[04/09/2021 08:30:43] The following stderr was read: /Users/mixfon/MyFiles/Swift/taskmaster/taskmaster/taskmaster/test_tasks/stderr_2.err
+[04/09/2021 08:30:43] The following Environmenst was read: HOME:/tmp
+[04/09/2021 08:30:43] The following working dir was read: /Users/mixfon/MyFiles/Swift/taskmaster/taskmaster/taskmaster/test_tasks
+[04/09/2021 08:30:43] A integer variable has been read: 022
+[04/09/2021 08:30:43] The following program name was read: /bin/ls
+[04/09/2021 08:30:43] The following program arguments were read: -a
+[04/09/2021 08:30:43] A integer variable has been read: 1
+[04/09/2021 08:30:43] A boolean variable has been read: true
+[04/09/2021 08:30:43] The reboot option has been read: unexpected
+[04/09/2021 08:30:43] The return codes were read: -1 2 0
+[04/09/2021 08:30:43] A integer variable has been read: 4
+[04/09/2021 08:30:43] A integer variable has been read: 5
+[04/09/2021 08:30:43] Read stop signal: USER1
+[04/09/2021 08:30:43] A integer variable has been read: 1
+[04/09/2021 08:30:43] The following Environmenst was read: HOME:/tmp
+[04/09/2021 08:30:43] The following working dir was read: /Users/mixfon/MyFiles/Swift/taskmaster/taskmaster/taskmaster/test_tasks
+[04/09/2021 08:30:43] A integer variable has been read: 022
+[04/09/2021 08:30:43] Start task: 37988
+[04/09/2021 08:30:43] Start task: 37989
+[04/09/2021 08:30:43] Stop task: 37989 (ls)
+[04/09/2021 08:31:05] Start task: 37993
+[04/09/2021 08:31:05] Start task: 37994
+[04/09/2021 08:31:05] Start task: 37995
+[04/09/2021 08:31:22] Stop task: 37995 (task_two_1)
+[04/09/2021 08:31:22] Stop task: 37993 (task_two)
+)
+[04/09/2021 08:31:50] Start task: 38024
+[04/09/2021 08:31:50] Start task: 38025
+[04/09/2021 08:31:50] Start task: 38026
+[04/09/2021 08:31:50] Stop task: 38026 (ls)
+[04/09/2021 08:31:50] Start task: 38027
+[04/09/2021 08:31:50] Start task: 38028
+[04/09/2021 08:32:11] Taskmaster stop
+[04/09/2021 16:52:43] The following program name was read: /Users/mixfon/MyFiles/Swift/taskmaster/taskmaster/taskmaster/test_tasks/task_one
+[04/09/2021 16:52:43] The following program arguments were read: arg_one arg_two conf
+[04/09/2021 16:52:43] A integer variable has been read: 1
+[04/09/2021 16:52:43] A boolean variable has been read: true
+[04/09/2021 16:52:43] The reboot option has been read: unexpected
+[04/09/2021 16:52:43] The return codes were read: -1 2 0
+[04/09/2021 16:52:43] A integer variable has been read: 4
+[04/09/2021 16:52:43] A integer variable has been read: 5
+[04/09/2021 16:52:43] Read stop signal: USER1
+[04/09/2021 16:52:43] A integer variable has been read: 1
+[04/09/2021 16:52:43] The following stdout was read: /Users/mixfon/MyFiles/Swift/taskmaster/taskmaster/taskmaster/test_tasks/stdout.out
+[04/09/2021 16:52:43] The following stderr was read: /Users/mixfon/MyFiles/Swift/taskmaster/taskmaster/taskmaster/test_tasks/stderr.err
+[04/09/2021 16:52:43] The following Environmenst was read: HOME:/tmp
+[04/09/2021 16:52:43] The following working dir was read: /Users/mixfon/MyFiles/Swift/taskmaster/taskmaster/taskmaster/test_tasks
+[04/09/2021 16:52:43] A integer variable has been read: 022
+[04/09/2021 16:52:43] The following program name was read: /Users/mixfon/MyFiles/Swift/taskmaster/taskmaster/taskmaster/test_tasks/task_two
+[04/09/2021 16:52:43] The following program arguments were read: arg_one arg_two 2222
+[04/09/2021 16:52:43] A integer variable has been read: 3
+[04/09/2021 16:52:43] A boolean variable has been read: false
+[04/09/2021 16:52:43] The reboot option has been read: unexpected
+[04/09/2021 16:52:43] The return codes were read: -1 2 0
+[04/09/2021 16:52:43] A integer variable has been read: 4
+[04/09/2021 16:52:43] A integer variable has been read: 5
+[04/09/2021 16:52:43] Read stop signal: USER1
+[04/09/2021 16:52:43] A integer variable has been read: 1
+[04/09/2021 16:52:43] The following stdout was read: /Users/mixfon/MyFiles/Swift/taskmaster/taskmaster/taskmaster/test_tasks/stdout_2.out
+[04/09/2021 16:52:43] The following stderr was read: /Users/mixfon/MyFiles/Swift/taskmaster/taskmaster/taskmaster/test_tasks/stderr_2.err
+[04/09/2021 16:52:43] The following Environmenst was read: HOME:/tmp
+[04/09/2021 16:52:43] The following working dir was read: /Users/mixfon/MyFiles/Swift/taskmaster/taskmaster/taskmaster/test_tasks
+[04/09/2021 16:52:43] A integer variable has been read: 022
+[04/09/2021 16:52:43] The following program name was read: /bin/ls
+[04/09/2021 16:52:43] The following program arguments were read: -a
+[04/09/2021 16:52:43] A integer variable has been read: 1
+[04/09/2021 16:52:43] A boolean variable has been read: true
+[04/09/2021 16:52:43] The reboot option has been read: unexpected
+[04/09/2021 16:52:43] The return codes were read: -1 2 0
+[04/09/2021 16:52:43] A integer variable has been read: 4
+[04/09/2021 16:52:43] A integer variable has been read: 5
+[04/09/2021 16:52:43] Read stop signal: USER1
+[04/09/2021 16:52:43] A integer variable has been read: 1
+[04/09/2021 16:52:43] The following Environmenst was read: HOME:/tmp
+[04/09/2021 16:52:43] The following working dir was read: /Users/mixfon/MyFiles/Swift/taskmaster/taskmaster/taskmaster/test_tasks
+[04/09/2021 16:52:43] A integer variable has been read: 022
+[04/09/2021 16:52:43] Start task: 38445
+[04/09/2021 16:52:43] Start task: 38446
+[04/09/2021 16:52:43] Stop task: 38446 (ls)
+[04/09/2021 16:53:16] Start task: 38453
+[04/09/2021 16:53:16] Start task: 38454
+[04/09/2021 16:53:16] Start task: 38455
+[04/09/2021 16:53:28] Stop task: 38453 (task_two)
+[04/09/2021 16:53:28] Stop task: 38454 (task_two_0)
+[04/09/2021 16:53:36] Start task: 38457
+[04/09/2021 16:53:36] Start task: 38458
+[04/09/2021 16:53:36] Start task: 38459
+[04/09/2021 16:53:36] Start task: 38460
+[04/09/2021 16:53:36] Stop task: 38459 (ls)
+[04/09/2021 16:53:36] Start task: 38461
+[04/09/2021 16:53:42] Stop task: 38457 (task_one)
+[04/09/2021 16:53:42] Stop task: 38460 (task_two_0)
+[04/09/2021 16:53:42] Stop task: 38461 (task_two_1)
+[04/09/2021 16:53:42] Start task: 38462
+[04/09/2021 16:53:42] Start task: 38463
+[04/09/2021 16:53:42] Start task: 38464
+[04/09/2021 16:53:42] Stop task: 38464 (ls)
+[04/09/2021 16:53:42] Start task: 38465
+[04/09/2021 16:53:42] Start task: 38466
+[04/09/2021 16:53:55] Taskmaster stop
+[06/09/2021 10:02:35] The following program name was read: /Users/mixfon/MyFiles/Swift/taskmaster/taskmaster/taskmaster/test_tasks/task_one
+[06/09/2021 10:02:35] The following program arguments were read: arg_one arg_two conf
+[06/09/2021 10:02:35] A integer variable has been read: 1
+[06/09/2021 10:02:35] A boolean variable has been read: true
+[06/09/2021 10:02:35] The reboot option has been read: unexpected
+[06/09/2021 10:02:35] The return codes were read: -1 2 0
+[06/09/2021 10:02:35] A integer variable has been read: 4
+[06/09/2021 10:02:35] A integer variable has been read: 5
+[06/09/2021 10:02:35] Read stop signal: USER1
+[06/09/2021 10:02:35] A integer variable has been read: 1
+[06/09/2021 10:02:35] The following stdout was read: /Users/mixfon/MyFiles/Swift/taskmaster/taskmaster/taskmaster/test_tasks/stdout.out
+[06/09/2021 10:02:35] The following stderr was read: /Users/mixfon/MyFiles/Swift/taskmaster/taskmaster/taskmaster/test_tasks/stderr.err
+[06/09/2021 10:02:35] The following Environmenst was read: HOME:/tmp
+[06/09/2021 10:02:35] The following working dir was read: /Users/mixfon/MyFiles/Swift/taskmaster/taskmaster/taskmaster/test_tasks
+[06/09/2021 10:02:35] A integer variable has been read: 022
+[06/09/2021 10:02:35] The following program name was read: /Users/mixfon/MyFiles/Swift/taskmaster/taskmaster/taskmaster/test_tasks/task_two
+[06/09/2021 10:02:35] The following program arguments were read: arg_one arg_two 2222
+[06/09/2021 10:02:35] A integer variable has been read: 3
+[06/09/2021 10:02:35] A boolean variable has been read: false
+[06/09/2021 10:02:35] The reboot option has been read: unexpected
+[06/09/2021 10:02:35] The return codes were read: -1 2 0
+[06/09/2021 10:02:35] A integer variable has been read: 4
+[06/09/2021 10:02:35] A integer variable has been read: 5
+[06/09/2021 10:02:35] Read stop signal: USER1
+[06/09/2021 10:02:35] A integer variable has been read: 1
+[06/09/2021 10:02:35] The following stdout was read: /Users/mixfon/MyFiles/Swift/taskmaster/taskmaster/taskmaster/test_tasks/stdout_2.out
+[06/09/2021 10:02:35] The following stderr was read: /Users/mixfon/MyFiles/Swift/taskmaster/taskmaster/taskmaster/test_tasks/stderr_2.err
+[06/09/2021 10:02:35] The following Environmenst was read: HOME:/tmp
+[06/09/2021 10:02:35] The following working dir was read: /Users/mixfon/MyFiles/Swift/taskmaster/taskmaster/taskmaster/test_tasks
+[06/09/2021 10:02:35] A integer variable has been read: 022
+[06/09/2021 10:02:35] The following program name was read: /bin/ls
+[06/09/2021 10:02:35] The following program arguments were read: -a
+[06/09/2021 10:02:35] A integer variable has been read: 1
+[06/09/2021 10:02:35] A boolean variable has been read: true
+[06/09/2021 10:02:35] The reboot option has been read: unexpected
+[06/09/2021 10:02:35] The return codes were read: -1 2 0
+[06/09/2021 10:02:35] A integer variable has been read: 4
+[06/09/2021 10:02:35] A integer variable has been read: 5
+[06/09/2021 10:02:35] Read stop signal: USER1
+[06/09/2021 10:02:35] A integer variable has been read: 1
+[06/09/2021 10:02:35] The following Environmenst was read: HOME:/tmp
+[06/09/2021 10:02:35] The following working dir was read: /Users/mixfon/MyFiles/Swift/taskmaster/taskmaster/taskmaster/test_tasks
+[06/09/2021 10:02:35] A integer variable has been read: 022
+[06/09/2021 10:02:35] Start task: 40814
+[06/09/2021 10:02:35] Start task: 40815
+[06/09/2021 10:02:35] Stop task: 40815 (ls)
+[06/09/2021 10:02:58] Start task: 40816
+[06/09/2021 10:02:58] Start task: 40817
+[06/09/2021 10:02:58] Start task: 40818
+[06/09/2021 10:03:12] Stop task: 40817 (task_two_0)
+[06/09/2021 10:03:12] Stop task: 40818 (task_two_1)
+[06/09/2021 10:03:25] Taskmaster stop
+[06/09/2021 10:34:28] The following program name was read: /Users/mixfon/MyFiles/Swift/taskmaster/taskmaster/taskmaster/test_tasks/task_one
+[06/09/2021 10:34:28] The following program arguments were read: arg_one arg_two conf
+[06/09/2021 10:34:28] A integer variable has been read: 1
+[06/09/2021 10:34:28] A boolean variable has been read: true
+[06/09/2021 10:34:28] The reboot option has been read: unexpected
+[06/09/2021 10:34:28] The return codes were read: -1 2 0
+[06/09/2021 10:34:28] A integer variable has been read: 4
+[06/09/2021 10:34:28] A integer variable has been read: 5
+[06/09/2021 10:34:28] Read stop signal: USER1
+[06/09/2021 10:34:28] A integer variable has been read: 1
+[06/09/2021 10:34:28] The following stdout was read: /Users/mixfon/MyFiles/Swift/taskmaster/taskmaster/taskmaster/test_tasks/stdout.out
+[06/09/2021 10:34:28] The following stderr was read: /Users/mixfon/MyFiles/Swift/taskmaster/taskmaster/taskmaster/test_tasks/stderr.err
+[06/09/2021 10:34:28] The following Environmenst was read: HOME:/tmp
+[06/09/2021 10:34:28] The following working dir was read: /Users/mixfon/MyFiles/Swift/taskmaster/taskmaster/taskmaster/test_tasks
+[06/09/2021 10:34:28] A integer variable has been read: 022
+[06/09/2021 10:34:28] The following program name was read: /Users/mixfon/MyFiles/Swift/taskmaster/taskmaster/taskmaster/test_tasks/task_two
+[06/09/2021 10:34:28] The following program arguments were read: arg_one arg_two 2222
+[06/09/2021 10:34:28] A integer variable has been read: 3
+[06/09/2021 10:34:28] A boolean variable has been read: false
+[06/09/2021 10:34:28] The reboot option has been read: unexpected
+[06/09/2021 10:34:28] The return codes were read: -1 2 0
+[06/09/2021 10:34:28] A integer variable has been read: 4
+[06/09/2021 10:34:28] A integer variable has been read: 5
+[06/09/2021 10:34:28] Read stop signal: USER1
+[06/09/2021 10:34:28] A integer variable has been read: 1
+[06/09/2021 10:34:28] The following stdout was read: /Users/mixfon/MyFiles/Swift/taskmaster/taskmaster/taskmaster/test_tasks/stdout_2.out
+[06/09/2021 10:34:28] The following stderr was read: /Users/mixfon/MyFiles/Swift/taskmaster/taskmaster/taskmaster/test_tasks/stderr_2.err
+[06/09/2021 10:34:28] The following Environmenst was read: HOME:/tmp
+[06/09/2021 10:34:28] The following working dir was read: /Users/mixfon/MyFiles/Swift/taskmaster/taskmaster/taskmaster/test_tasks
+[06/09/2021 10:34:28] A integer variable has been read: 022
+[06/09/2021 10:34:28] The following program name was read: /bin/ls
+[06/09/2021 10:34:28] The following program arguments were read: -a
+[06/09/2021 10:34:28] A integer variable has been read: 1
+[06/09/2021 10:34:28] A boolean variable has been read: true
+[06/09/2021 10:34:28] The reboot option has been read: unexpected
+[06/09/2021 10:34:28] The return codes were read: -1 2 0
+[06/09/2021 10:34:28] A integer variable has been read: 4
+[06/09/2021 10:34:28] A integer variable has been read: 5
+[06/09/2021 10:34:28] Read stop signal: USER1
+[06/09/2021 10:34:28] A integer variable has been read: 1
+[06/09/2021 10:34:28] The following Environmenst was read: HOME:/tmp
+[06/09/2021 10:34:28] The following working dir was read: /Users/mixfon/MyFiles/Swift/taskmaster/taskmaster/taskmaster/test_tasks
+[06/09/2021 10:34:28] A integer variable has been read: 022
+[06/09/2021 10:34:28] Start task: 40971
+[06/09/2021 10:34:28] Start task: 40972
+[06/09/2021 10:34:28] Stop task: 40972 (ls)
+[06/09/2021 10:34:54] Start task: 40975
+[06/09/2021 10:34:54] Start task: 40976
+[06/09/2021 10:34:54] Start task: 40977
+[06/09/2021 10:35:03] Stop task: 40977 (task_two_1)
+[06/09/2021 10:35:03] Stop task: 40975 (task_two)
+[06/09/2021 10:35:03] Stop task: 40976 (task_two_0)
+[06/09/2021 10:35:28] Taskmaster stop
+[06/09/2021 10:35:58] The following program name was read: /Users/mixfon/MyFiles/Swift/taskmaster/taskmaster/taskmaster/test_tasks/task_one
+[06/09/2021 10:35:58] The following program arguments were read: arg_one arg_two conf
+[06/09/2021 10:35:58] A integer variable has been read: 1
+[06/09/2021 10:35:58] A boolean variable has been read: true
+[06/09/2021 10:35:58] The reboot option has been read: unexpected
+[06/09/2021 10:35:58] The return codes were read: -1 2 0
+[06/09/2021 10:35:58] A integer variable has been read: 4
+[06/09/2021 10:35:58] A integer variable has been read: 5
+[06/09/2021 10:35:58] Read stop signal: USER1
+[06/09/2021 10:35:58] A integer variable has been read: 1
+[06/09/2021 10:35:58] The following stdout was read: /Users/mixfon/MyFiles/Swift/taskmaster/taskmaster/taskmaster/test_tasks/stdout.out
+[06/09/2021 10:35:58] The following stderr was read: /Users/mixfon/MyFiles/Swift/taskmaster/taskmaster/taskmaster/test_tasks/stderr.err
+[06/09/2021 10:35:58] The following Environmenst was read: HOME:/tmp
+[06/09/2021 10:35:58] The following working dir was read: /Users/mixfon/MyFiles/Swift/taskmaster/taskmaster/taskmaster/test_tasks
+[06/09/2021 10:35:58] A integer variable has been read: 022
+[06/09/2021 10:35:58] The following program name was read: /Users/mixfon/MyFiles/Swift/taskmaster/taskmaster/taskmaster/test_tasks/task_two
+[06/09/2021 10:35:58] The following program arguments were read: arg_one arg_two 2222
+[06/09/2021 10:35:58] A integer variable has been read: 3
+[06/09/2021 10:35:58] A boolean variable has been read: false
+[06/09/2021 10:35:58] The reboot option has been read: unexpected
+[06/09/2021 10:35:58] The return codes were read: -1 2 0
+[06/09/2021 10:35:58] A integer variable has been read: 4
+[06/09/2021 10:35:58] A integer variable has been read: 5
+[06/09/2021 10:35:58] Read stop signal: USER1
+[06/09/2021 10:35:58] A integer variable has been read: 1
+[06/09/2021 10:35:58] The following stdout was read: /Users/mixfon/MyFiles/Swift/taskmaster/taskmaster/taskmaster/test_tasks/stdout_2.out
+[06/09/2021 10:35:58] The following stderr was read: /Users/mixfon/MyFiles/Swift/taskmaster/taskmaster/taskmaster/test_tasks/stderr_2.err
+[06/09/2021 10:35:58] The following Environmenst was read: HOME:/tmp
+[06/09/2021 10:35:58] The following working dir was read: /Users/mixfon/MyFiles/Swift/taskmaster/taskmaster/taskmaster/test_tasks
+[06/09/2021 10:35:58] A integer variable has been read: 022
+[06/09/2021 10:35:58] The following program name was read: /bin/ls
+[06/09/2021 10:35:58] The following program arguments were read: -a
+[06/09/2021 10:35:58] A integer variable has been read: 1
+[06/09/2021 10:35:58] A boolean variable has been read: true
+[06/09/2021 10:35:58] The reboot option has been read: unexpected
+[06/09/2021 10:35:58] The return codes were read: -1 2 0
+[06/09/2021 10:35:58] A integer variable has been read: 4
+[06/09/2021 10:35:58] A integer variable has been read: 5
+[06/09/2021 10:35:58] Read stop signal: USER1
+[06/09/2021 10:35:58] A integer variable has been read: 1
+[06/09/2021 10:35:58] The following Environmenst was read: HOME:/tmp
+[06/09/2021 10:35:58] The following working dir was read: /Users/mixfon/MyFiles/Swift/taskmaster/taskmaster/taskmaster/test_tasks
+[06/09/2021 10:35:58] A integer variable has been read: 022
+[06/09/2021 10:35:58] Start task: 41021
+[06/09/2021 10:35:58] Start task: 41022
+[06/09/2021 10:35:58] Stop task: 41022 (ls)
+[06/09/2021 10:36:01] Start task: 41023
+[06/09/2021 10:36:01] Start task: 41024
+[06/09/2021 10:36:01] Start task: 41025
+[06/09/2021 10:36:07] Stop task: 41021 (task_one)
+[06/09/2021 10:36:07] Stop task: 41024 (task_two_0)
+[06/09/2021 10:36:07] Stop task: 41025 (task_two_1)
+[06/09/2021 10:36:07] Stop task: 41023 (task_two)
+[06/09/2021 10:36:25] Taskmaster stop
+[06/09/2021 10:45:06] The following program name was read: /Users/mixfon/MyFiles/Swift/taskmaster/taskmaster/taskmaster/test_tasks/task_one
+[06/09/2021 10:45:06] The following program arguments were read: arg_one arg_two conf
+[06/09/2021 10:45:06] A integer variable has been read: 1
+[06/09/2021 10:45:06] A boolean variable has been read: true
+[06/09/2021 10:45:06] The reboot option has been read: unexpected
+[06/09/2021 10:45:06] The return codes were read: -1 2 0
+[06/09/2021 10:45:06] A integer variable has been read: 4
+[06/09/2021 10:45:06] A integer variable has been read: 5
+[06/09/2021 10:45:06] Read stop signal: USER1
+[06/09/2021 10:45:06] A integer variable has been read: 1
+[06/09/2021 10:45:06] The following stdout was read: /Users/mixfon/MyFiles/Swift/taskmaster/taskmaster/taskmaster/test_tasks/stdout.out
+[06/09/2021 10:45:06] The following stderr was read: /Users/mixfon/MyFiles/Swift/taskmaster/taskmaster/taskmaster/test_tasks/stderr.err
+[06/09/2021 10:45:06] The following Environmenst was read: HOME:/tmp
+[06/09/2021 10:45:06] The following working dir was read: /Users/mixfon/MyFiles/Swift/taskmaster/taskmaster/taskmaster/test_tasks
+[06/09/2021 10:45:06] A integer variable has been read: 022
+[06/09/2021 10:45:06] The following program name was read: /Users/mixfon/MyFiles/Swift/taskmaster/taskmaster/taskmaster/test_tasks/task_two
+[06/09/2021 10:45:06] The following program arguments were read: arg_one arg_two 2222
+[06/09/2021 10:45:06] A integer variable has been read: 3
+[06/09/2021 10:45:06] A boolean variable has been read: false
+[06/09/2021 10:45:06] The reboot option has been read: unexpected
+[06/09/2021 10:45:06] The return codes were read: -1 2 0
+[06/09/2021 10:45:06] A integer variable has been read: 4
+[06/09/2021 10:45:06] A integer variable has been read: 5
+[06/09/2021 10:45:06] Read stop signal: USER1
+[06/09/2021 10:45:06] A integer variable has been read: 1
+[06/09/2021 10:45:06] The following stdout was read: /Users/mixfon/MyFiles/Swift/taskmaster/taskmaster/taskmaster/test_tasks/stdout_2.out
+[06/09/2021 10:45:06] The following stderr was read: /Users/mixfon/MyFiles/Swift/taskmaster/taskmaster/taskmaster/test_tasks/stderr_2.err
+[06/09/2021 10:45:06] The following Environmenst was read: HOME:/tmp
+[06/09/2021 10:45:06] The following working dir was read: /Users/mixfon/MyFiles/Swift/taskmaster/taskmaster/taskmaster/test_tasks
+[06/09/2021 10:45:06] A integer variable has been read: 022
+[06/09/2021 10:45:06] The following program name was read: /bin/ls
+[06/09/2021 10:45:06] The following program arguments were read: -a
+[06/09/2021 10:45:06] A integer variable has been read: 1
+[06/09/2021 10:45:06] A boolean variable has been read: true
+[06/09/2021 10:45:06] The reboot option has been read: unexpected
+[06/09/2021 10:45:06] The return codes were read: -1 2 0
+[06/09/2021 10:45:06] A integer variable has been read: 4
+[06/09/2021 10:45:06] A integer variable has been read: 5
+[06/09/2021 10:45:06] Read stop signal: USER1
+[06/09/2021 10:45:06] A integer variable has been read: 1
+[06/09/2021 10:45:06] The following Environmenst was read: HOME:/tmp
+[06/09/2021 10:45:06] The following working dir was read: /Users/mixfon/MyFiles/Swift/taskmaster/taskmaster/taskmaster/test_tasks
+[06/09/2021 10:45:06] A integer variable has been read: 022
+[06/09/2021 10:45:06] Start task: 41086
+[06/09/2021 10:45:06] Start task: 41087
+[06/09/2021 10:45:06] Stop task: 41087 (ls)
+[06/09/2021 10:45:15] Taskmaster stop
+[06/09/2021 10:45:36] The following program name was read: /Users/mixfon/MyFiles/Swift/taskmaster/taskmaster/taskmaster/test_tasks/task_one
+[06/09/2021 10:45:36] The following program arguments were read: arg_one arg_two conf
+[06/09/2021 10:45:36] A integer variable has been read: 1
+[06/09/2021 10:45:36] A boolean variable has been read: true
+[06/09/2021 10:45:36] The reboot option has been read: unexpected
+[06/09/2021 10:45:36] The return codes were read: -1 2 0
+[06/09/2021 10:45:36] A integer variable has been read: 4
+[06/09/2021 10:45:36] A integer variable has been read: 5
+[06/09/2021 10:45:36] Read stop signal: USER1
+[06/09/2021 10:45:36] A integer variable has been read: 1
+[06/09/2021 10:45:36] The following stdout was read: /Users/mixfon/MyFiles/Swift/taskmaster/taskmaster/taskmaster/test_tasks/stdout.out
+[06/09/2021 10:45:36] The following stderr was read: /Users/mixfon/MyFiles/Swift/taskmaster/taskmaster/taskmaster/test_tasks/stderr.err
+[06/09/2021 10:45:36] The following Environmenst was read: HOME:/tmp
+[06/09/2021 10:45:36] The following working dir was read: /Users/mixfon/MyFiles/Swift/taskmaster/taskmaster/taskmaster/test_tasks
+[06/09/2021 10:45:36] A integer variable has been read: 022
+[06/09/2021 10:45:36] The following program name was read: /Users/mixfon/MyFiles/Swift/taskmaster/taskmaster/taskmaster/test_tasks/task_two
+[06/09/2021 10:45:36] The following program arguments were read: arg_one arg_two 2222
+[06/09/2021 10:45:36] A integer variable has been read: 3
+[06/09/2021 10:45:36] A boolean variable has been read: false
+[06/09/2021 10:45:36] The reboot option has been read: unexpected
+[06/09/2021 10:45:36] The return codes were read: -1 2 0
+[06/09/2021 10:45:36] A integer variable has been read: 4
+[06/09/2021 10:45:36] A integer variable has been read: 5
+[06/09/2021 10:45:36] Read stop signal: USER1
+[06/09/2021 10:45:36] A integer variable has been read: 1
+[06/09/2021 10:45:36] The following stdout was read: /Users/mixfon/MyFiles/Swift/taskmaster/taskmaster/taskmaster/test_tasks/stdout_2.out
+[06/09/2021 10:45:36] The following stderr was read: /Users/mixfon/MyFiles/Swift/taskmaster/taskmaster/taskmaster/test_tasks/stderr_2.err
+[06/09/2021 10:45:36] The following Environmenst was read: HOME:/tmp
+[06/09/2021 10:45:36] The following working dir was read: /Users/mixfon/MyFiles/Swift/taskmaster/taskmaster/taskmaster/test_tasks
+[06/09/2021 10:45:36] A integer variable has been read: 022
+[06/09/2021 10:45:36] The following program name was read: /bin/ls
+[06/09/2021 10:45:36] The following program arguments were read: -a
+[06/09/2021 10:45:36] A integer variable has been read: 1
+[06/09/2021 10:45:36] A boolean variable has been read: true
+[06/09/2021 10:45:36] The reboot option has been read: unexpected
+[06/09/2021 10:45:36] The return codes were read: -1 2 0
+[06/09/2021 10:45:36] A integer variable has been read: 4
+[06/09/2021 10:45:36] A integer variable has been read: 5
+[06/09/2021 10:45:36] Read stop signal: USER1
+[06/09/2021 10:45:36] A integer variable has been read: 1
+[06/09/2021 10:45:36] The following Environmenst was read: HOME:/tmp
+[06/09/2021 10:45:36] The following working dir was read: /Users/mixfon/MyFiles/Swift/taskmaster/taskmaster/taskmaster/test_tasks
+[06/09/2021 10:45:36] A integer variable has been read: 022
+[06/09/2021 10:45:36] Start task: 41133
+[06/09/2021 10:45:36] Start task: 41134
+[06/09/2021 10:45:36] Stop task: 41134 (ls)
+[06/09/2021 10:45:59] Start task: 41135
+[06/09/2021 10:45:59] Start task: 41136
+[06/09/2021 10:45:59] Start task: 41137
+[06/09/2021 10:46:07] Stop task: 41133 (task_one)
+)
+[06/09/2021 10:46:07] Stop task: 41135 (task_two)
+[06/09/2021 10:46:07] Stop task: 41137 (task_two_1)
+[06/09/2021 10:46:16] Taskmaster stop
+[06/09/2021 10:46:40] The following program name was read: /Users/mixfon/MyFiles/Swift/taskmaster/taskmaster/taskmaster/test_tasks/task_one
+[06/09/2021 10:46:40] The following program arguments were read: arg_one arg_two conf
+[06/09/2021 10:46:40] A integer variable has been read: 1
+[06/09/2021 10:46:40] A boolean variable has been read: true
+[06/09/2021 10:46:40] The reboot option has been read: unexpected
+[06/09/2021 10:46:40] The return codes were read: -1 2 0
+[06/09/2021 10:46:40] A integer variable has been read: 4
+[06/09/2021 10:46:40] A integer variable has been read: 5
+[06/09/2021 10:46:40] Read stop signal: USER1
+[06/09/2021 10:46:40] A integer variable has been read: 1
+[06/09/2021 10:46:40] The following stdout was read: /Users/mixfon/MyFiles/Swift/taskmaster/taskmaster/taskmaster/test_tasks/stdout.out
+[06/09/2021 10:46:40] The following stderr was read: /Users/mixfon/MyFiles/Swift/taskmaster/taskmaster/taskmaster/test_tasks/stderr.err
+[06/09/2021 10:46:40] The following Environmenst was read: HOME:/tmp
+[06/09/2021 10:46:40] The following working dir was read: /Users/mixfon/MyFiles/Swift/taskmaster/taskmaster/taskmaster/test_tasks
+[06/09/2021 10:46:40] A integer variable has been read: 022
+[06/09/2021 10:46:40] The following program name was read: /Users/mixfon/MyFiles/Swift/taskmaster/taskmaster/taskmaster/test_tasks/task_two
+[06/09/2021 10:46:40] The following program arguments were read: arg_one arg_two 2222
+[06/09/2021 10:46:40] A integer variable has been read: 3
+[06/09/2021 10:46:40] A boolean variable has been read: false
+[06/09/2021 10:46:40] The reboot option has been read: unexpected
+[06/09/2021 10:46:40] The return codes were read: -1 2 0
+[06/09/2021 10:46:40] A integer variable has been read: 4
+[06/09/2021 10:46:40] A integer variable has been read: 5
+[06/09/2021 10:46:40] Read stop signal: USER1
+[06/09/2021 10:46:40] A integer variable has been read: 1
+[06/09/2021 10:46:40] The following stdout was read: /Users/mixfon/MyFiles/Swift/taskmaster/taskmaster/taskmaster/test_tasks/stdout_2.out
+[06/09/2021 10:46:40] The following stderr was read: /Users/mixfon/MyFiles/Swift/taskmaster/taskmaster/taskmaster/test_tasks/stderr_2.err
+[06/09/2021 10:46:40] The following Environmenst was read: HOME:/tmp
+[06/09/2021 10:46:40] The following working dir was read: /Users/mixfon/MyFiles/Swift/taskmaster/taskmaster/taskmaster/test_tasks
+[06/09/2021 10:46:40] A integer variable has been read: 022
+[06/09/2021 10:46:40] The following program name was read: /bin/ls
+[06/09/2021 10:46:40] The following program arguments were read: -a
+[06/09/2021 10:46:40] A integer variable has been read: 1
+[06/09/2021 10:46:40] A boolean variable has been read: true
+[06/09/2021 10:46:40] The reboot option has been read: unexpected
+[06/09/2021 10:46:40] The return codes were read: -1 2 0
+[06/09/2021 10:46:40] A integer variable has been read: 4
+[06/09/2021 10:46:40] A integer variable has been read: 5
+[06/09/2021 10:46:40] Read stop signal: USER1
+[06/09/2021 10:46:40] A integer variable has been read: 1
+[06/09/2021 10:46:40] The following Environmenst was read: HOME:/tmp
+[06/09/2021 10:46:40] The following working dir was read: /Users/mixfon/MyFiles/Swift/taskmaster/taskmaster/taskmaster/test_tasks
+[06/09/2021 10:46:40] A integer variable has been read: 022
+[06/09/2021 10:46:40] Start task: 41170
+[06/09/2021 10:46:40] Start task: 41171
+[06/09/2021 10:46:40] Stop task: 41171 (ls)
+[06/09/2021 10:46:42] Start task: 41172
+[06/09/2021 10:46:42] Start task: 41173
+[06/09/2021 10:46:42] Start task: 41174
+[06/09/2021 10:47:22] The following program name was read: /Users/mixfon/MyFiles/Swift/taskmaster/taskmaster/taskmaster/test_tasks/task_one
+[06/09/2021 10:47:22] The following program arguments were read: arg_one arg_two conf
+[06/09/2021 10:47:22] A integer variable has been read: 1
+[06/09/2021 10:47:22] A boolean variable has been read: true
+[06/09/2021 10:47:22] The reboot option has been read: unexpected
+[06/09/2021 10:47:22] The return codes were read: -1 2 0
+[06/09/2021 10:47:22] A integer variable has been read: 4
+[06/09/2021 10:47:22] A integer variable has been read: 5
+[06/09/2021 10:47:22] Read stop signal: USER1
+[06/09/2021 10:47:22] A integer variable has been read: 1
+[06/09/2021 10:47:22] The following stdout was read: /Users/mixfon/MyFiles/Swift/taskmaster/taskmaster/taskmaster/test_tasks/stdout.out
+[06/09/2021 10:47:22] The following stderr was read: /Users/mixfon/MyFiles/Swift/taskmaster/taskmaster/taskmaster/test_tasks/stderr.err
+[06/09/2021 10:47:22] The following Environmenst was read: HOME:/tmp
+[06/09/2021 10:47:22] The following working dir was read: /Users/mixfon/MyFiles/Swift/taskmaster/taskmaster/taskmaster/test_tasks
+[06/09/2021 10:47:22] A integer variable has been read: 022
+[06/09/2021 10:47:22] The following program name was read: /Users/mixfon/MyFiles/Swift/taskmaster/taskmaster/taskmaster/test_tasks/task_two
+[06/09/2021 10:47:22] The following program arguments were read: arg_one arg_two 2222
+[06/09/2021 10:47:22] A integer variable has been read: 3
+[06/09/2021 10:47:22] A boolean variable has been read: false
+[06/09/2021 10:47:22] The reboot option has been read: unexpected
+[06/09/2021 10:47:22] The return codes were read: -1 2 0
+[06/09/2021 10:47:22] A integer variable has been read: 4
+[06/09/2021 10:47:22] A integer variable has been read: 5
+[06/09/2021 10:47:22] Read stop signal: USER1
+[06/09/2021 10:47:22] A integer variable has been read: 1
+[06/09/2021 10:47:22] The following stdout was read: /Users/mixfon/MyFiles/Swift/taskmaster/taskmaster/taskmaster/test_tasks/stdout_2.out
+[06/09/2021 10:47:22] The following stderr was read: /Users/mixfon/MyFiles/Swift/taskmaster/taskmaster/taskmaster/test_tasks/stderr_2.err
+[06/09/2021 10:47:22] The following Environmenst was read: HOME:/tmp
+[06/09/2021 10:47:22] The following working dir was read: /Users/mixfon/MyFiles/Swift/taskmaster/taskmaster/taskmaster/test_tasks
+[06/09/2021 10:47:22] A integer variable has been read: 022
+[06/09/2021 10:47:22] The following program name was read: /bin/ls
+[06/09/2021 10:47:22] The following program arguments were read: -a
+[06/09/2021 10:47:22] A integer variable has been read: 1
+[06/09/2021 10:47:22] A boolean variable has been read: true
+[06/09/2021 10:47:22] The reboot option has been read: unexpected
+[06/09/2021 10:47:22] The return codes were read: -1 2 0
+[06/09/2021 10:47:22] A integer variable has been read: 4
+[06/09/2021 10:47:22] A integer variable has been read: 5
+[06/09/2021 10:47:22] Read stop signal: USER1
+[06/09/2021 10:47:22] A integer variable has been read: 1
+[06/09/2021 10:47:22] The following Environmenst was read: HOME:/tmp
+[06/09/2021 10:47:22] The following working dir was read: /Users/mixfon/MyFiles/Swift/taskmaster/taskmaster/taskmaster/test_tasks
+[06/09/2021 10:47:22] A integer variable has been read: 022
+[06/09/2021 10:47:22] Start task: 41186
+[06/09/2021 10:47:22] Start task: 41187
+[06/09/2021 10:47:22] Stop task: 41187 (ls)
+[06/09/2021 10:47:26] Start task: 41188
+[06/09/2021 10:47:26] Start task: 41189
+[06/09/2021 10:47:26] Start task: 41190
+[06/09/2021 10:47:32] Stop task: 41186 (task_one)
+[06/09/2021 10:47:32] Stop task: 41189 (task_two_0)
+[06/09/2021 10:48:10] Start task: 41191
+[06/09/2021 10:48:10] Start task: 41192
+[06/09/2021 10:48:10] Start task: 41193
+[06/09/2021 10:48:10] Start task: 41194
+ls)
+[06/09/2021 10:48:10] Start task: 41195
+[06/09/2021 10:48:24] Taskmaster stop
+[06/09/2021 10:49:05] The following program name was read: /Users/mixfon/MyFiles/Swift/taskmaster/taskmaster/taskmaster/test_tasks/task_one
+[06/09/2021 10:49:05] The following program arguments were read: arg_one arg_two conf
+[06/09/2021 10:49:05] A integer variable has been read: 1
+[06/09/2021 10:49:05] A boolean variable has been read: true
+[06/09/2021 10:49:05] The reboot option has been read: unexpected
+[06/09/2021 10:49:05] The return codes were read: -1 2 0
+[06/09/2021 10:49:05] A integer variable has been read: 4
+[06/09/2021 10:49:05] A integer variable has been read: 5
+[06/09/2021 10:49:05] Read stop signal: USER1
+[06/09/2021 10:49:05] A integer variable has been read: 1
+[06/09/2021 10:49:05] The following stdout was read: /Users/mixfon/MyFiles/Swift/taskmaster/taskmaster/taskmaster/test_tasks/stdout.out
+[06/09/2021 10:49:05] The following stderr was read: /Users/mixfon/MyFiles/Swift/taskmaster/taskmaster/taskmaster/test_tasks/stderr.err
+[06/09/2021 10:49:05] The following Environmenst was read: HOME:/tmp
+[06/09/2021 10:49:05] The following working dir was read: /Users/mixfon/MyFiles/Swift/taskmaster/taskmaster/taskmaster/test_tasks
+[06/09/2021 10:49:05] A integer variable has been read: 022
+[06/09/2021 10:49:05] The following program name was read: /Users/mixfon/MyFiles/Swift/taskmaster/taskmaster/taskmaster/test_tasks/task_two
+[06/09/2021 10:49:05] The following program arguments were read: arg_one arg_two 2222
+[06/09/2021 10:49:05] A integer variable has been read: 3
+[06/09/2021 10:49:05] A boolean variable has been read: false
+[06/09/2021 10:49:05] The reboot option has been read: unexpected
+[06/09/2021 10:49:05] The return codes were read: -1 2 0
+[06/09/2021 10:49:05] A integer variable has been read: 4
+[06/09/2021 10:49:05] A integer variable has been read: 5
+[06/09/2021 10:49:05] Read stop signal: USER1
+[06/09/2021 10:49:05] A integer variable has been read: 1
+[06/09/2021 10:49:05] The following stdout was read: /Users/mixfon/MyFiles/Swift/taskmaster/taskmaster/taskmaster/test_tasks/stdout_2.out
+[06/09/2021 10:49:05] The following stderr was read: /Users/mixfon/MyFiles/Swift/taskmaster/taskmaster/taskmaster/test_tasks/stderr_2.err
+[06/09/2021 10:49:05] The following Environmenst was read: HOME:/tmp
+[06/09/2021 10:49:05] The following working dir was read: /Users/mixfon/MyFiles/Swift/taskmaster/taskmaster/taskmaster/test_tasks
+[06/09/2021 10:49:05] A integer variable has been read: 022
+[06/09/2021 10:49:05] The following program name was read: /bin/ls
+[06/09/2021 10:49:05] The following program arguments were read: -a
+[06/09/2021 10:49:05] A integer variable has been read: 1
+[06/09/2021 10:49:05] A boolean variable has been read: true
+[06/09/2021 10:49:05] The reboot option has been read: unexpected
+[06/09/2021 10:49:05] The return codes were read: -1 2 0
+[06/09/2021 10:49:05] A integer variable has been read: 4
+[06/09/2021 10:49:05] A integer variable has been read: 5
+[06/09/2021 10:49:05] Read stop signal: USER1
+[06/09/2021 10:49:05] A integer variable has been read: 1
+[06/09/2021 10:49:05] The following Environmenst was read: HOME:/tmp
+[06/09/2021 10:49:05] The following working dir was read: /Users/mixfon/MyFiles/Swift/taskmaster/taskmaster/taskmaster/test_tasks
+[06/09/2021 10:49:05] A integer variable has been read: 022
+[06/09/2021 10:49:05] Start task: 41233
+[06/09/2021 10:49:05] Start task: 41234
+[06/09/2021 10:49:05] Stop task: 41234 (ls)
+[06/09/2021 10:49:07] Start task: 41235
+[06/09/2021 10:49:07] Start task: 41236
+[06/09/2021 10:49:07] Start task: 41237
+[06/09/2021 10:49:13] Stop task: 41237 (task_two_1)
+[06/09/2021 10:49:13] Stop task: 41235 (task_two)
+)
+[06/09/2021 10:49:13] Stop task: 41233 (task_one)
+[06/09/2021 10:49:22] Invalid command: stasu
+[06/09/2021 10:49:58] Start task: 41238
+[06/09/2021 10:49:58] Start task: 41239
+[06/09/2021 10:49:58] Start task: 41240
+[06/09/2021 10:49:58] Stop task: 41240 (ls)
+[06/09/2021 10:49:58] Start task: 41241
+[06/09/2021 10:49:58] Start task: 41242
+[06/09/2021 10:53:44] Stop task: 41239 (task_two)
+[06/09/2021 10:53:44] Stop task: 41241 (task_two_0)
+[06/09/2021 10:53:55] Start task: 41245
+[06/09/2021 10:53:55] Start task: 41246
+[06/09/2021 10:53:55] Start task: 41247
+[06/09/2021 10:53:55] Stop task: 41247 (ls)
+[06/09/2021 10:53:55] Start task: 41248
+[06/09/2021 10:53:55] Start task: 41249
+[06/09/2021 10:54:07] Taskmaster stop
+[06/09/2021 10:59:55] The following program name was read: /Users/mixfon/MyFiles/Swift/taskmaster/taskmaster/taskmaster/test_tasks/task_one
+[06/09/2021 10:59:55] The following program arguments were read: arg_one arg_two conf
+[06/09/2021 10:59:55] A integer variable has been read: 1
+[06/09/2021 10:59:55] A boolean variable has been read: true
+[06/09/2021 10:59:55] The reboot option has been read: unexpected
+[06/09/2021 10:59:55] The return codes were read: -1 2 0
+[06/09/2021 10:59:55] A integer variable has been read: 4
+[06/09/2021 10:59:55] A integer variable has been read: 5
+[06/09/2021 10:59:55] Read stop signal: USER1
+[06/09/2021 10:59:55] A integer variable has been read: 1
+[06/09/2021 10:59:55] The following stdout was read: /Users/mixfon/MyFiles/Swift/taskmaster/taskmaster/taskmaster/test_tasks/stdout.out
+[06/09/2021 10:59:55] The following stderr was read: /Users/mixfon/MyFiles/Swift/taskmaster/taskmaster/taskmaster/test_tasks/stderr.err
+[06/09/2021 10:59:55] The following Environmenst was read: HOME:/tmp
+[06/09/2021 10:59:55] The following working dir was read: /Users/mixfon/MyFiles/Swift/taskmaster/taskmaster/taskmaster/test_tasks
+[06/09/2021 10:59:55] A integer variable has been read: 022
+[06/09/2021 10:59:55] The following program name was read: /Users/mixfon/MyFiles/Swift/taskmaster/taskmaster/taskmaster/test_tasks/task_two
+[06/09/2021 10:59:55] The following program arguments were read: arg_one arg_two 2222
+[06/09/2021 10:59:55] A integer variable has been read: 3
+[06/09/2021 10:59:55] A boolean variable has been read: false
+[06/09/2021 10:59:55] The reboot option has been read: unexpected
+[06/09/2021 10:59:55] The return codes were read: -1 2 0
+[06/09/2021 10:59:55] A integer variable has been read: 4
+[06/09/2021 10:59:55] A integer variable has been read: 5
+[06/09/2021 10:59:55] Read stop signal: USER1
+[06/09/2021 10:59:55] A integer variable has been read: 1
+[06/09/2021 10:59:55] The following stdout was read: /Users/mixfon/MyFiles/Swift/taskmaster/taskmaster/taskmaster/test_tasks/stdout_2.out
+[06/09/2021 10:59:55] The following stderr was read: /Users/mixfon/MyFiles/Swift/taskmaster/taskmaster/taskmaster/test_tasks/stderr_2.err
+[06/09/2021 10:59:55] The following Environmenst was read: HOME:/tmp
+[06/09/2021 10:59:55] The following working dir was read: /Users/mixfon/MyFiles/Swift/taskmaster/taskmaster/taskmaster/test_tasks
+[06/09/2021 10:59:55] A integer variable has been read: 022
+[06/09/2021 10:59:55] The following program name was read: /bin/ls
+[06/09/2021 10:59:55] The following program arguments were read: -a
+[06/09/2021 10:59:55] A integer variable has been read: 1
+[06/09/2021 10:59:55] A boolean variable has been read: true
+[06/09/2021 10:59:55] The reboot option has been read: unexpected
+[06/09/2021 10:59:55] The return codes were read: -1 2 0
+[06/09/2021 10:59:55] A integer variable has been read: 4
+[06/09/2021 10:59:55] A integer variable has been read: 5
+[06/09/2021 10:59:55] Read stop signal: USER1
+[06/09/2021 10:59:55] A integer variable has been read: 1
+[06/09/2021 10:59:55] The following Environmenst was read: HOME:/tmp
+[06/09/2021 10:59:55] The following working dir was read: /Users/mixfon/MyFiles/Swift/taskmaster/taskmaster/taskmaster/test_tasks
+[06/09/2021 10:59:55] A integer variable has been read: 022
+[06/09/2021 10:59:55] Start task: 41328
+[06/09/2021 10:59:55] Start task: 41329
+[06/09/2021 10:59:55] Stop task: 41329 (ls)
+[06/09/2021 11:00:18] Start task: 41335
+[06/09/2021 11:00:18] Start task: 41336
+[06/09/2021 11:00:18] Start task: 41337
+[06/09/2021 11:00:38] Stop task: 41337 (task_two_1)
+[06/09/2021 11:00:38] Stop task: 41328 (task_one)
+)
+[06/09/2021 11:01:40] Taskmaster stop
+[06/09/2021 11:03:16] The following program name was read: /Users/mixfon/MyFiles/Swift/taskmaster/taskmaster/taskmaster/test_tasks/task_one
+[06/09/2021 11:03:16] The following program arguments were read: arg_one arg_two conf
+[06/09/2021 11:03:16] A integer variable has been read: 1
+[06/09/2021 11:03:16] A boolean variable has been read: true
+[06/09/2021 11:03:16] The reboot option has been read: unexpected
+[06/09/2021 11:03:16] The return codes were read: -1 2 0
+[06/09/2021 11:03:16] A integer variable has been read: 4
+[06/09/2021 11:03:16] A integer variable has been read: 5
+[06/09/2021 11:03:16] Read stop signal: USER1
+[06/09/2021 11:03:16] A integer variable has been read: 1
+[06/09/2021 11:03:16] The following stdout was read: /Users/mixfon/MyFiles/Swift/taskmaster/taskmaster/taskmaster/test_tasks/stdout.out
+[06/09/2021 11:03:16] The following stderr was read: /Users/mixfon/MyFiles/Swift/taskmaster/taskmaster/taskmaster/test_tasks/stderr.err
+[06/09/2021 11:03:16] The following Environmenst was read: HOME:/tmp
+[06/09/2021 11:03:16] The following working dir was read: /Users/mixfon/MyFiles/Swift/taskmaster/taskmaster/taskmaster/test_tasks
+[06/09/2021 11:03:16] A integer variable has been read: 022
+[06/09/2021 11:03:16] The following program name was read: /Users/mixfon/MyFiles/Swift/taskmaster/taskmaster/taskmaster/test_tasks/task_two
+[06/09/2021 11:03:16] The following program arguments were read: arg_one arg_two 2222
+[06/09/2021 11:03:16] A integer variable has been read: 3
+[06/09/2021 11:03:16] A boolean variable has been read: false
+[06/09/2021 11:03:16] The reboot option has been read: unexpected
+[06/09/2021 11:03:16] The return codes were read: -1 2 0
+[06/09/2021 11:03:16] A integer variable has been read: 4
+[06/09/2021 11:03:16] A integer variable has been read: 5
+[06/09/2021 11:03:16] Read stop signal: USER1
+[06/09/2021 11:03:16] A integer variable has been read: 1
+[06/09/2021 11:03:16] The following stdout was read: /Users/mixfon/MyFiles/Swift/taskmaster/taskmaster/taskmaster/test_tasks/stdout_2.out
+[06/09/2021 11:03:16] The following stderr was read: /Users/mixfon/MyFiles/Swift/taskmaster/taskmaster/taskmaster/test_tasks/stderr_2.err
+[06/09/2021 11:03:16] The following Environmenst was read: HOME:/tmp
+[06/09/2021 11:03:16] The following working dir was read: /Users/mixfon/MyFiles/Swift/taskmaster/taskmaster/taskmaster/test_tasks
+[06/09/2021 11:03:16] A integer variable has been read: 022
+[06/09/2021 11:03:16] The following program name was read: /bin/ls
+[06/09/2021 11:03:16] The following program arguments were read: -a
+[06/09/2021 11:03:16] A integer variable has been read: 1
+[06/09/2021 11:03:16] A boolean variable has been read: true
+[06/09/2021 11:03:16] The reboot option has been read: unexpected
+[06/09/2021 11:03:16] The return codes were read: -1 2 0
+[06/09/2021 11:03:16] A integer variable has been read: 4
+[06/09/2021 11:03:16] A integer variable has been read: 5
+[06/09/2021 11:03:16] Read stop signal: USER1
+[06/09/2021 11:03:16] A integer variable has been read: 1
+[06/09/2021 11:03:16] The following Environmenst was read: HOME:/tmp
+[06/09/2021 11:03:16] The following working dir was read: /Users/mixfon/MyFiles/Swift/taskmaster/taskmaster/taskmaster/test_tasks
+[06/09/2021 11:03:16] A integer variable has been read: 022
+[06/09/2021 11:03:16] Start task: 41380
+[06/09/2021 11:03:16] Start task: 41381
+[06/09/2021 11:03:16] Stop task: 41381 (ls)
+[06/09/2021 11:03:44] Start task: 41382
+[06/09/2021 11:03:44] Start task: 41383
+[06/09/2021 11:03:44] Start task: 41384
+[06/09/2021 11:04:00] Stop task: 41382 (task_two)
+[06/09/2021 11:04:00] Stop task: 41383 (task_two_0)
+[06/09/2021 11:04:34] Start task: 41385
+[06/09/2021 11:04:34] Start task: 41386
+[06/09/2021 11:04:34] Start task: 41387
+[06/09/2021 11:04:34] Stop task: 41387 (ls)
+[06/09/2021 11:04:34] Start task: 41388
+[06/09/2021 11:04:34] Start task: 41389
+[06/09/2021 11:05:13] Stop task: 41385 (task_one)
+[06/09/2021 11:05:13] Stop task: 41388 (task_two_0)
+[06/09/2021 11:06:26] Taskmaster stop
+[06/09/2021 11:18:47] The following program name was read: /Users/mixfon/MyFiles/Swift/taskmaster/taskmaster/taskmaster/test_tasks/task_one
+[06/09/2021 11:18:47] The following program arguments were read: arg_one arg_two conf
+[06/09/2021 11:18:47] A integer variable has been read: 1
+[06/09/2021 11:18:47] A boolean variable has been read: true
+[06/09/2021 11:18:47] The reboot option has been read: unexpected
+[06/09/2021 11:18:47] The return codes were read: -1 2 0
+[06/09/2021 11:18:47] A integer variable has been read: 4
+[06/09/2021 11:18:47] A integer variable has been read: 5
+[06/09/2021 11:18:47] Read stop signal: USER1
+[06/09/2021 11:18:47] A integer variable has been read: 1
+[06/09/2021 11:18:47] The following stdout was read: /Users/mixfon/MyFiles/Swift/taskmaster/taskmaster/taskmaster/test_tasks/stdout.out
+[06/09/2021 11:18:47] The following stderr was read: /Users/mixfon/MyFiles/Swift/taskmaster/taskmaster/taskmaster/test_tasks/stderr.err
+[06/09/2021 11:18:47] The following Environmenst was read: HOME:/tmp
+[06/09/2021 11:18:47] The following working dir was read: /Users/mixfon/MyFiles/Swift/taskmaster/taskmaster/taskmaster/test_tasks
+[06/09/2021 11:18:47] A integer variable has been read: 022
+[06/09/2021 11:18:47] The following program name was read: /Users/mixfon/MyFiles/Swift/taskmaster/taskmaster/taskmaster/test_tasks/task_two
+[06/09/2021 11:18:47] The following program arguments were read: arg_one arg_two 2222
+[06/09/2021 11:18:47] A integer variable has been read: 3
+[06/09/2021 11:18:47] A boolean variable has been read: false
+[06/09/2021 11:18:47] The reboot option has been read: unexpected
+[06/09/2021 11:18:47] The return codes were read: -1 2 0
+[06/09/2021 11:18:47] A integer variable has been read: 4
+[06/09/2021 11:18:47] A integer variable has been read: 5
+[06/09/2021 11:18:47] Read stop signal: USER1
+[06/09/2021 11:18:47] A integer variable has been read: 1
+[06/09/2021 11:18:47] The following stdout was read: /Users/mixfon/MyFiles/Swift/taskmaster/taskmaster/taskmaster/test_tasks/stdout_2.out
+[06/09/2021 11:18:47] The following stderr was read: /Users/mixfon/MyFiles/Swift/taskmaster/taskmaster/taskmaster/test_tasks/stderr_2.err
+[06/09/2021 11:18:47] The following Environmenst was read: HOME:/tmp
+[06/09/2021 11:18:47] The following working dir was read: /Users/mixfon/MyFiles/Swift/taskmaster/taskmaster/taskmaster/test_tasks
+[06/09/2021 11:18:47] A integer variable has been read: 022
+[06/09/2021 11:18:47] The following program name was read: /bin/ls
+[06/09/2021 11:18:47] The following program arguments were read: -a
+[06/09/2021 11:18:47] A integer variable has been read: 1
+[06/09/2021 11:18:47] A boolean variable has been read: true
+[06/09/2021 11:18:47] The reboot option has been read: unexpected
+[06/09/2021 11:18:47] The return codes were read: -1 2 0
+[06/09/2021 11:18:47] A integer variable has been read: 4
+[06/09/2021 11:18:47] A integer variable has been read: 5
+[06/09/2021 11:18:47] Read stop signal: USER1
+[06/09/2021 11:18:47] A integer variable has been read: 1
+[06/09/2021 11:18:47] The following Environmenst was read: HOME:/tmp
+[06/09/2021 11:18:47] The following working dir was read: /Users/mixfon/MyFiles/Swift/taskmaster/taskmaster/taskmaster/test_tasks
+[06/09/2021 11:18:47] A integer variable has been read: 022
+[06/09/2021 11:18:47] Start task: 41512
+[06/09/2021 11:18:47] Start task: 41513
+[06/09/2021 11:18:47] Stop task: 41513 (ls)
+[06/09/2021 11:18:54] Invalid command: stasut
+[06/09/2021 11:18:58] Invalid command: sattus
+[06/09/2021 11:18:58] Invalid command: 
+[06/09/2021 11:19:09] Start task: 41514
+[06/09/2021 11:19:09] Start task: 41515
+[06/09/2021 11:19:09] Start task: 41516
+[06/09/2021 11:19:26] Stop task: 41512 (task_one)
+)
+[06/09/2021 11:19:26] Stop task: 41514 (task_two)
+)
+[06/09/2021 11:19:36] Start task: 41517
+[06/09/2021 11:19:36] Start task: 41518
+[06/09/2021 11:19:36] Start task: 41519
+[06/09/2021 11:19:36] Stop task: 41519 (ls)
+[06/09/2021 11:19:36] Start task: 41520
+[06/09/2021 11:19:36] Start task: 41521
+[06/09/2021 11:19:54] Stop task: 41517 (task_one)
+[06/09/2021 11:19:54] Stop task: 41518 (task_two)
+)
+[06/09/2021 11:19:54] Stop task: 41521 (task_two_1)
+[06/09/2021 11:20:08] Invalid command: exti
+[06/09/2021 11:20:13] Taskmaster stop
+[06/09/2021 11:49:28] The following program name was read: /Users/mixfon/MyFiles/Swift/taskmaster/taskmaster/taskmaster/test_tasks/task_one
+[06/09/2021 11:49:28] The following program arguments were read: arg_one arg_two conf
+[06/09/2021 11:49:28] A integer variable has been read: 1
+[06/09/2021 11:49:28] A boolean variable has been read: true
+[06/09/2021 11:49:28] The reboot option has been read: unexpected
+[06/09/2021 11:49:28] The return codes were read: -1 2 0
+[06/09/2021 11:49:28] A integer variable has been read: 4
+[06/09/2021 11:49:28] A integer variable has been read: 5
+[06/09/2021 11:49:28] Read stop signal: USER1
+[06/09/2021 11:49:28] A integer variable has been read: 1
+[06/09/2021 11:49:28] The following stdout was read: /Users/mixfon/MyFiles/Swift/taskmaster/taskmaster/taskmaster/test_tasks/stdout.out
+[06/09/2021 11:49:28] The following stderr was read: /Users/mixfon/MyFiles/Swift/taskmaster/taskmaster/taskmaster/test_tasks/stderr.err
+[06/09/2021 11:49:28] The following Environmenst was read: HOME:/tmp
+[06/09/2021 11:49:28] The following working dir was read: /Users/mixfon/MyFiles/Swift/taskmaster/taskmaster/taskmaster/test_tasks
+[06/09/2021 11:49:28] A integer variable has been read: 022
+[06/09/2021 11:49:28] The following program name was read: /Users/mixfon/MyFiles/Swift/taskmaster/taskmaster/taskmaster/test_tasks/task_two
+[06/09/2021 11:49:28] The following program arguments were read: arg_one arg_two 2222
+[06/09/2021 11:49:28] A integer variable has been read: 3
+[06/09/2021 11:49:28] A boolean variable has been read: false
+[06/09/2021 11:49:28] The reboot option has been read: unexpected
+[06/09/2021 11:49:28] The return codes were read: -1 2 0
+[06/09/2021 11:49:28] A integer variable has been read: 4
+[06/09/2021 11:49:28] A integer variable has been read: 5
+[06/09/2021 11:49:28] Read stop signal: USER1
+[06/09/2021 11:49:28] A integer variable has been read: 1
+[06/09/2021 11:49:28] The following stdout was read: /Users/mixfon/MyFiles/Swift/taskmaster/taskmaster/taskmaster/test_tasks/stdout_2.out
+[06/09/2021 11:49:28] The following stderr was read: /Users/mixfon/MyFiles/Swift/taskmaster/taskmaster/taskmaster/test_tasks/stderr_2.err
+[06/09/2021 11:49:28] The following Environmenst was read: HOME:/tmp
+[06/09/2021 11:49:28] The following working dir was read: /Users/mixfon/MyFiles/Swift/taskmaster/taskmaster/taskmaster/test_tasks
+[06/09/2021 11:49:28] A integer variable has been read: 022
+[06/09/2021 11:49:28] The following program name was read: /bin/ls
+[06/09/2021 11:49:28] The following program arguments were read: -a
+[06/09/2021 11:49:28] A integer variable has been read: 1
+[06/09/2021 11:49:28] A boolean variable has been read: true
+[06/09/2021 11:49:28] The reboot option has been read: unexpected
+[06/09/2021 11:49:28] The return codes were read: -1 2 0
+[06/09/2021 11:49:28] A integer variable has been read: 4
+[06/09/2021 11:49:28] A integer variable has been read: 5
+[06/09/2021 11:49:28] Read stop signal: USER1
+[06/09/2021 11:49:28] A integer variable has been read: 1
+[06/09/2021 11:49:28] The following Environmenst was read: HOME:/tmp
+[06/09/2021 11:49:28] The following working dir was read: /Users/mixfon/MyFiles/Swift/taskmaster/taskmaster/taskmaster/test_tasks
+[06/09/2021 11:49:28] A integer variable has been read: 022
+[06/09/2021 11:49:28] Start task: 41607
+[06/09/2021 11:49:28] Start task: 41608
+[06/09/2021 11:49:28] Stop task: 41608 (ls)
+[06/09/2021 11:49:31] Taskmaster stop
+[06/09/2021 11:49:38] The following program name was read: /Users/mixfon/MyFiles/Swift/taskmaster/taskmaster/taskmaster/test_tasks/task_one
+[06/09/2021 11:49:38] The following program arguments were read: arg_one arg_two conf
+[06/09/2021 11:49:38] A integer variable has been read: 1
+[06/09/2021 11:49:38] A boolean variable has been read: true
+[06/09/2021 11:49:38] The reboot option has been read: unexpected
+[06/09/2021 11:49:38] The return codes were read: -1 2 0
+[06/09/2021 11:49:38] A integer variable has been read: 4
+[06/09/2021 11:49:38] A integer variable has been read: 5
+[06/09/2021 11:49:38] Read stop signal: USER1
+[06/09/2021 11:49:38] A integer variable has been read: 1
+[06/09/2021 11:49:38] The following stdout was read: /Users/mixfon/MyFiles/Swift/taskmaster/taskmaster/taskmaster/test_tasks/stdout.out
+[06/09/2021 11:49:38] The following stderr was read: /Users/mixfon/MyFiles/Swift/taskmaster/taskmaster/taskmaster/test_tasks/stderr.err
+[06/09/2021 11:49:38] The following Environmenst was read: HOME:/tmp
+[06/09/2021 11:49:38] The following working dir was read: /Users/mixfon/MyFiles/Swift/taskmaster/taskmaster/taskmaster/test_tasks
+[06/09/2021 11:49:38] A integer variable has been read: 022
+[06/09/2021 11:49:38] The following program name was read: /Users/mixfon/MyFiles/Swift/taskmaster/taskmaster/taskmaster/test_tasks/task_two
+[06/09/2021 11:49:38] The following program arguments were read: arg_one arg_two 2222
+[06/09/2021 11:49:38] A integer variable has been read: 3
+[06/09/2021 11:49:38] A boolean variable has been read: false
+[06/09/2021 11:49:38] The reboot option has been read: unexpected
+[06/09/2021 11:49:38] The return codes were read: -1 2 0
+[06/09/2021 11:49:38] A integer variable has been read: 4
+[06/09/2021 11:49:38] A integer variable has been read: 5
+[06/09/2021 11:49:38] Read stop signal: USER1
+[06/09/2021 11:49:38] A integer variable has been read: 1
+[06/09/2021 11:49:38] The following stdout was read: /Users/mixfon/MyFiles/Swift/taskmaster/taskmaster/taskmaster/test_tasks/stdout_2.out
+[06/09/2021 11:49:38] The following stderr was read: /Users/mixfon/MyFiles/Swift/taskmaster/taskmaster/taskmaster/test_tasks/stderr_2.err
+[06/09/2021 11:49:38] The following Environmenst was read: HOME:/tmp
+[06/09/2021 11:49:38] The following working dir was read: /Users/mixfon/MyFiles/Swift/taskmaster/taskmaster/taskmaster/test_tasks
+[06/09/2021 11:49:38] A integer variable has been read: 022
+[06/09/2021 11:49:38] The following program name was read: /bin/ls
+[06/09/2021 11:49:38] The following program arguments were read: -a
+[06/09/2021 11:49:38] A integer variable has been read: 1
+[06/09/2021 11:49:38] A boolean variable has been read: true
+[06/09/2021 11:49:38] The reboot option has been read: unexpected
+[06/09/2021 11:49:38] The return codes were read: -1 2 0
+[06/09/2021 11:49:38] A integer variable has been read: 4
+[06/09/2021 11:49:38] A integer variable has been read: 5
+[06/09/2021 11:49:38] Read stop signal: USER1
+[06/09/2021 11:49:38] A integer variable has been read: 1
+[06/09/2021 11:49:38] The following Environmenst was read: HOME:/tmp
+[06/09/2021 11:49:38] The following working dir was read: /Users/mixfon/MyFiles/Swift/taskmaster/taskmaster/taskmaster/test_tasks
+[06/09/2021 11:49:38] A integer variable has been read: 022
+[06/09/2021 11:49:38] Start task: 41633
+[06/09/2021 11:49:38] Start task: 41634
+[06/09/2021 11:49:38] Finish task: 41634 (ls)
+[06/09/2021 11:49:49] Start task: 41635
+[06/09/2021 11:49:49] Start task: 41636
+[06/09/2021 11:49:49] Start task: 41637
+[06/09/2021 11:50:31] Invalid command: statr
+[06/09/2021 11:50:56] Finish task: 41635 (task_two)
+[06/09/2021 11:50:56] Finish task: 41633 (task_one)
+[06/09/2021 11:50:56] Finish task: 41637 (task_two_1)
+[06/09/2021 11:50:56] Finish task: 41636 (task_two_0)
+[06/09/2021 11:51:18] Start task: 41640
+[06/09/2021 11:51:18] Start task: 41641
+[06/09/2021 11:51:18] Start task: 41642
+[06/09/2021 11:51:18] Finish task: 41642 (ls)
+[06/09/2021 11:51:18] Start task: 41643
+[06/09/2021 11:51:18] Start task: 41644
+[06/09/2021 11:51:31] Finish task: 41643 (task_two_0)
+[06/09/2021 11:51:31] Finish task: 41641 (task_two)
+[06/09/2021 11:51:31] Finish task: 41644 (task_two_1)
+[06/09/2021 11:51:49] Invalid command: exti
+[06/09/2021 11:51:52] Taskmaster stop
+[06/09/2021 11:57:17] The following program name was read: /Users/mixfon/MyFiles/Swift/taskmaster/taskmaster/taskmaster/test_tasks/task_one
+[06/09/2021 11:57:17] The following program arguments were read: arg_one arg_two conf
+[06/09/2021 11:57:17] A integer variable has been read: 1
+[06/09/2021 11:57:17] A boolean variable has been read: true
+[06/09/2021 11:57:17] The reboot option has been read: unexpected
+[06/09/2021 11:57:17] The return codes were read: -1 2 0
+[06/09/2021 11:57:17] A integer variable has been read: 4
+[06/09/2021 11:57:17] A integer variable has been read: 5
+[06/09/2021 11:57:17] Read stop signal: USER1
+[06/09/2021 11:57:17] A integer variable has been read: 1
+[06/09/2021 11:57:17] The following stdout was read: /Users/mixfon/MyFiles/Swift/taskmaster/taskmaster/taskmaster/test_tasks/stdout.out
+[06/09/2021 11:57:17] The following stderr was read: /Users/mixfon/MyFiles/Swift/taskmaster/taskmaster/taskmaster/test_tasks/stderr.err
+[06/09/2021 11:57:17] The following Environmenst was read: HOME:/tmp
+[06/09/2021 11:57:17] The following working dir was read: /Users/mixfon/MyFiles/Swift/taskmaster/taskmaster/taskmaster/test_tasks
+[06/09/2021 11:57:17] A integer variable has been read: 022
+[06/09/2021 11:57:17] The following program name was read: /Users/mixfon/MyFiles/Swift/taskmaster/taskmaster/taskmaster/test_tasks/task_two
+[06/09/2021 11:57:17] The following program arguments were read: arg_one arg_two 2222
+[06/09/2021 11:57:17] A integer variable has been read: 3
+[06/09/2021 11:57:17] A boolean variable has been read: false
+[06/09/2021 11:57:17] The reboot option has been read: unexpected
+[06/09/2021 11:57:17] The return codes were read: -1 2 0
+[06/09/2021 11:57:17] A integer variable has been read: 4
+[06/09/2021 11:57:17] A integer variable has been read: 5
+[06/09/2021 11:57:17] Read stop signal: USER1
+[06/09/2021 11:57:17] A integer variable has been read: 1
+[06/09/2021 11:57:17] The following stdout was read: /Users/mixfon/MyFiles/Swift/taskmaster/taskmaster/taskmaster/test_tasks/stdout_2.out
+[06/09/2021 11:57:17] The following stderr was read: /Users/mixfon/MyFiles/Swift/taskmaster/taskmaster/taskmaster/test_tasks/stderr_2.err
+[06/09/2021 11:57:17] The following Environmenst was read: HOME:/tmp
+[06/09/2021 11:57:17] The following working dir was read: /Users/mixfon/MyFiles/Swift/taskmaster/taskmaster/taskmaster/test_tasks
+[06/09/2021 11:57:17] A integer variable has been read: 022
+[06/09/2021 11:57:17] The following program name was read: /bin/ls
+[06/09/2021 11:57:17] The following program arguments were read: -a
+[06/09/2021 11:57:17] A integer variable has been read: 1
+[06/09/2021 11:57:17] A boolean variable has been read: true
+[06/09/2021 11:57:17] The reboot option has been read: unexpected
+[06/09/2021 11:57:17] The return codes were read: -1 2 0
+[06/09/2021 11:57:17] A integer variable has been read: 4
+[06/09/2021 11:57:17] A integer variable has been read: 5
+[06/09/2021 11:57:17] Read stop signal: USER1
+[06/09/2021 11:57:17] A integer variable has been read: 1
+[06/09/2021 11:57:17] The following Environmenst was read: HOME:/tmp
+[06/09/2021 11:57:17] The following working dir was read: /Users/mixfon/MyFiles/Swift/taskmaster/taskmaster/taskmaster/test_tasks
+[06/09/2021 11:57:17] A integer variable has been read: 022
+[06/09/2021 11:57:17] Start task: 41686
+[06/09/2021 11:57:17] Start task: 41687
+[06/09/2021 11:57:17] Finish task: 41687 (ls)
+[06/09/2021 11:58:27] The following program name was read: /Users/mixfon/MyFiles/Swift/taskmaster/taskmaster/taskmaster/test_tasks/task_one
+[06/09/2021 11:58:27] The following program arguments were read: arg_one arg_two conf
+[06/09/2021 11:58:27] A integer variable has been read: 1
+[06/09/2021 11:58:27] A boolean variable has been read: true
+[06/09/2021 11:58:27] The reboot option has been read: unexpected
+[06/09/2021 11:58:27] The return codes were read: -1 2 0
+[06/09/2021 11:58:27] A integer variable has been read: 4
+[06/09/2021 11:58:27] A integer variable has been read: 5
+[06/09/2021 11:58:27] Read stop signal: USER1
+[06/09/2021 11:58:27] A integer variable has been read: 1
+[06/09/2021 11:58:27] The following stdout was read: /Users/mixfon/MyFiles/Swift/taskmaster/taskmaster/taskmaster/test_tasks/stdout.out
+[06/09/2021 11:58:27] The following stderr was read: /Users/mixfon/MyFiles/Swift/taskmaster/taskmaster/taskmaster/test_tasks/stderr.err
+[06/09/2021 11:58:27] The following Environmenst was read: HOME:/tmp
+[06/09/2021 11:58:27] The following working dir was read: /Users/mixfon/MyFiles/Swift/taskmaster/taskmaster/taskmaster/test_tasks
+[06/09/2021 11:58:27] A integer variable has been read: 022
+[06/09/2021 11:58:27] The following program name was read: /Users/mixfon/MyFiles/Swift/taskmaster/taskmaster/taskmaster/test_tasks/task_two
+[06/09/2021 11:58:27] The following program arguments were read: arg_one arg_two 2222
+[06/09/2021 11:58:27] A integer variable has been read: 3
+[06/09/2021 11:58:27] A boolean variable has been read: false
+[06/09/2021 11:58:27] The reboot option has been read: unexpected
+[06/09/2021 11:58:27] The return codes were read: -1 2 0
+[06/09/2021 11:58:27] A integer variable has been read: 4
+[06/09/2021 11:58:27] A integer variable has been read: 5
+[06/09/2021 11:58:27] Read stop signal: USER1
+[06/09/2021 11:58:27] A integer variable has been read: 1
+[06/09/2021 11:58:27] The following stdout was read: /Users/mixfon/MyFiles/Swift/taskmaster/taskmaster/taskmaster/test_tasks/stdout_2.out
+[06/09/2021 11:58:27] The following stderr was read: /Users/mixfon/MyFiles/Swift/taskmaster/taskmaster/taskmaster/test_tasks/stderr_2.err
+[06/09/2021 11:58:27] The following Environmenst was read: HOME:/tmp
+[06/09/2021 11:58:27] The following working dir was read: /Users/mixfon/MyFiles/Swift/taskmaster/taskmaster/taskmaster/test_tasks
+[06/09/2021 11:58:27] A integer variable has been read: 022
+[06/09/2021 11:58:27] The following program name was read: /bin/ls
+[06/09/2021 11:58:27] The following program arguments were read: -a
+[06/09/2021 11:58:27] A integer variable has been read: 1
+[06/09/2021 11:58:27] A boolean variable has been read: true
+[06/09/2021 11:58:27] The reboot option has been read: unexpected
+[06/09/2021 11:58:27] The return codes were read: -1 2 0
+[06/09/2021 11:58:27] A integer variable has been read: 4
+[06/09/2021 11:58:27] A integer variable has been read: 5
+[06/09/2021 11:58:27] Read stop signal: USER1
+[06/09/2021 11:58:27] A integer variable has been read: 1
+[06/09/2021 11:58:27] The following Environmenst was read: HOME:/tmp
+[06/09/2021 11:58:27] The following working dir was read: /Users/mixfon/MyFiles/Swift/taskmaster/taskmaster/taskmaster/test_tasks
+[06/09/2021 11:58:27] A integer variable has been read: 022
+[06/09/2021 11:58:27] Start task: 41747
+[06/09/2021 11:58:27] Start task: 41748
+[06/09/2021 11:58:27] Finish task: 41748 (ls)
+[06/09/2021 11:59:44] The following program name was read: /Users/mixfon/MyFiles/Swift/taskmaster/taskmaster/taskmaster/test_tasks/task_one
+[06/09/2021 11:59:44] The following program arguments were read: arg_one arg_two conf
+[06/09/2021 11:59:44] A integer variable has been read: 1
+[06/09/2021 11:59:44] A boolean variable has been read: true
+[06/09/2021 11:59:44] The reboot option has been read: unexpected
+[06/09/2021 11:59:44] The return codes were read: -1 2 0
+[06/09/2021 11:59:44] A integer variable has been read: 4
+[06/09/2021 11:59:44] A integer variable has been read: 5
+[06/09/2021 11:59:44] Read stop signal: USER1
+[06/09/2021 11:59:44] A integer variable has been read: 1
+[06/09/2021 11:59:44] The following stdout was read: /Users/mixfon/MyFiles/Swift/taskmaster/taskmaster/taskmaster/test_tasks/stdout.out
+[06/09/2021 11:59:44] The following stderr was read: /Users/mixfon/MyFiles/Swift/taskmaster/taskmaster/taskmaster/test_tasks/stderr.err
+[06/09/2021 11:59:44] The following Environmenst was read: HOME:/tmp
+[06/09/2021 11:59:44] The following working dir was read: /Users/mixfon/MyFiles/Swift/taskmaster/taskmaster/taskmaster/test_tasks
+[06/09/2021 11:59:44] A integer variable has been read: 022
+[06/09/2021 11:59:44] The following program name was read: /Users/mixfon/MyFiles/Swift/taskmaster/taskmaster/taskmaster/test_tasks/task_two
+[06/09/2021 11:59:44] The following program arguments were read: arg_one arg_two 2222
+[06/09/2021 11:59:44] A integer variable has been read: 3
+[06/09/2021 11:59:44] A boolean variable has been read: false
+[06/09/2021 11:59:44] The reboot option has been read: unexpected
+[06/09/2021 11:59:44] The return codes were read: -1 2 0
+[06/09/2021 11:59:44] A integer variable has been read: 4
+[06/09/2021 11:59:44] A integer variable has been read: 5
+[06/09/2021 11:59:44] Read stop signal: USER1
+[06/09/2021 11:59:44] A integer variable has been read: 1
+[06/09/2021 11:59:44] The following stdout was read: /Users/mixfon/MyFiles/Swift/taskmaster/taskmaster/taskmaster/test_tasks/stdout_2.out
+[06/09/2021 11:59:44] The following stderr was read: /Users/mixfon/MyFiles/Swift/taskmaster/taskmaster/taskmaster/test_tasks/stderr_2.err
+[06/09/2021 11:59:44] The following Environmenst was read: HOME:/tmp
+[06/09/2021 11:59:44] The following working dir was read: /Users/mixfon/MyFiles/Swift/taskmaster/taskmaster/taskmaster/test_tasks
+[06/09/2021 11:59:44] A integer variable has been read: 022
+[06/09/2021 11:59:44] The following program name was read: /bin/ls
+[06/09/2021 11:59:44] The following program arguments were read: -a
+[06/09/2021 11:59:44] A integer variable has been read: 1
+[06/09/2021 11:59:44] A boolean variable has been read: true
+[06/09/2021 11:59:44] The reboot option has been read: unexpected
+[06/09/2021 11:59:44] The return codes were read: -1 2 0
+[06/09/2021 11:59:44] A integer variable has been read: 4
+[06/09/2021 11:59:44] A integer variable has been read: 5
+[06/09/2021 11:59:44] Read stop signal: USER1
+[06/09/2021 11:59:44] A integer variable has been read: 1
+[06/09/2021 11:59:44] The following Environmenst was read: HOME:/tmp
+[06/09/2021 11:59:44] The following working dir was read: /Users/mixfon/MyFiles/Swift/taskmaster/taskmaster/taskmaster/test_tasks
+[06/09/2021 11:59:44] A integer variable has been read: 022
+[06/09/2021 11:59:44] Start task: 41820
+[06/09/2021 11:59:44] Start task: 41821
+[06/09/2021 11:59:44] Finish task: 41821 (ls)
+[06/09/2021 12:00:24] The following program name was read: /Users/mixfon/MyFiles/Swift/taskmaster/taskmaster/taskmaster/test_tasks/task_one
+[06/09/2021 12:00:24] The following program arguments were read: arg_one arg_two conf
+[06/09/2021 12:00:24] A integer variable has been read: 1
+[06/09/2021 12:00:24] A boolean variable has been read: true
+[06/09/2021 12:00:24] The reboot option has been read: unexpected
+[06/09/2021 12:00:24] The return codes were read: -1 2 0
+[06/09/2021 12:00:24] A integer variable has been read: 4
+[06/09/2021 12:00:24] A integer variable has been read: 5
+[06/09/2021 12:00:24] Read stop signal: USER1
+[06/09/2021 12:00:24] A integer variable has been read: 1
+[06/09/2021 12:00:24] The following stdout was read: /Users/mixfon/MyFiles/Swift/taskmaster/taskmaster/taskmaster/test_tasks/stdout.out
+[06/09/2021 12:00:24] The following stderr was read: /Users/mixfon/MyFiles/Swift/taskmaster/taskmaster/taskmaster/test_tasks/stderr.err
+[06/09/2021 12:00:24] The following Environmenst was read: HOME:/tmp
+[06/09/2021 12:00:24] The following working dir was read: /Users/mixfon/MyFiles/Swift/taskmaster/taskmaster/taskmaster/test_tasks
+[06/09/2021 12:00:24] A integer variable has been read: 022
+[06/09/2021 12:00:24] The following program name was read: /Users/mixfon/MyFiles/Swift/taskmaster/taskmaster/taskmaster/test_tasks/task_two
+[06/09/2021 12:00:24] The following program arguments were read: arg_one arg_two 2222
+[06/09/2021 12:00:24] A integer variable has been read: 3
+[06/09/2021 12:00:24] A boolean variable has been read: false
+[06/09/2021 12:00:24] The reboot option has been read: unexpected
+[06/09/2021 12:00:24] The return codes were read: -1 2 0
+[06/09/2021 12:00:24] A integer variable has been read: 4
+[06/09/2021 12:00:24] A integer variable has been read: 5
+[06/09/2021 12:00:24] Read stop signal: USER1
+[06/09/2021 12:00:24] A integer variable has been read: 1
+[06/09/2021 12:00:24] The following stdout was read: /Users/mixfon/MyFiles/Swift/taskmaster/taskmaster/taskmaster/test_tasks/stdout_2.out
+[06/09/2021 12:00:24] The following stderr was read: /Users/mixfon/MyFiles/Swift/taskmaster/taskmaster/taskmaster/test_tasks/stderr_2.err
+[06/09/2021 12:00:24] The following Environmenst was read: HOME:/tmp
+[06/09/2021 12:00:24] The following working dir was read: /Users/mixfon/MyFiles/Swift/taskmaster/taskmaster/taskmaster/test_tasks
+[06/09/2021 12:00:24] A integer variable has been read: 022
+[06/09/2021 12:00:24] The following program name was read: /bin/ls
+[06/09/2021 12:00:24] The following program arguments were read: -a
+[06/09/2021 12:00:24] A integer variable has been read: 1
+[06/09/2021 12:00:24] A boolean variable has been read: true
+[06/09/2021 12:00:24] The reboot option has been read: unexpected
+[06/09/2021 12:00:24] The return codes were read: -1 2 0
+[06/09/2021 12:00:24] A integer variable has been read: 4
+[06/09/2021 12:00:24] A integer variable has been read: 5
+[06/09/2021 12:00:24] Read stop signal: USER1
+[06/09/2021 12:00:24] A integer variable has been read: 1
+[06/09/2021 12:00:24] The following Environmenst was read: HOME:/tmp
+[06/09/2021 12:00:24] The following working dir was read: /Users/mixfon/MyFiles/Swift/taskmaster/taskmaster/taskmaster/test_tasks
+[06/09/2021 12:00:24] A integer variable has been read: 022
+[06/09/2021 12:00:24] Start task: 41883
+[06/09/2021 12:00:24] Start task: 41884
+[06/09/2021 12:00:24] Finish task: 41884 (ls)
+[06/09/2021 12:03:03] The following program name was read: /Users/mixfon/MyFiles/Swift/taskmaster/taskmaster/taskmaster/test_tasks/task_one
+[06/09/2021 12:03:03] The following program arguments were read: arg_one arg_two conf
+[06/09/2021 12:03:03] A integer variable has been read: 1
+[06/09/2021 12:03:03] A boolean variable has been read: true
+[06/09/2021 12:03:03] The reboot option has been read: unexpected
+[06/09/2021 12:03:03] The return codes were read: -1 2 0
+[06/09/2021 12:03:03] A integer variable has been read: 4
+[06/09/2021 12:03:03] A integer variable has been read: 5
+[06/09/2021 12:03:03] Read stop signal: USER1
+[06/09/2021 12:03:03] A integer variable has been read: 1
+[06/09/2021 12:03:03] The following stdout was read: /Users/mixfon/MyFiles/Swift/taskmaster/taskmaster/taskmaster/test_tasks/stdout.out
+[06/09/2021 12:03:03] The following stderr was read: /Users/mixfon/MyFiles/Swift/taskmaster/taskmaster/taskmaster/test_tasks/stderr.err
+[06/09/2021 12:03:03] The following Environmenst was read: HOME:/tmp
+[06/09/2021 12:03:03] The following working dir was read: /Users/mixfon/MyFiles/Swift/taskmaster/taskmaster/taskmaster/test_tasks
+[06/09/2021 12:03:03] A integer variable has been read: 022
+[06/09/2021 12:03:03] The following program name was read: /Users/mixfon/MyFiles/Swift/taskmaster/taskmaster/taskmaster/test_tasks/task_two
+[06/09/2021 12:03:03] The following program arguments were read: arg_one arg_two 2222
+[06/09/2021 12:03:03] A integer variable has been read: 3
+[06/09/2021 12:03:03] A boolean variable has been read: false
+[06/09/2021 12:03:03] The reboot option has been read: unexpected
+[06/09/2021 12:03:03] The return codes were read: -1 2 0
+[06/09/2021 12:03:03] A integer variable has been read: 4
+[06/09/2021 12:03:03] A integer variable has been read: 5
+[06/09/2021 12:03:03] Read stop signal: USER1
+[06/09/2021 12:03:03] A integer variable has been read: 1
+[06/09/2021 12:03:03] The following stdout was read: /Users/mixfon/MyFiles/Swift/taskmaster/taskmaster/taskmaster/test_tasks/stdout_2.out
+[06/09/2021 12:03:03] The following stderr was read: /Users/mixfon/MyFiles/Swift/taskmaster/taskmaster/taskmaster/test_tasks/stderr_2.err
+[06/09/2021 12:03:03] The following Environmenst was read: HOME:/tmp
+[06/09/2021 12:03:03] The following working dir was read: /Users/mixfon/MyFiles/Swift/taskmaster/taskmaster/taskmaster/test_tasks
+[06/09/2021 12:03:03] A integer variable has been read: 022
+[06/09/2021 12:03:03] The following program name was read: /bin/ls
+[06/09/2021 12:03:03] The following program arguments were read: -a
+[06/09/2021 12:03:03] A integer variable has been read: 1
+[06/09/2021 12:03:03] A boolean variable has been read: true
+[06/09/2021 12:03:03] The reboot option has been read: unexpected
+[06/09/2021 12:03:03] The return codes were read: -1 2 0
+[06/09/2021 12:03:03] A integer variable has been read: 4
+[06/09/2021 12:03:03] A integer variable has been read: 5
+[06/09/2021 12:03:03] Read stop signal: USER1
+[06/09/2021 12:03:03] A integer variable has been read: 1
+[06/09/2021 12:03:03] The following Environmenst was read: HOME:/tmp
+[06/09/2021 12:03:03] The following working dir was read: /Users/mixfon/MyFiles/Swift/taskmaster/taskmaster/taskmaster/test_tasks
+[06/09/2021 12:03:03] A integer variable has been read: 022
+[06/09/2021 12:03:03] Start task: 41946
+[06/09/2021 12:03:03] Start task: 41947
+[06/09/2021 12:03:03] Finish task: 41947 (ls)
+[06/09/2021 12:03:25] Start task: 41948
+[06/09/2021 12:03:25] Start task: 41949
+[06/09/2021 12:03:25] Start task: 41950
+[06/09/2021 12:03:32] Finish task: 41948 (task_two)
+[06/09/2021 12:03:32] Finish task: 41949 (task_two_0)
+[06/09/2021 12:03:32] Finish task: 41950 (task_two_1)
+[06/09/2021 12:03:54] Start task: 41951
+[06/09/2021 12:03:54] Start task: 41952
+[06/09/2021 12:03:54] Start task: 41953
+[06/09/2021 12:03:54] Finish task: 41953 (ls)
+[06/09/2021 12:03:54] Start task: 41954
+[06/09/2021 12:03:54] Start task: 41955
+[06/09/2021 12:04:00] Invalid command: states
+[06/09/2021 12:04:44] Taskmaster stop
