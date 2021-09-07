@@ -79,8 +79,8 @@ class XMLDataManager: NSObject  {
 	/// Считывает переменную never, always, или unexpected которая горит, слудует ли перезагружать программу.
 	private func readAutoRestart(data: String, line: Int, column: Int) {
 		if self.process == nil { return }
-		if data == "always" || data == "never" || data == "unexpected" {
-			self.process?.autoRestart = data
+		if let autoRestart = DataProcess.AutoRestart(rawValue: data) {
+			self.process?.autoRestart = autoRestart
 			Logs.writeLogsToFileLogs("The reboot option has been read: \(data)")
 		}
 		else {
@@ -230,7 +230,6 @@ extension XMLDataManager: XMLParserDelegate {
 	
 	// Called when closing tag (`</elementName>`) is found
 	func parser(_ parser: XMLParser, didEndElement elementName: String, namespaceURI: String?, qualifiedName qName: String?) {
-
 		if elementName == "process" {
 			guard let process = self.process else { return }
 			self.pracesses.append(process)

@@ -3,16 +3,17 @@
 	<process>
 		<command>/Users/mixfon/MyFiles/Swift/taskmaster/taskmaster/taskmaster/test_tasks/task_one</command>
 		<arguments>arg_one arg_two conf</arguments>
-		<numberprocces>1</numberprocces>
+		<numberprocces>3</numberprocces>
 		<autostart>true</autostart>
+		<!-- Может быть always never unexpected -->
 		<autorestart>unexpected</autorestart>
 		<exitcodes>-1 2 0</exitcodes>
 		<starttime>4</starttime>
 		<startretries>5</startretries>
 		<stopsignal>USER1</stopsignal>
 		<stoptime>1</stoptime>
-		<stdout>/Users/mixfon/MyFiles/Swift/taskmaster/taskmaster/taskmaster/test_tasks/stdout.out</stdout>
-		<stderr>/Users/mixfon/MyFiles/Swift/taskmaster/taskmaster/taskmaster/test_tasks/stderr.err</stderr>
+		<stdout>/Users/mixfon/MyFiles/Swift/taskmaster/taskmaster/taskmaster/test_tasks/stdout.logg</stdout>
+		<stderr>/Users/mixfon/MyFiles/Swift/taskmaster/taskmaster/taskmaster/test_tasks/stderr</stderr>
 		<environmenst>HOME=/tmp</environmenst>
 		<workingdir>/Users/mixfon/MyFiles/Swift/taskmaster/taskmaster/taskmaster/test_tasks</workingdir>
 		<umask>022</umask>
@@ -21,15 +22,15 @@
 		<command>/Users/mixfon/MyFiles/Swift/taskmaster/taskmaster/taskmaster/test_tasks/task_two</command>
 		<arguments>arg_one arg_two 2222</arguments>
 		<numberprocces>3</numberprocces>
-		<autostart>false</autostart>
+		<autostart>true</autostart>
 		<autorestart>unexpected</autorestart>
 		<exitcodes>-1 2 0</exitcodes>
 		<starttime>4</starttime>
 		<startretries>5</startretries>
 		<stopsignal>USER1</stopsignal>
 		<stoptime>1</stoptime>
-		<stdout>/Users/mixfon/MyFiles/Swift/taskmaster/taskmaster/taskmaster/test_tasks/stdout_2.out</stdout>
-		<stderr>/Users/mixfon/MyFiles/Swift/taskmaster/taskmaster/taskmaster/test_tasks/stderr_2.err</stderr>
+		<stdout>/Users/mixfon/MyFiles/Swift/taskmaster/taskmaster/taskmaster/test_tasks/stdout_2.log</stdout>
+		<stderr>/Users/mixfon/MyFiles/Swift/taskmaster/taskmaster/taskmaster/test_tasks/stderr_2.log</stderr>
 		<environmenst>HOME=/tmp</environmenst>
 		<workingdir>/Users/mixfon/MyFiles/Swift/taskmaster/taskmaster/taskmaster/test_tasks</workingdir>
 		<umask>022</umask>

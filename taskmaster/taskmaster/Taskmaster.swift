@@ -12,6 +12,7 @@ class Taskmaster {
 	private var fileProcessSetting: String = "server_config.xml"
 	
 	enum Commands: String {
+		case help
 		case start
 		case status
 		case stop
@@ -33,51 +34,95 @@ class Taskmaster {
 			let commands = getCommands(line: line)
 			if commands.count < 1 { continue }
 			guard let first = commands.first else { continue }
-			let arguments = commands[1...].map( {String($0)} )
 			guard let command = Commands(rawValue: first) else {
 				Logs.writeLogsToFileLogs("Invalid command: \(line)")
 				continue
 			}
+			let arguments = commands[1...].map( {String($0)} )
 			print("command: \(command.rawValue)")
 			switch command {
-			case .start:
-				commandStart(arguments: arguments)
-				//creatingAllProcesses()
+			case .help:
+				printHelp()
 			case .status:
 				printStatus()
-			case .stop:
-				stopAllProcesses()
 			case .exit:
 				exitTaskmaster()
+			case .start:
+				commandStart(arguments: arguments)
+			case .stop:
+				commandStop(arguments: arguments)
 			case .restart:
-				restartAllProcesses()
+				commandRestart(arguments: arguments)
 			}
 		}
 	}
 	
-	/// Запуск процессов переданных в виде аргументов.
-	private func commandStart(arguments: [String]) {
-		if let first = arguments.first {
-			if first.lowercased() == "all" {
-				startAllProcess()
-			}
-			return
-		} else {
-			printUsege()
+	/// Перезапуск остановленных и запушенных процессов
+	private func commandRestart(arguments: [String]) {
+		guard let first = arguments.first else { return }
+		if first.lowercased() == "all" {
+			restartAllProcesses()
 			return
 		}
-		let processes = getProcessesIDName(arguments: arguments)
+		let processes = getProcessesToName(arguments: arguments)
+		let finishRunningProcesses = processes.filter( { $0.status == .running || $0.status == .finish || $0.status == .errorStart })
+		stopArrayProcess(runingProcess: finishRunningProcesses)
+		creatingArrayProcesses(dataProcesses: finishRunningProcesses)
+		commandStart(arguments: arguments)
+	}
+	
+	/// Остановка запущенных процессов,  переданных в аргументе.
+	private func commandStop(arguments: [String]) {
+		guard let first = arguments.first else { return }
+		if first.lowercased() == "all" {
+			stopAllProcesses()
+			return
+		}
+		let processes = getProcessesToName(arguments: arguments)
+		let runningProcesses = processes.filter( { $0.status == .running } )
+		stopArrayProcess(runingProcess: runningProcesses)
+	}
+	
+	/// Запуск процессов переданных в виде аргументов. Запускает только те, которые не были запущены.
+	private func commandStart(arguments: [String]) {
+		guard let first = arguments.first else { return }
+		if first.lowercased() == "all" {
+			startAllProcess()
+			return
+		}
+		let processes = getProcessesToName(arguments: arguments)
+		let noStartProcess = processes.filter( { $0.status == .noStart } )
+		startArrayProcesses(dataProcesses: noStartProcess)
+	}
+	
+	/// Поиск в списке процессов элементов по имени процесса
+	private func getProcessesToName(arguments: [String]) -> [DataProcess] {
+		var dataProcesses = [DataProcess]()
+		for argument in arguments {
+			let arr = self.dataProcesses!.filter({
+				guard let name = $0.nameProcess else { return false }
+				return name == argument
+			})
+			dataProcesses.append(contentsOf: arr)
+		}
+		return dataProcesses
 	}
 	
 	/// Печатает подсказку
-	private func printUsege() {
-		
+	private func printHelp() {
+		printMessage(
+			"""
+			Commands:
+			help			: Show help
+			exit			: Exit the program
+			status			: Show status process
+			start <processes>	: Starts desired program(s)
+			stop <processes>	: Stop desired program(s)
+			restart <processes>	: Restart desired program(s)
+			""")
 	}
 	
-	private func getProcessesIDName(arguments: [String]) -> [DataProcess] {
-		return []
-	}
-	
+	/// Разделение строки на слова.
 	private func getCommands(line: String) -> [String] {
 		let commands = line.split() { $0 == " " }.map( { String($0) } )
 		return commands
@@ -89,7 +134,7 @@ class Taskmaster {
 		creatingArrayProcesses(dataProcesses: dataProcesses)
 	}
 	
-	/// Запуск всех процессов
+	/// Запуск всех незапущенных процессов
 	private func startAllProcess() {
 		guard let dataProcesses = self.dataProcesses else { return }
 		let dataProcessNoStart = dataProcesses.filter( { $0.status == .noStart } )
@@ -104,12 +149,6 @@ class Taskmaster {
 		printMessage("State\tPID\tName\tTime")
 		for data in dataProcesses {
 			guard let status = data.status else { continue }
-			if let process = data.process {
-				if !process.isRunning {
-					//print("termination Status: ", process.terminationStatus)
-					//print("termination Reason: ", process.terminationReason)
-				}
-			}
 			let time = DateFormatter.getTimeInterval(data.timeStartProcess, data.timeStopProcess)
 			printMessage(String(format:
 				"%@\t%5d\t%@\t%@", status.rawValue, data.process?.processIdentifier ?? -1, data.nameProcess ?? "", time))
@@ -226,10 +265,29 @@ class Taskmaster {
 			var newProcess = dataProcess
 			guard let nameProcess = newProcess.nameProcess else { continue }
 			newProcess.nameProcess = "\(nameProcess)_\(i)"
+			newProcess.stdOut = addNumberToEnd(path: newProcess.stdOut, number: i)
+			newProcess.stdErr = addNumberToEnd(path: newProcess.stdErr, number: i)
 			newProcess.process = creatingProcess(dataProcess: newProcess)
 			newProcess.status = .noStart
 			self.dataProcesses?.append(newProcess)
 		}
+	}
+	
+	/// Добавляет число к в конец пути перед расширением.
+	private func addNumberToEnd(path: String?, number: Int) -> String? {
+		if let path = path {
+			var url = URL(string: path)
+			let extention = url?.pathExtension
+			url?.deletePathExtension()
+			guard let absolute = url?.absoluteString else { return nil }
+			let result = absolute + "_\(number)"
+			guard var newUrl = URL(string: result) else { return nil }
+			if let exten = extention {
+				newUrl.appendPathExtension(exten)
+			}
+			return newUrl.absoluteString
+		}
+		return nil
 	}
 	
 	/// Создание одного дочернего процесса на основе считанной информации.
@@ -247,11 +305,11 @@ class Taskmaster {
 		if let workingDir = dataProcess.workingDir {
 			process.currentDirectoryURL = URL(fileURLWithPath: workingDir)
 		}
-		if let pathStdout = dataProcess.stdOut {
-			process.standardOutput = getFileHandle(path: pathStdout)
-		}
 		if let pathStderr = dataProcess.stdErr {
 			process.standardError = getFileHandle(path: pathStderr)
+		}
+		if let pathStdout = dataProcess.stdOut {
+			process.standardOutput = getFileHandle(path: pathStdout)
 		}
 		return process
 	}
