@@ -92,7 +92,7 @@ class XMLDataManager: NSObject  {
 	/// Считывает ожидаемые коды возврата приложения.
 	private func readExitCodes(data: String, line: Int, column: Int) {
 		if self.process == nil { return }
-		self.process?.exitCodes = data.split() { $0 == " " }.compactMap{ Int($0) }
+		self.process?.exitCodes = data.split() { $0 == " " }.compactMap{ Int32($0) }
 		if self.process?.exitCodes == nil {
 			Logs.writeLogsToFileLogs(
 				"Error reading the return codes. \(data) line \(line), collumn \(column)")

@@ -198,12 +198,13 @@ class Taskmaster {
 		guard let process = dataProcess.process else { return }
 		do {
 			try process.run()
-			setStatus(dataProcess: dataProcess, status: .running)
-			Logs.writeLogsToFileLogs("Start task: \(process.processIdentifier)")
 			guard let index = findElement(dataProcess: dataProcess) else { return }
 			self.dataProcesses?[index].timeStartProcess = Date()
 			self.dataProcesses?[index].timeStopProcess = nil
+			self.dataProcesses?[index].statusFinish = nil
+			setStatus(dataProcess: dataProcess, status: .running)
 			print("run process \(process.processIdentifier)")
+			Logs.writeLogsToFileLogs("Start task: \(process.processIdentifier)")
 		} catch {
 			setStatus(dataProcess: dataProcess, status: .errorStart)
 			Logs.writeLogsToFileLogs("Invalid run process: \(process.processIdentifier)")
@@ -211,16 +212,58 @@ class Taskmaster {
 	}
 	
 	/// Вызивается при завершении работы процесса.
-	private func taskFinish(process: Process) {
+	private func processFinish(process: Process) {
 		print("finish:", process.processIdentifier)
 		print("terminatio Statio", process.terminationStatus)
 		guard let index = self.dataProcesses?.firstIndex(where:
 			{ $0.process?.processIdentifier == process.processIdentifier } ) else { return }
-		self.dataProcesses?[index].status = .finish
-		//self.dataProcesses?[index].process = nil
+		guard let dataProcess = self.dataProcesses?[index] else { print("Error 02"); return }
+		guard let exitCodes = dataProcess.exitCodes else { print("Error 01"); return }
+		self.dataProcesses?[index].statusFinish = getStatusFinish(exitCodes, process.terminationStatus)
 		self.dataProcesses?[index].timeStopProcess = Date()
-		guard let name = self.dataProcesses?[index].nameProcess else { return }
+		self.dataProcesses?[index].status = .finish
+		guard let name = dataProcess.nameProcess else { return }
 		Logs.writeLogsToFileLogs("Finish task: \(process.processIdentifier) (\(name))")
+		selectRestartMode(dataProcess: dataProcess)
+	}
+	
+	/// Нужно ли перезапускать программу по завершении always, newer, unexpected
+	private func selectRestartMode(dataProcess: DataProcess) {
+		switch dataProcess.autoRestart {
+		case .never:
+			return
+		case .unexpected where dataProcess.statusFinish == .fail:
+			restarMode(dataProcess: dataProcess)
+		case .always:
+			restarMode(dataProcess: dataProcess)
+		default:
+			return
+		}
+	}
+	
+	/// Перезапуск процесса в случае флага always или unexpected
+	private func restarMode(dataProcess: DataProcess) {
+		createProcess(dataProcess: dataProcess)
+		guard let name = dataProcess.nameProcess else { return }
+		let processes = getProcessesToName(arguments: [name])
+		startArrayProcesses(dataProcesses: processes)
+	}
+	
+	/// Возвращает статус завершения программы. Успех если код найден, провал, если код не найден
+	private func getStatusFinish(_ statusCodes: [Int32]?, _ terminationStatus: Int32) -> DataProcess.Finish {
+		print("Hello")
+		if let codes = statusCodes {
+			if codes.contains(terminationStatus) {
+				return .success
+			} else {
+				return .fail
+			}
+		}
+		if terminationStatus == 0 {
+			return .success
+		} else {
+			return .fail
+		}
 	}
 	
 	/// Остановка всех процессов.
@@ -246,17 +289,23 @@ class Taskmaster {
 	
 	/// Создание массива процессов.
 	private func creatingArrayProcesses(dataProcesses: [DataProcess]) {
-		for var dataProcess in dataProcesses {
-			guard let number = dataProcess.numberProcess else { continue }
-			dataProcess.numberProcess = 1
-			guard let index = findElement(dataProcess: dataProcess) else { continue }
-			if number > 1 {
-				self.dataProcesses?[index].numberProcess = 1
-				creatingDublicateProcess(dataProcess: dataProcess, count: number - 1)
-			}
-			self.dataProcesses?[index].process = creatingProcess(dataProcess: dataProcess)
-			setStatus(dataProcess: dataProcess, status: .noStart)
+		for dataProcess in dataProcesses {
+			createProcess(dataProcess: dataProcess)
 		}
+	}
+	
+	/// Создание одного процесса по заданной информации и добавление/обнавление в массиве
+	private func createProcess(dataProcess: DataProcess) {
+		var dataProcess = dataProcess
+		guard let number = dataProcess.numberProcess else { return }
+		dataProcess.numberProcess = 1
+		guard let index = findElement(dataProcess: dataProcess) else { return }
+		if number > 1 {
+			self.dataProcesses?[index].numberProcess = 1
+			creatingDublicateProcess(dataProcess: dataProcess, count: number - 1)
+		}
+		self.dataProcesses?[index].process = getProcess(dataProcess: dataProcess)
+		setStatus(dataProcess: dataProcess, status: .noStart)
 	}
 	
 	/// Создание будликатов процессов заданного количества и добавление их в общий массив.
@@ -267,7 +316,7 @@ class Taskmaster {
 			newProcess.nameProcess = "\(nameProcess)_\(i)"
 			newProcess.stdOut = addNumberToEnd(path: newProcess.stdOut, number: i)
 			newProcess.stdErr = addNumberToEnd(path: newProcess.stdErr, number: i)
-			newProcess.process = creatingProcess(dataProcess: newProcess)
+			newProcess.process = getProcess(dataProcess: newProcess)
 			newProcess.status = .noStart
 			self.dataProcesses?.append(newProcess)
 		}
@@ -295,21 +344,25 @@ class Taskmaster {
 	///   - dataProcess: Информация о процессе, который должен быть запущен
 	/// - Returns:
 	/// 	Созданый процесс
-	private func creatingProcess(dataProcess: DataProcess) -> Process? {
+	private func getProcess(dataProcess: DataProcess) -> Process? {
 		let process = Process()
 		guard let command = dataProcess.command else { return nil }
 		process.executableURL = URL(fileURLWithPath: command)
 		process.arguments = dataProcess.arguments
 		process.environment = dataProcess.environmenst
-		process.terminationHandler = taskFinish
+		process.terminationHandler = processFinish
 		if let workingDir = dataProcess.workingDir {
 			process.currentDirectoryURL = URL(fileURLWithPath: workingDir)
 		}
 		if let pathStderr = dataProcess.stdErr {
 			process.standardError = getFileHandle(path: pathStderr)
+		} else {
+			process.standardError = FileHandle.nullDevice
 		}
 		if let pathStdout = dataProcess.stdOut {
 			process.standardOutput = getFileHandle(path: pathStdout)
+		} else {
+			process.standardOutput = FileHandle.nullDevice
 		}
 		return process
 	}
@@ -332,9 +385,9 @@ class Taskmaster {
 			}
 		}
 		if let fileHandle = FileHandle(forWritingAtPath: path) {
-			fileHandle.seekToEndOfFile()
 			return fileHandle
 		}
+		print("ret nil")
 		return nil
 	}
 }

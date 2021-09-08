@@ -15,7 +15,7 @@ struct DataProcess {
 	var numberProcess: Int?
 	var autoStart: Bool?
 	var autoRestart: AutoRestart?
-	var exitCodes: [Int]?
+	var exitCodes: [Int32]?
 	var startTime: Int?
 	var startRetries: Int?
 	var stopSignal: String?
@@ -28,7 +28,7 @@ struct DataProcess {
 	var process: Process?
 	var timeStartProcess: Date?
 	var timeStopProcess: Date?
-	
+	var statusFinish: Finish?
 	
 	enum Status: String {
 		case noStart
@@ -41,5 +41,10 @@ struct DataProcess {
 		case always
 		case never
 		case unexpected
+	}
+	
+	enum Finish: String {
+		case success
+		case fail
 	}
 }

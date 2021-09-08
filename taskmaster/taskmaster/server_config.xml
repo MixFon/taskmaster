@@ -3,7 +3,7 @@
 	<process>
 		<command>/Users/mixfon/MyFiles/Swift/taskmaster/taskmaster/taskmaster/test_tasks/task_one</command>
 		<arguments>arg_one arg_two conf</arguments>
-		<numberprocces>3</numberprocces>
+		<numberprocces>1</numberprocces>
 		<autostart>true</autostart>
 		<!-- Может быть always never unexpected -->
 		<autorestart>unexpected</autorestart>
@@ -21,7 +21,7 @@
 	<process>
 		<command>/Users/mixfon/MyFiles/Swift/taskmaster/taskmaster/taskmaster/test_tasks/task_two</command>
 		<arguments>arg_one arg_two 2222</arguments>
-		<numberprocces>3</numberprocces>
+		<numberprocces>1</numberprocces>
 		<autostart>true</autostart>
 		<autorestart>unexpected</autorestart>
 		<exitcodes>-1 2 0</exitcodes>
