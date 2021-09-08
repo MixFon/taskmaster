@@ -22,9 +22,15 @@
 	<process>
 		<name>pwd</name>
 		<command>/bin/pwd</command>
+		<autorestart>never</autorestart>
+		<autostart>true</autostart>
 	</process>
 	<process>
 		<name>pwd_21</name>
+		<command>/bin/pwd</command>
+	</process>
+	<process>
+		<name>pwd_555</name>
 		<command>/bin/pwd</command>
 	</process>
 	<process>

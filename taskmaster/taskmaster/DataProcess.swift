@@ -8,11 +8,10 @@
 import Foundation
 
 struct DataProcess {
-	var status: Status?
 	var nameProcess: String?
 	var command: String?
 	var arguments: [String]?
-	var numberProcess: Int? = 1
+	var numberProcess: Int? = 1 //????? Что будет при перезапуске 
 	var autoStart: Bool?
 	var autoRestart: AutoRestart?
 	var exitCodes: [Int32]?
@@ -25,7 +24,9 @@ struct DataProcess {
 	var environmenst: [String: String]?
 	var workingDir: String?
 	var umask: Int?
+	
 	var process: Process?
+	var status: Status?
 	var timeStartProcess: Date?
 	var timeStopProcess: Date?
 	var statusFinish: Finish?

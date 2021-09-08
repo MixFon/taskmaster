@@ -73,6 +73,28 @@ class Taskmaster {
 		let arrSub = [DataProcess](sub)
 		self.dataProcesses?.append(contentsOf: arrSub)
 		creatingArrayProcesses(dataProcesses: arrSub)
+		let newArrayProcess = [DataProcess](newSet)
+		updateDataProcesses(newProcesses: newArrayProcess)
+	}
+	
+	/// Обновляет данные в массиве процессов
+	private func updateDataProcesses(newProcesses: [DataProcess]) {
+		for newProcess in newProcesses {
+			guard let index = findElement(dataProcess: newProcess) else { print("Err02"); return }
+			let process = self.dataProcesses?[index].process
+			let status = self.dataProcesses?[index].status
+			let timeStartProcess = self.dataProcesses?[index].timeStartProcess
+			let timeStopProcess = self.dataProcesses?[index].timeStopProcess
+			let statusFinish = self.dataProcesses?[index].statusFinish
+			
+			self.dataProcesses?[index] = newProcess
+			
+			self.dataProcesses?[index].process = process
+			self.dataProcesses?[index].status = status
+			self.dataProcesses?[index].timeStartProcess = timeStartProcess
+			self.dataProcesses?[index].timeStopProcess = timeStopProcess
+			self.dataProcesses?[index].statusFinish = statusFinish
+		}
 	}
 	
 	/// Перезапуск остановленных и запушенных процессов
@@ -166,7 +188,7 @@ class Taskmaster {
 		guard let dataProcesses = self.dataProcesses else { return }
 		printMessage("State\tPID\tName\tTime")
 		for data in dataProcesses {
-			guard let status = data.status else { continue }
+			guard let status = data.status else { print("Cont"); continue }
 			let time = DateFormatter.getTimeInterval(data.timeStartProcess, data.timeStopProcess)
 			printMessage(String(format:
 				"%@\t%5d\t%@\t%@", status.rawValue, data.process?.processIdentifier ?? -1, data.nameProcess ?? "", time))
