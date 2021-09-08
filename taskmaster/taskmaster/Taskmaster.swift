@@ -18,12 +18,15 @@ class Taskmaster {
 		case stop
 		case restart
 		case exit
+		case reload
 	}
 	
 	init() {
 		// Тут Чтение настроек запуска сервера.
 		let xmlManager = XMLDataManager()
-		self.dataProcesses = xmlManager.getProcesses(xmlFile: self.fileProcessSetting)
+		guard let dataProcesses = xmlManager.getProcesses(xmlFile: self.fileProcessSetting) else { return }
+		let set = Set<DataProcess>(dataProcesses)
+		self.dataProcesses = [DataProcess](set)
 		creatingAllProcesses()
 		startProcessesAutostart()
 	}
@@ -53,8 +56,23 @@ class Taskmaster {
 				commandStop(arguments: arguments)
 			case .restart:
 				commandRestart(arguments: arguments)
+			case .reload:
+				reloadConfigFile()
 			}
 		}
+	}
+	
+	/// Перезагружает файл с конфигурациями и обновляет данные процессов.
+	private func reloadConfigFile() {
+		let xmlManager = XMLDataManager()
+		guard let newProcess = xmlManager.getProcesses(xmlFile: self.fileProcessSetting) else { return }
+		guard let oldProcess = self.dataProcesses else { return }
+		let newSet = Set<DataProcess>(newProcess)
+		let oldSet = Set<DataProcess>(oldProcess)
+		let sub = newSet.subtracting(oldSet)
+		let arrSub = [DataProcess](sub)
+		self.dataProcesses?.append(contentsOf: arrSub)
+		creatingArrayProcesses(dataProcesses: arrSub)
 	}
 	
 	/// Перезапуск остановленных и запушенных процессов
@@ -203,7 +221,8 @@ class Taskmaster {
 			self.dataProcesses?[index].timeStopProcess = nil
 			self.dataProcesses?[index].statusFinish = nil
 			setStatus(dataProcess: dataProcess, status: .running)
-			print("run process \(process.processIdentifier)")
+			guard let name = self.dataProcesses?[index].nameProcess else {print("Err4"); return }
+			print("run process \(process.processIdentifier)", name)
 			Logs.writeLogsToFileLogs("Start task: \(process.processIdentifier)")
 		} catch {
 			setStatus(dataProcess: dataProcess, status: .errorStart)
@@ -213,16 +232,15 @@ class Taskmaster {
 	
 	/// Вызивается при завершении работы процесса.
 	private func processFinish(process: Process) {
-		print("finish:", process.processIdentifier)
-		print("terminatio Statio", process.terminationStatus)
 		guard let index = self.dataProcesses?.firstIndex(where:
-			{ $0.process?.processIdentifier == process.processIdentifier } ) else { return }
+			{ $0.process?.processIdentifier == process.processIdentifier } ) else { print("Error 00"); return }
 		guard let dataProcess = self.dataProcesses?[index] else { print("Error 02"); return }
-		guard let exitCodes = dataProcess.exitCodes else { print("Error 01"); return }
-		self.dataProcesses?[index].statusFinish = getStatusFinish(exitCodes, process.terminationStatus)
+		self.dataProcesses?[index].statusFinish = getStatusFinish(dataProcess.exitCodes, process.terminationStatus)
 		self.dataProcesses?[index].timeStopProcess = Date()
 		self.dataProcesses?[index].status = .finish
-		guard let name = dataProcess.nameProcess else { return }
+		guard let name = dataProcess.nameProcess else { print("Error 01"); return }
+		print("finish:", name, process.processIdentifier)
+		print("terminatio Statio", process.terminationStatus)
 		Logs.writeLogsToFileLogs("Finish task: \(process.processIdentifier) (\(name))")
 		selectRestartMode(dataProcess: dataProcess)
 	}
@@ -251,7 +269,6 @@ class Taskmaster {
 	
 	/// Возвращает статус завершения программы. Успех если код найден, провал, если код не найден
 	private func getStatusFinish(_ statusCodes: [Int32]?, _ terminationStatus: Int32) -> DataProcess.Finish {
-		print("Hello")
 		if let codes = statusCodes {
 			if codes.contains(terminationStatus) {
 				return .success
@@ -296,6 +313,7 @@ class Taskmaster {
 	
 	/// Создание одного процесса по заданной информации и добавление/обнавление в массиве
 	private func createProcess(dataProcess: DataProcess) {
+		//self.dataProcesses?.forEach({print($0.nameProcess)})
 		var dataProcess = dataProcess
 		guard let number = dataProcess.numberProcess else { return }
 		dataProcess.numberProcess = 1
@@ -348,7 +366,9 @@ class Taskmaster {
 		let process = Process()
 		guard let command = dataProcess.command else { return nil }
 		process.executableURL = URL(fileURLWithPath: command)
-		process.arguments = dataProcess.arguments
+		if dataProcess.arguments != nil {
+			process.arguments = dataProcess.arguments
+		}
 		process.environment = dataProcess.environmenst
 		process.terminationHandler = processFinish
 		if let workingDir = dataProcess.workingDir {
@@ -383,6 +403,13 @@ class Taskmaster {
 				Logs.writeLogsToFileLogs("Invalid exist file \(path)")
 				return nil
 			}
+		}
+		do {
+			let fileURL = URL(fileURLWithPath: path)
+			try "".write(to: fileURL, atomically: true, encoding: .utf8)
+		} catch {
+			Logs.writeLogsToFileLogs("Invalid exist file \(path)")
+			return nil
 		}
 		if let fileHandle = FileHandle(forWritingAtPath: path) {
 			return fileHandle

@@ -40,15 +40,24 @@ class XMLDataManager: NSObject  {
 		return lastElem
 	}
 	
+	/// Считывает имя программы
+	private func readName(data: String, line: Int, column: Int) {
+		if self.process == nil { return }
+		self.process?.nameProcess = data
+		Logs.writeLogsToFileLogs("The following program name was read: \(data)")
+	}
+	
 	/// Считывает путь до программы, которую. необходимо запустить. Так же заполняет имя процесса.
 	private func readCommand(data: String, line: Int, column: Int) {
 		if self.process == nil { return }
 		self.process?.command = data
-		self.process?.nameProcess = getProcessName(command: data)
+		if self.process?.nameProcess == nil {
+			self.process?.nameProcess = getProcessName(command: data)
+		}
 		if self.process?.nameProcess == nil {
 			self.process?.nameProcess = self.process?.command
 		}
-		Logs.writeLogsToFileLogs("The following program name was read: \(data)")
+		Logs.writeLogsToFileLogs("The following program command was read: \(data)")
 	}
 	
 	/// Считывает аргументы предаваемые в запускаемый процесс.
@@ -193,6 +202,8 @@ extension XMLDataManager: XMLParserDelegate {
 			self.process = DataProcess()
 		}
 		switch elementName {
+		case "name":
+			self.fillData = readName
 		case "command":
 			self.fillData = readCommand
 		case "arguments":

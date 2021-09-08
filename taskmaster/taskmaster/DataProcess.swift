@@ -12,7 +12,7 @@ struct DataProcess {
 	var nameProcess: String?
 	var command: String?
 	var arguments: [String]?
-	var numberProcess: Int?
+	var numberProcess: Int? = 1
 	var autoStart: Bool?
 	var autoRestart: AutoRestart?
 	var exitCodes: [Int32]?
@@ -46,5 +46,15 @@ struct DataProcess {
 	enum Finish: String {
 		case success
 		case fail
+	}
+}
+
+extension DataProcess: Hashable {
+	static func == (lhs: DataProcess, rhs: DataProcess) -> Bool {
+		return lhs.nameProcess == rhs.nameProcess
+	}
+	
+	func hash(into hasher: inout Hasher) {
+		hasher.combine(self.nameProcess)
 	}
 }
