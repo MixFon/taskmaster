@@ -8,9 +8,12 @@
 import Foundation
 
 class Taskmaster {
-	private var dataProcesses: [DataProcess]?
+	static var dataProcesses: [DataProcess]?
 	private var fileProcessSetting: String = "server_config.xml"
-	
+	static var close: (Int32)->Void = {
+		print("Signal",$0)
+	}
+
 	enum Commands: String {
 		case help
 		case start
@@ -26,10 +29,26 @@ class Taskmaster {
 		let xmlManager = XMLDataManager()
 		guard let dataProcesses = xmlManager.getProcesses(xmlFile: self.fileProcessSetting) else { return }
 		let set = Set<DataProcess>(dataProcesses)
-		self.dataProcesses = [DataProcess](set)
+		Taskmaster.dataProcesses = [DataProcess](set)
 		creatingAllProcesses()
 		startProcessesAutostart()
 	}
+	
+	static func signalHandler(signal: Int32)->Void {
+		guard let sgnl = DataProcess.Signals(rawValue: signal) else { print("ErrSig01"); return }
+		guard let stopProcesses = self.dataProcesses?.filter({ $0.stopSignal == sgnl } ) else  {
+			print("ErrSig01")
+			return
+		}
+		for process in stopProcesses {
+			guard let index = self.dataProcesses?.firstIndex(where:
+				{ $0.nameProcess == process.nameProcess } ) else { print("ErrFind"); continue }
+			self.dataProcesses?[index].process?.terminate()
+		}
+		print("Signal", sgnl, signal)
+//		dataProcesses?.forEach( {print($0.nameProcess ?? "Nil")} )
+	}
+
 	
 	/// Чтение и исполнение команд.
 	func runTaskmaster() {
@@ -66,12 +85,12 @@ class Taskmaster {
 	private func reloadConfigFile() {
 		let xmlManager = XMLDataManager()
 		guard let newProcess = xmlManager.getProcesses(xmlFile: self.fileProcessSetting) else { return }
-		guard let oldProcess = self.dataProcesses else { return }
+		guard let oldProcess = Taskmaster.dataProcesses else { return }
 		let newSet = Set<DataProcess>(newProcess)
 		let oldSet = Set<DataProcess>(oldProcess)
 		let sub = newSet.subtracting(oldSet)
 		let arrSub = [DataProcess](sub)
-		self.dataProcesses?.append(contentsOf: arrSub)
+		Taskmaster.dataProcesses?.append(contentsOf: arrSub)
 		creatingArrayProcesses(dataProcesses: arrSub)
 		let newArrayProcess = [DataProcess](newSet)
 		updateDataProcesses(newProcesses: newArrayProcess)
@@ -81,19 +100,19 @@ class Taskmaster {
 	private func updateDataProcesses(newProcesses: [DataProcess]) {
 		for newProcess in newProcesses {
 			guard let index = findElement(dataProcess: newProcess) else { print("Err02"); return }
-			let process = self.dataProcesses?[index].process
-			let status = self.dataProcesses?[index].status
-			let timeStartProcess = self.dataProcesses?[index].timeStartProcess
-			let timeStopProcess = self.dataProcesses?[index].timeStopProcess
-			let statusFinish = self.dataProcesses?[index].statusFinish
+			let process = Taskmaster.dataProcesses?[index].process
+			let status = Taskmaster.dataProcesses?[index].status
+			let timeStartProcess = Taskmaster.dataProcesses?[index].timeStartProcess
+			let timeStopProcess = Taskmaster.dataProcesses?[index].timeStopProcess
+			let statusFinish = Taskmaster.dataProcesses?[index].statusFinish
 			
-			self.dataProcesses?[index] = newProcess
+			Taskmaster.dataProcesses?[index] = newProcess
 			
-			self.dataProcesses?[index].process = process
-			self.dataProcesses?[index].status = status
-			self.dataProcesses?[index].timeStartProcess = timeStartProcess
-			self.dataProcesses?[index].timeStopProcess = timeStopProcess
-			self.dataProcesses?[index].statusFinish = statusFinish
+			Taskmaster.dataProcesses?[index].process = process
+			Taskmaster.dataProcesses?[index].status = status
+			Taskmaster.dataProcesses?[index].timeStartProcess = timeStartProcess
+			Taskmaster.dataProcesses?[index].timeStopProcess = timeStopProcess
+			Taskmaster.dataProcesses?[index].statusFinish = statusFinish
 		}
 	}
 	
@@ -139,7 +158,7 @@ class Taskmaster {
 	private func getProcessesToName(arguments: [String]) -> [DataProcess] {
 		var dataProcesses = [DataProcess]()
 		for argument in arguments {
-			let arr = self.dataProcesses!.filter({
+			let arr = Taskmaster.dataProcesses!.filter({
 				guard let name = $0.nameProcess else { return false }
 				return name == argument
 			})
@@ -170,13 +189,13 @@ class Taskmaster {
 	
 	/// Создание всех процессов на основе считанной информации из файла конфигураций
 	private func creatingAllProcesses() {
-		guard let dataProcesses = self.dataProcesses else { return }
+		guard let dataProcesses = Taskmaster.dataProcesses else { return }
 		creatingArrayProcesses(dataProcesses: dataProcesses)
 	}
 	
 	/// Запуск всех незапущенных процессов
 	private func startAllProcess() {
-		guard let dataProcesses = self.dataProcesses else { return }
+		guard let dataProcesses = Taskmaster.dataProcesses else { return }
 		let dataProcessNoStart = dataProcesses.filter( { $0.status == .noStart } )
 		//creatingArrayProcesses(dataProcesses: dataProcessNoStart)
 		//let process = dataProcessNoStart.compactMap( { $0.process } )
@@ -185,7 +204,7 @@ class Taskmaster {
 	
 	/// Вывод статуса по процессам.
 	private func printStatus() {
-		guard let dataProcesses = self.dataProcesses else { return }
+		guard let dataProcesses = Taskmaster.dataProcesses else { return }
 		printMessage("State\tPID\tName\tTime")
 		for data in dataProcesses {
 			guard let status = data.status else { print("Cont"); continue }
@@ -215,7 +234,7 @@ class Taskmaster {
 	
 	/// Запуск процессов, которые должны запускаться вместе со стартом программы.
 	private func startProcessesAutostart() {
-		guard let dataProcesses = self.dataProcesses else { return }
+		guard let dataProcesses = Taskmaster.dataProcesses else { return }
 		let data = dataProcesses.filter(){ $0.autoStart == true }
 		startArrayProcesses(dataProcesses: data)
 	}
@@ -230,7 +249,7 @@ class Taskmaster {
 	/// Уставнока заданного статуса
 	private func setStatus(dataProcess: DataProcess, status: DataProcess.Status) {
 		guard let index = findElement(dataProcess: dataProcess) else { return }
-		self.dataProcesses?[index].status = status
+		Taskmaster.dataProcesses?[index].status = status
 	}
 	
 	/// Запускает одит переданный процесс
@@ -239,11 +258,11 @@ class Taskmaster {
 		do {
 			try process.run()
 			guard let index = findElement(dataProcess: dataProcess) else { return }
-			self.dataProcesses?[index].timeStartProcess = Date()
-			self.dataProcesses?[index].timeStopProcess = nil
-			self.dataProcesses?[index].statusFinish = nil
+			Taskmaster.dataProcesses?[index].timeStartProcess = Date()
+			Taskmaster.dataProcesses?[index].timeStopProcess = nil
+			Taskmaster.dataProcesses?[index].statusFinish = nil
 			setStatus(dataProcess: dataProcess, status: .running)
-			guard let name = self.dataProcesses?[index].nameProcess else {print("Err4"); return }
+			guard let name = Taskmaster.dataProcesses?[index].nameProcess else {print("Err4"); return }
 			print("run process \(process.processIdentifier)", name)
 			Logs.writeLogsToFileLogs("Start task: \(process.processIdentifier)")
 		} catch {
@@ -254,12 +273,12 @@ class Taskmaster {
 	
 	/// Вызивается при завершении работы процесса.
 	private func processFinish(process: Process) {
-		guard let index = self.dataProcesses?.firstIndex(where:
+		guard let index = Taskmaster.dataProcesses?.firstIndex(where:
 			{ $0.process?.processIdentifier == process.processIdentifier } ) else { print("Error 00"); return }
-		guard let dataProcess = self.dataProcesses?[index] else { print("Error 02"); return }
-		self.dataProcesses?[index].statusFinish = getStatusFinish(dataProcess.exitCodes, process.terminationStatus)
-		self.dataProcesses?[index].timeStopProcess = Date()
-		self.dataProcesses?[index].status = .finish
+		guard let dataProcess = Taskmaster.dataProcesses?[index] else { print("Error 02"); return }
+		Taskmaster.dataProcesses?[index].statusFinish = getStatusFinish(dataProcess.exitCodes, process.terminationStatus)
+		Taskmaster.dataProcesses?[index].timeStopProcess = Date()
+		Taskmaster.dataProcesses?[index].status = .finish
 		guard let name = dataProcess.nameProcess else { print("Error 01"); return }
 		print("finish:", name, process.processIdentifier)
 		print("terminatio Statio", process.terminationStatus)
@@ -307,7 +326,7 @@ class Taskmaster {
 	
 	/// Остановка всех процессов.
 	private func stopAllProcesses() {
-		guard let dataProcesses = self.dataProcesses else { return }
+		guard let dataProcesses = Taskmaster.dataProcesses else { return }
 		let isRuningProcess = dataProcesses.filter( { $0.process?.isRunning == true } )
 		stopArrayProcess(runingProcess: isRuningProcess)
 	}
@@ -321,7 +340,7 @@ class Taskmaster {
 	
 	/// Поитк заданного элемента.
 	private func findElement(dataProcess: DataProcess) -> Array<DataProcess>.Index? {
-		guard let index = self.dataProcesses?.firstIndex(where:
+		guard let index = Taskmaster.dataProcesses?.firstIndex(where:
 			{ $0.nameProcess == dataProcess.nameProcess } ) else { return nil }
 		return index
 	}
@@ -341,10 +360,10 @@ class Taskmaster {
 		dataProcess.numberProcess = 1
 		guard let index = findElement(dataProcess: dataProcess) else { return }
 		if number > 1 {
-			self.dataProcesses?[index].numberProcess = 1
+			Taskmaster.dataProcesses?[index].numberProcess = 1
 			creatingDublicateProcess(dataProcess: dataProcess, count: number - 1)
 		}
-		self.dataProcesses?[index].process = getProcess(dataProcess: dataProcess)
+		Taskmaster.dataProcesses?[index].process = getProcess(dataProcess: dataProcess)
 		setStatus(dataProcess: dataProcess, status: .noStart)
 	}
 	
@@ -358,7 +377,7 @@ class Taskmaster {
 			newProcess.stdErr = addNumberToEnd(path: newProcess.stdErr, number: i)
 			newProcess.process = getProcess(dataProcess: newProcess)
 			newProcess.status = .noStart
-			self.dataProcesses?.append(newProcess)
+			Taskmaster.dataProcesses?.append(newProcess)
 		}
 	}
 	

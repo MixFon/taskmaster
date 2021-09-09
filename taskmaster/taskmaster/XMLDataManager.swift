@@ -13,6 +13,25 @@ class XMLDataManager: NSObject  {
 	var process: DataProcess?
 	var fillData: ((String, Int, Int) -> Void)?
 	
+	enum Element: String {
+		case name
+		case command
+		case arguments
+		case numberprocces
+		case autostart
+		case autorestart
+		case exitcodes
+		case starttime
+		case startretries
+		case stopsignal
+		case stoptime
+		case stdout
+		case stderr
+		case environmenst
+		case workingdir
+		case umask
+	}
+	
 	/// Считывает xml файл настроек и возвращает массив процессов
 	/// - Parameters:
 	///   - xmlFile: Относительный путь до файла.
@@ -125,7 +144,9 @@ class XMLDataManager: NSObject  {
 	/// Считывает сигнал, используемый для остановки программы.
 	private func readStopSignal(data: String, line: Int, column: Int) {
 		if self.process == nil { return }
-		self.process?.stopSignal = data
+		guard let dataInt = Int32(data) else { return }
+		guard let sgnl = DataProcess.Signals(rawValue: dataInt) else { return }
+		self.process?.stopSignal = sgnl
 		Logs.writeLogsToFileLogs("Read stop signal: \(data)")
 	}
 	
@@ -201,38 +222,38 @@ extension XMLDataManager: XMLParserDelegate {
 		if self.process == nil {
 			self.process = DataProcess()
 		}
-		switch elementName {
-		case "name":
+		switch Element(rawValue: elementName) {
+		case .name:
 			self.fillData = readName
-		case "command":
+		case .command:
 			self.fillData = readCommand
-		case "arguments":
+		case .arguments:
 			self.fillData = readArguments
-		case "numberprocces":
+		case .numberprocces:
 			self.fillData = readNumberProcess
-		case "autostart":
+		case .autostart:
 			self.fillData = readAautoStart
-		case "autorestart":
+		case .autorestart:
 			self.fillData = readAutoRestart
-		case "exitcodes":
+		case .exitcodes:
 			self.fillData = readExitCodes
-		case "starttime":
+		case .starttime:
 			self.fillData = readStartTime
-		case "startretries":
+		case .startretries:
 			self.fillData = readStartRetries
-		case "stopsignal":
+		case .stopsignal:
 			self.fillData = readStopSignal
-		case "stoptime":
+		case .stoptime:
 			self.fillData = readStopTime
-		case "stdout":
+		case .stdout:
 			self.fillData = readStdOut
-		case "stderr":
+		case .stderr:
 			self.fillData = readStdErr
-		case "environmenst":
+		case .environmenst:
 			self.fillData = readEnvironmenst
-		case "workingdir":
+		case .workingdir:
 			self.fillData = readWorkingDir
-		case "umask":
+		case .umask:
 			self.fillData = readUMask
 		default:
 			break
