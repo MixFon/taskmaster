@@ -5,13 +5,13 @@
 		<command>/Users/mixfon/MyFiles/Swift/taskmaster/taskmaster/taskmaster/test_tasks/task_one</command>
 		<arguments>arg_one arg_two conf</arguments>
 		<numberprocces>1</numberprocces>
-		<autostart>false</autostart>
+		<autostart>true</autostart>
 		<!-- Может быть always never unexpected -->
 		<autorestart>unexpected</autorestart>
 		<exitcodes>-1 2 0</exitcodes>
 		<starttime>4</starttime>
 		<startretries>5</startretries>
-		<stopsignal>USER1</stopsignal>
+		<stopsignal>SIGUSR1</stopsignal>
 		<stoptime>1</stoptime>
 		<stdout>/Users/mixfon/MyFiles/Swift/taskmaster/taskmaster/taskmaster/test_tasks/stdout.logg</stdout>
 		<stderr>/Users/mixfon/MyFiles/Swift/taskmaster/taskmaster/taskmaster/test_tasks/stderr</stderr>
@@ -21,9 +21,10 @@
 	</process>
 	<process>
 		<name>pwd</name>
+		<numberprocces>5</numberprocces>
 		<command>/bin/pwd</command>
-		<autorestart>never</autorestart>
-		<autostart>true</autostart>
+		<autorestart>always</autorestart>
+		<autostart>false</autostart>
 	</process>
 	<process>
 		<name>pwd_21</name>
@@ -40,7 +41,8 @@
 	<process>
 		<name>ls2</name>
 		<command>/bin/ls</command>
-		<autostart>true</autostart>
+		<autorestart>always</autorestart>
+		<autostart>false</autostart>
 	</process>
 	<process>
 		<name>task_two</name>
@@ -65,7 +67,7 @@
 		<command>/bin/ls</command>
 		<arguments>-a</arguments>
 		<numberprocces>1</numberprocces>
-		<autostart>true</autostart>
+		<autostart>false</autostart>
 		<autorestart>unexpected</autorestart>
 		<exitcodes>-1 2 0</exitcodes>
 		<starttime>4</starttime>

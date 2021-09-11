@@ -11,14 +11,14 @@ struct DataProcess {
 	var nameProcess: String?
 	var command: String?
 	var arguments: [String]?
-	var numberProcess: Int? = 1 //????? Что будет при перезапуске 
+	var numberProcess: Int? = 1 //????? Что будет при перезагрузке
 	var autoStart: Bool?
 	var autoRestart: AutoRestart?
 	var exitCodes: [Int32]?
-	var startTime: Int?
+	var startTime: UInt64?
+	var stopTime: UInt64?
 	var startRetries: Int?
 	var stopSignal: Signals?
-	var stopTime: Int?
 	var stdOut: String?
 	var stdErr: String?
 	var environmenst: [String: String]?
@@ -50,36 +50,74 @@ struct DataProcess {
 	}
 	
 	enum Signals: Int32, CaseIterable {
-		case SIGABRT = 6	// Завершение с дампом памяти | Сигнал посылаемый функцией abort() | Управление
-		case SIGALRM = 14	// Завершение | Сигнал истечения времени, заданного alarm() | Уведомление
-		case SIGBUS	= 10	// Завершение с дампом памяти	Неправильное обращение в физическую память | Исключение
-		case SIGCHLD = 18	// Игнорируется | Дочерний процесс завершен или остановлен | Уведомление
-		case SIGCONT = 25	// Продолжить выполнение | Продолжить выполнение процесса | Управление
-		case SIGFPE = 8		// Завершение с дампом памяти | Ошибочная арифметическая операция | Исключение
-		case SIGHUP = 1		// Завершение | Закрытие терминала | Уведомление
-		case SIGILL = 4		// Завершение с дампом памяти	Недопустимая инструкция процессора | Исключение
-		case SIGINT = 2		// Завершение | Сигнал прерывания (Ctrl-C) с терминала | Управление
-		case SIGKILL = 9	// Завершение | Безусловное завершение | Управление
-		case SIGPIPE = 13	// Завершение | Запись в разорванное соединение (пайп, сокет) | Уведомление
-		case SIGQUIT = 3	// Завершение с дампом памяти | Сигнал «Quit» с терминала (Ctrl-\) | Управление
-		case SIGSEGV = 11	// Завершение с дампом памяти | Нарушение при обращении в память | Исключение
-		case SIGSTOP = 23	// Остановка процесса	Остановка выполнения процесса | Управление
-		case SIGTERM = 15	// Завершение | Сигнал завершения (сигнал по умолчанию для утилиты kill) | Управление
-		case SIGTSTP = 20	// Остановка процесса | Сигнал остановки с терминала (Ctrl-Z).	Управление
-		case SIGTTIN = 26	// Остановка процесса | Попытка чтения с терминала фоновым процессом | Управление
-		case SIGTTOU = 27	// Остановка процесса | Попытка записи на терминал фоновым процессом | Управление
-		case SIGUSR1 = 16	// Завершение | Пользовательский сигнал № 1	Пользовательский
-		case SIGUSR2 = 17	// Завершение | Пользовательский сигнал № 2	Пользовательский
-		case SIGPOLL = 22	// Завершение | Событие, отслеживаемое poll() | Уведомление
-		case SIGPROF = 29	// Завершение | Истечение таймера профилирования | Отладка
-		case SIGSYS = 12	// Завершение с дампом памяти | Неправильный системный вызов | Исключение
-		case SIGTRAP = 5	// Завершение с дампом памятиvЛовушка трассировки или брейкпоинт | Отладка
-		case SIGURG = 21	// Игнорируется	На сокете получены срочные данные | Уведомление
-		case SIGVTALRM = 28	// Завершение | Истечение «виртуального таймера» | Уведомление
-		case SIGXCPU = 30	// Завершение с дампом памяти | Процесс превысил лимит проц-го времени | Исключение
-		case SIGXFSZ = 31	// Завершение с дампом памяти | Процесс превысил допустимый размер файла	Исключение
+		case SIGHUP = 1		// terminate process    terminal line hangup
+		case SIGINT = 2		// terminate process    interrupt program
+		case SIGQUIT = 3	// create core image    quit program
+		case SIGILL = 4		// create core image    illegal instruction
+		case SIGTRAP = 5    // create core image    trace trap
+		case SIGABRT = 6    // create core image    abort program (formerly SIGIOT)
+		case SIGEMT = 7     // create core image    emulate instruction executed
+		case SIGFPE = 8     // create core image    floating-point exception
+		case SIGKILL = 9    // terminate process    kill program
+		case SIGBUS = 10    // create core image    bus error
+		case SIGSEGV = 11   // create core image    segmentation violation
+		case SIGSYS = 12    // create core image    non-existent system call invoked
+		case SIGPIPE = 13	// terminate process    write on a pipe with no reader
+		case SIGALRM = 14	// terminate process    real-time timer expired
+		case SIGTERM = 15	// terminate process    software termination signal
+		case SIGURG = 16    // discard signal       urgent condition present on socket
+		case SIGSTOP = 17	// stop process         stop (cannot be caught or ignored)
+		case SIGTSTP = 18   // stop process         stop signal generated from keyboard
+		case SIGCONT = 19   // discard signal       continue after stop
+		case SIGCHLD = 20   // discard signal       child status has changed
+		case SIGTTIN = 21   // stop process         background read attempted from control terminal
+		case SIGTTOU = 22   // stop process         background write attempted to control terminal
+		case SIGIO = 23     // discard signal       I/O is possible on a descriptor (see fcntl(2))
+		case SIGXCPU = 24	// terminate process    cpu time limit exceeded (see setrlimit(2))
+		case SIGXFSZ = 25   // terminate process    file size limit exceeded (see setrlimit(2))
+		case SIGVTALRM = 26 // terminate process    virtual time alarm (see setitimer(2))
+		case SIGPROF = 27   // terminate process    profiling timer alarm (see setitimer(2))
+		case SIGWINCH = 28  // discard signal       Window size change
+		case SIGINFO = 29   // discard signal       status request from keyboard
+		case SIGUSR1 = 30   // terminate process    User defined signal 1
+		case SIGUSR2 = 31   // terminate process    User defined signal 2
 		
-		//static let allSignals: [Signals] = [SIGABRT, SIGALRM, SIGBUS]
+		init?(signal: String) {
+			switch signal {
+			case "SIGHUP": self = .SIGHUP
+			case "SIGINT": self = .SIGINT
+			case "SIGQUIT": self = .SIGQUIT
+			case "SIGILL": self = .SIGILL
+            case "SIGTRAP": self = .SIGTRAP
+			case "SIGABRT": self = .SIGABRT
+			case "SIGEMT": self = .SIGEMT
+			case "SIGFPE": self = .SIGFPE
+			case "SIGKILL": self = .SIGKILL
+			case "SIGBUS": self = .SIGBUS
+			case "SIGSEGV": self = .SIGSEGV
+			case "SIGSYS": self = .SIGSYS
+			case "SIGPIPE": self = .SIGPIPE
+			case "SIGALRM": self = .SIGALRM
+			case "SIGTERM": self = .SIGTERM
+			case "SIGURG": self = .SIGURG
+			case "SIGSTOP": self = .SIGSTOP
+			case "SIGTSTP": self = .SIGTSTP
+			case "SIGCONT": self = .SIGCONT
+			case "SIGCHLD": self = .SIGCHLD
+			case "SIGTTIN": self = .SIGTTIN
+			case "SIGTTOU": self = .SIGTTOU
+			case "SIGIO": self = .SIGIO
+			case "SIGXCPU": self = .SIGXCPU
+			case "SIGXFSZ": self = .SIGXFSZ
+			case "SIGVTALRM": self = .SIGVTALRM
+			case "SIGPROF": self = .SIGPROF
+			case "SIGWINCH": self = .SIGWINCH
+			case "SIGINFO": self = .SIGINFO
+			case "SIGUSR1": self = .SIGUSR1
+			case "SIGUSR2": self = .SIGUSR2
+			default: return nil
+			}
+		}
 	}
 }
 

@@ -15,10 +15,8 @@ func signalHandler(signal: Int32)->Void {
 
 let task = Taskmaster()
 for sig in DataProcess.Signals.allCases {
-	print(sig)
+	print(sig, sig.rawValue)
+	if sig == .SIGKILL || sig != .SIGSTOP { continue }
 	signal(sig.rawValue, signalHandler)
 }
 task.runTaskmaster()
-
-
-

@@ -132,7 +132,15 @@ class XMLDataManager: NSObject  {
 	/// Считывает как долго должна быть запущена программа, чтобы считалсть успешно запущенной..
 	private func readStartTime(data: String, line: Int, column: Int) {
 		if self.process == nil { return }
-		self.process?.startTime = convertStringToInt(data: data, line: line, column: column)
+		//self.process?.startTime = convertStringToInt(data: data, line: line, column: column)
+		self.process?.startTime = UInt64(data)
+	}
+	
+	/// Считывает как долго ждать после остановки программы перед тем как убить процесс
+	private func readStopTime(data: String, line: Int, column: Int) {
+		if self.process == nil { return }
+		//self.process?.stopTime = convertStringToInt(data: data, line: line, column: column)
+		self.process?.stopTime = UInt64(data)
 	}
 	
 	/// Считывает количество повторов перезапуска программы.
@@ -144,16 +152,11 @@ class XMLDataManager: NSObject  {
 	/// Считывает сигнал, используемый для остановки программы.
 	private func readStopSignal(data: String, line: Int, column: Int) {
 		if self.process == nil { return }
-		guard let dataInt = Int32(data) else { return }
-		guard let sgnl = DataProcess.Signals(rawValue: dataInt) else { return }
+//		guard let dataInt = Int32(data) else { return }
+//		//let temp = DataProcess.Signals(
+		guard let sgnl = DataProcess.Signals(signal: data) else { return }
 		self.process?.stopSignal = sgnl
 		Logs.writeLogsToFileLogs("Read stop signal: \(data)")
-	}
-	
-	/// Считывает как долго ждать после остановки программы перед тем как убить процесс
-	private func readStopTime(data: String, line: Int, column: Int) {
-		if self.process == nil { return }
-		self.process?.stopTime = convertStringToInt(data: data, line: line, column: column)
 	}
 	
 	/// Считывает куда направлять выходной поток программы.

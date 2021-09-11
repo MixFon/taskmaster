@@ -10,6 +10,7 @@ import Foundation
 class Taskmaster {
 	static var dataProcesses: [DataProcess]?
 	private var fileProcessSetting: String = "server_config.xml"
+	let lock = NSLock()
 	static var close: (Int32)->Void = {
 		print("Signal",$0)
 	}
@@ -36,10 +37,14 @@ class Taskmaster {
 	
 	static func signalHandler(signal: Int32)->Void {
 		guard let sgnl = DataProcess.Signals(rawValue: signal) else { print("ErrSig01"); return }
+		if sgnl == .SIGINT || sgnl == .SIGTERM {
+			Taskmaster.exitTaskmaster()
+		}
 		guard let stopProcesses = self.dataProcesses?.filter({ $0.stopSignal == sgnl } ) else  {
 			print("ErrSig01")
 			return
 		}
+		print("Couns elemts:", stopProcesses.count)
 		for process in stopProcesses {
 			guard let index = self.dataProcesses?.firstIndex(where:
 				{ $0.nameProcess == process.nameProcess } ) else { print("ErrFind"); continue }
@@ -68,7 +73,7 @@ class Taskmaster {
 			case .status:
 				printStatus()
 			case .exit:
-				exitTaskmaster()
+				Taskmaster.exitTaskmaster()
 			case .start:
 				commandStart(arguments: arguments)
 			case .stop:
@@ -134,7 +139,7 @@ class Taskmaster {
 	private func commandStop(arguments: [String]) {
 		guard let first = arguments.first else { return }
 		if first.lowercased() == "all" {
-			stopAllProcesses()
+			Taskmaster.stopAllProcesses()
 			return
 		}
 		let processes = getProcessesToName(arguments: arguments)
@@ -175,6 +180,7 @@ class Taskmaster {
 			help			: Show help
 			exit			: Exit the program
 			status			: Show status process
+			reload			: Reloading the xml settings file
 			start <processes>	: Starts desired program(s)
 			stop <processes>	: Stop desired program(s)
 			restart <processes>	: Restart desired program(s)
@@ -219,7 +225,7 @@ class Taskmaster {
 	}
 	
 	/// Завершение работы основной программы
-	private func exitTaskmaster() {
+	static func exitTaskmaster() {
 		Logs.writeLogsToFileLogs("Taskmaster stop")
 		stopAllProcesses()
 		exit(0)
@@ -227,7 +233,7 @@ class Taskmaster {
 	
 	/// Перезапуск всех процессов
 	private func restartAllProcesses() {
-		stopAllProcesses()
+		Taskmaster.stopAllProcesses()
 		creatingAllProcesses()
 		startAllProcess()
 	}
@@ -256,16 +262,32 @@ class Taskmaster {
 	private func startProcess(_ dataProcess: DataProcess) {
 		guard let process = dataProcess.process else { return }
 		do {
+			let start = DispatchTime.now()
 			try process.run()
+			let end = DispatchTime.now()
+			if let startingTime = dataProcess.startTime {
+				let diff = DispatchTime(uptimeNanoseconds: startingTime)
+				if diff.uptimeNanoseconds < end.uptimeNanoseconds - start.uptimeNanoseconds { throw NSError() }
+			}
 			guard let index = findElement(dataProcess: dataProcess) else { return }
 			Taskmaster.dataProcesses?[index].timeStartProcess = Date()
 			Taskmaster.dataProcesses?[index].timeStopProcess = nil
 			Taskmaster.dataProcesses?[index].statusFinish = nil
 			setStatus(dataProcess: dataProcess, status: .running)
-			guard let name = Taskmaster.dataProcesses?[index].nameProcess else {print("Err4"); return }
+			guard let name = Taskmaster.dataProcesses?[index].nameProcess else { print("Err4"); return }
 			print("run process \(process.processIdentifier)", name)
 			Logs.writeLogsToFileLogs("Start task: \(process.processIdentifier)")
 		} catch {
+			if let index = findElement(dataProcess: dataProcess) {
+				if let startRetries = Taskmaster.dataProcesses?[index].startRetries {
+					if startRetries > 0 {
+						Taskmaster.dataProcesses?[index].startRetries! -= 1
+						print("Retry", Taskmaster.dataProcesses![index].startRetries!)
+						startProcess(Taskmaster.dataProcesses![index])
+						return
+					}
+				}
+			}
 			setStatus(dataProcess: dataProcess, status: .errorStart)
 			Logs.writeLogsToFileLogs("Invalid run process: \(process.processIdentifier)")
 		}
@@ -273,17 +295,19 @@ class Taskmaster {
 	
 	/// Вызивается при завершении работы процесса.
 	private func processFinish(process: Process) {
+		self.lock.lock()
 		guard let index = Taskmaster.dataProcesses?.firstIndex(where:
 			{ $0.process?.processIdentifier == process.processIdentifier } ) else { print("Error 00"); return }
-		guard let dataProcess = Taskmaster.dataProcesses?[index] else { print("Error 02"); return }
-		Taskmaster.dataProcesses?[index].statusFinish = getStatusFinish(dataProcess.exitCodes, process.terminationStatus)
 		Taskmaster.dataProcesses?[index].timeStopProcess = Date()
+		guard let dataProcess = Taskmaster.dataProcesses?[index] else { print("Error 02"); return }
+		Taskmaster.dataProcesses?[index].statusFinish = getStatusFinish(dataProcess, process)
 		Taskmaster.dataProcesses?[index].status = .finish
 		guard let name = dataProcess.nameProcess else { print("Error 01"); return }
 		print("finish:", name, process.processIdentifier)
 		print("terminatio Statio", process.terminationStatus)
 		Logs.writeLogsToFileLogs("Finish task: \(process.processIdentifier) (\(name))")
 		selectRestartMode(dataProcess: dataProcess)
+		self.lock.unlock()
 	}
 	
 	/// Нужно ли перезапускать программу по завершении always, newer, unexpected
@@ -309,15 +333,15 @@ class Taskmaster {
 	}
 	
 	/// Возвращает статус завершения программы. Успех если код найден, провал, если код не найден
-	private func getStatusFinish(_ statusCodes: [Int32]?, _ terminationStatus: Int32) -> DataProcess.Finish {
-		if let codes = statusCodes {
-			if codes.contains(terminationStatus) {
+	private func getStatusFinish(_ dataProcess: DataProcess, _ process: Process) -> DataProcess.Finish {
+		if let codes = dataProcess.exitCodes {
+			if codes.contains(process.terminationStatus) {
 				return .success
 			} else {
 				return .fail
 			}
 		}
-		if terminationStatus == 0 {
+		if process.terminationStatus == 0 {
 			return .success
 		} else {
 			return .fail
@@ -325,10 +349,17 @@ class Taskmaster {
 	}
 	
 	/// Остановка всех процессов.
-	private func stopAllProcesses() {
-		guard let dataProcesses = Taskmaster.dataProcesses else { return }
-		let isRuningProcess = dataProcesses.filter( { $0.process?.isRunning == true } )
-		stopArrayProcess(runingProcess: isRuningProcess)
+	static func stopAllProcesses() {
+		Taskmaster.dataProcesses?.forEach( {
+			if $0.process != nil {
+				if $0.process!.isRunning {
+					$0.process?.terminate()
+				}
+			}
+		})
+//		guard let dataProcesses = Taskmaster.dataProcesses else { return }
+//		let isRuningProcess = dataProcesses.filter( { $0.process?.isRunning == true } )
+//		stopArrayProcess(runingProcess: isRuningProcess)
 	}
 	
 	/// Остановка массива процессов
@@ -371,10 +402,16 @@ class Taskmaster {
 	private func creatingDublicateProcess(dataProcess: DataProcess, count: Int) {
 		for i in 0..<count {
 			var newProcess = dataProcess
+			var number = i
 			guard let nameProcess = newProcess.nameProcess else { continue }
-			newProcess.nameProcess = "\(nameProcess)_\(i)"
-			newProcess.stdOut = addNumberToEnd(path: newProcess.stdOut, number: i)
-			newProcess.stdErr = addNumberToEnd(path: newProcess.stdErr, number: i)
+			var name = "\(nameProcess)_\(number)"
+			while Taskmaster.dataProcesses!.contains(where: {$0.nameProcess == name}) {
+				number += 1
+				name = "\(nameProcess)_\(number)"
+			}
+			newProcess.nameProcess = name
+			newProcess.stdOut = addNumberToEnd(path: newProcess.stdOut, number: number)
+			newProcess.stdErr = addNumberToEnd(path: newProcess.stdErr, number: number)
 			newProcess.process = getProcess(dataProcess: newProcess)
 			newProcess.status = .noStart
 			Taskmaster.dataProcesses?.append(newProcess)
@@ -455,7 +492,6 @@ class Taskmaster {
 		if let fileHandle = FileHandle(forWritingAtPath: path) {
 			return fileHandle
 		}
-		print("ret nil")
 		return nil
 	}
 }
