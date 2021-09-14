@@ -140,7 +140,7 @@ class XMLDataManager: NSObject  {
 	private func readStopTime(data: String, line: Int, column: Int) {
 		if self.process == nil { return }
 		//self.process?.stopTime = convertStringToInt(data: data, line: line, column: column)
-		self.process?.stopTime = UInt64(data)
+		self.process?.stopTime = Double(data)
 	}
 	
 	/// Считывает количество повторов перезапуска программы.

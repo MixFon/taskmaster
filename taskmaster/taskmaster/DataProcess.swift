@@ -7,16 +7,20 @@
 
 import Foundation
 
+class Temp {
+	
+}
+
 struct DataProcess {
 	var nameProcess: String?
 	var command: String?
 	var arguments: [String]?
-	var numberProcess: Int? = 1 //????? Что будет при перезагрузке
+	var numberProcess: Int? = 1
 	var autoStart: Bool?
 	var autoRestart: AutoRestart?
 	var exitCodes: [Int32]?
 	var startTime: UInt64?
-	var stopTime: UInt64?
+	var stopTime: Double?
 	var startRetries: Int?
 	var stopSignal: Signals?
 	var stdOut: String?
@@ -25,6 +29,7 @@ struct DataProcess {
 	var workingDir: String?
 	var umask: Int?
 	
+	var countCopies: Int = 0
 	var process: Process?
 	var status: Status?
 	var timeStartProcess: Date?
@@ -32,10 +37,11 @@ struct DataProcess {
 	var statusFinish: Finish?
 	
 	enum Status: String {
-		case noStart
+		case no_start
 		case running
 		case finish
-		case errorStart
+		case stoping
+		case fatal
 	}
 	
 	enum AutoRestart: String {
@@ -88,7 +94,7 @@ struct DataProcess {
 			case "SIGINT": self = .SIGINT
 			case "SIGQUIT": self = .SIGQUIT
 			case "SIGILL": self = .SIGILL
-            case "SIGTRAP": self = .SIGTRAP
+			case "SIGTRAP": self = .SIGTRAP
 			case "SIGABRT": self = .SIGABRT
 			case "SIGEMT": self = .SIGEMT
 			case "SIGFPE": self = .SIGFPE
@@ -130,3 +136,5 @@ extension DataProcess: Hashable {
 		hasher.combine(self.nameProcess)
 	}
 }
+
+extension String: Error { }

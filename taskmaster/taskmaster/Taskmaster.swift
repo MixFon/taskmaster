@@ -11,9 +11,6 @@ class Taskmaster {
 	static var dataProcesses: [DataProcess]?
 	private var fileProcessSetting: String = "server_config.xml"
 	let lock = NSLock()
-	static var close: (Int32)->Void = {
-		print("Signal",$0)
-	}
 
 	enum Commands: String {
 		case help
@@ -36,6 +33,7 @@ class Taskmaster {
 	}
 	
 	static func signalHandler(signal: Int32)->Void {
+		//Taskmaster.lock.lock()
 		guard let sgnl = DataProcess.Signals(rawValue: signal) else { print("ErrSig01"); return }
 		if sgnl == .SIGINT || sgnl == .SIGTERM {
 			Taskmaster.exitTaskmaster()
@@ -48,10 +46,13 @@ class Taskmaster {
 		for process in stopProcesses {
 			guard let index = self.dataProcesses?.firstIndex(where:
 				{ $0.nameProcess == process.nameProcess } ) else { print("ErrFind"); continue }
-			self.dataProcesses?[index].process?.terminate()
+			if let isRun = self.dataProcesses?[index].process?.isRunning {
+				if isRun == true {
+					self.dataProcesses?[index].process?.terminate()
+				}
+			}
 		}
 		print("Signal", sgnl, signal)
-//		dataProcesses?.forEach( {print($0.nameProcess ?? "Nil")} )
 	}
 
 	
@@ -129,7 +130,7 @@ class Taskmaster {
 			return
 		}
 		let processes = getProcessesToName(arguments: arguments)
-		let finishRunningProcesses = processes.filter( { $0.status == .running || $0.status == .finish || $0.status == .errorStart })
+		let finishRunningProcesses = processes.filter( { $0.status == .running || $0.status == .finish || $0.status == .fatal })
 		stopArrayProcess(runingProcess: finishRunningProcesses)
 		creatingArrayProcesses(dataProcesses: finishRunningProcesses)
 		commandStart(arguments: arguments)
@@ -139,7 +140,8 @@ class Taskmaster {
 	private func commandStop(arguments: [String]) {
 		guard let first = arguments.first else { return }
 		if first.lowercased() == "all" {
-			Taskmaster.stopAllProcesses()
+			guard let dp = Taskmaster.dataProcesses?.filter( { $0.status == .running } ) else { return }
+			stopArrayProcess(runingProcess: dp)
 			return
 		}
 		let processes = getProcessesToName(arguments: arguments)
@@ -155,7 +157,7 @@ class Taskmaster {
 			return
 		}
 		let processes = getProcessesToName(arguments: arguments)
-		let noStartProcess = processes.filter( { $0.status == .noStart } )
+		let noStartProcess = processes.filter( { $0.status == .no_start } )
 		startArrayProcesses(dataProcesses: noStartProcess)
 	}
 	
@@ -202,7 +204,7 @@ class Taskmaster {
 	/// Запуск всех незапущенных процессов
 	private func startAllProcess() {
 		guard let dataProcesses = Taskmaster.dataProcesses else { return }
-		let dataProcessNoStart = dataProcesses.filter( { $0.status == .noStart } )
+		let dataProcessNoStart = dataProcesses.filter( { $0.status == .no_start } )
 		//creatingArrayProcesses(dataProcesses: dataProcessNoStart)
 		//let process = dataProcessNoStart.compactMap( { $0.process } )
 		startArrayProcesses(dataProcesses: dataProcessNoStart)
@@ -210,7 +212,7 @@ class Taskmaster {
 	
 	/// Вывод статуса по процессам.
 	private func printStatus() {
-		guard let dataProcesses = Taskmaster.dataProcesses else { return }
+		guard let dataProcesses = Taskmaster.dataProcesses else {print("ErrStat"); return }
 		printMessage("State\tPID\tName\tTime")
 		for data in dataProcesses {
 			guard let status = data.status else { print("Cont"); continue }
@@ -266,8 +268,9 @@ class Taskmaster {
 			try process.run()
 			let end = DispatchTime.now()
 			if let startingTime = dataProcess.startTime {
+				print("startingTime", startingTime)
 				let diff = DispatchTime(uptimeNanoseconds: startingTime)
-				if diff.uptimeNanoseconds < end.uptimeNanoseconds - start.uptimeNanoseconds { throw NSError() }
+				if diff.uptimeNanoseconds < end.uptimeNanoseconds - start.uptimeNanoseconds { throw "Hello" }
 			}
 			guard let index = findElement(dataProcess: dataProcess) else { return }
 			Taskmaster.dataProcesses?[index].timeStartProcess = Date()
@@ -288,7 +291,7 @@ class Taskmaster {
 					}
 				}
 			}
-			setStatus(dataProcess: dataProcess, status: .errorStart)
+			setStatus(dataProcess: dataProcess, status: .fatal)
 			Logs.writeLogsToFileLogs("Invalid run process: \(process.processIdentifier)")
 		}
 	}
@@ -346,20 +349,17 @@ class Taskmaster {
 		} else {
 			return .fail
 		}
-	}
+}
 	
 	/// Остановка всех процессов.
 	static func stopAllProcesses() {
-		Taskmaster.dataProcesses?.forEach( {
-			if $0.process != nil {
-				if $0.process!.isRunning {
-					$0.process?.terminate()
+		for dataProcess in Taskmaster.dataProcesses! {
+			if let process = dataProcess.process {
+				if process.isRunning {
+					process.terminate()
 				}
 			}
-		})
-//		guard let dataProcesses = Taskmaster.dataProcesses else { return }
-//		let isRuningProcess = dataProcesses.filter( { $0.process?.isRunning == true } )
-//		stopArrayProcess(runingProcess: isRuningProcess)
+		}
 	}
 	
 	/// Остановка массива процессов
@@ -391,11 +391,13 @@ class Taskmaster {
 		dataProcess.numberProcess = 1
 		guard let index = findElement(dataProcess: dataProcess) else { return }
 		if number > 1 {
+			if number - 1 < dataProcess.countCopies { return }
+			Taskmaster.dataProcesses?[index].countCopies = max(number - 1, dataProcess.countCopies)
 			Taskmaster.dataProcesses?[index].numberProcess = 1
-			creatingDublicateProcess(dataProcess: dataProcess, count: number - 1)
+			creatingDublicateProcess(dataProcess: dataProcess, count: number - 1 - dataProcess.countCopies)
 		}
 		Taskmaster.dataProcesses?[index].process = getProcess(dataProcess: dataProcess)
-		setStatus(dataProcess: dataProcess, status: .noStart)
+		setStatus(dataProcess: dataProcess, status: .no_start)
 	}
 	
 	/// Создание будликатов процессов заданного количества и добавление их в общий массив.
@@ -413,7 +415,7 @@ class Taskmaster {
 			newProcess.stdOut = addNumberToEnd(path: newProcess.stdOut, number: number)
 			newProcess.stdErr = addNumberToEnd(path: newProcess.stdErr, number: number)
 			newProcess.process = getProcess(dataProcess: newProcess)
-			newProcess.status = .noStart
+			newProcess.status = .no_start
 			Taskmaster.dataProcesses?.append(newProcess)
 		}
 	}
@@ -467,7 +469,18 @@ class Taskmaster {
 	
 	/// Останавливает один процесс
 	private func stopProcess(dataProcess: DataProcess) {
-		dataProcess.process?.terminate()
+		let process = dataProcess.process
+		let timeInterval = dataProcess.stopTime
+		let index = findElement(dataProcess: dataProcess)!
+		Taskmaster.dataProcesses?[index].status = .stoping
+		let queue = DispatchQueue.global(qos: .default)
+		queue.async {
+			let _ = Timer.scheduledTimer(withTimeInterval: timeInterval ?? 0.0, repeats: false, block: { timer in
+				process?.terminate()
+			})
+			process?.interrupt()
+			process?.waitUntilExit()
+		}
 	}
 	
 	/// Возвращает file hendle. Если файл не создан, создает его.
