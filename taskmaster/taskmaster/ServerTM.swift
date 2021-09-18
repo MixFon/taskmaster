@@ -9,46 +9,63 @@ import Foundation
 import Kitura
 import LoggerAPI
 
-struct Message: Codable {
-	let message: String
-	let date: Date
-	init(message: String, date: Date) {
-		self.message = message
-		self.date = date
-	}
-}
-
 public class ServerTM {
-  
-  // 1
-  let router = Router()
-  
-  public func run() {
-	// 2
-	Kitura.addHTTPServer(onPort: 8080, with: router)
-	// Handle HTTP GET requests to /
-	router.get("/") {
-		request, response, next in
-		let message = Message(message: "Hello", date: Date())
-		let jsonDate = try? JSONEncoder().encode(message)
-		print(request)
-//		if let path = request.queryParameters["path"] {
-//			print("Request received:", path)
-//			if path == "exit" {
-//				print("Server stop.")
-//				Kitura.stop()
-//				exit(0)
-//			}
-//			response.send("scanUtil.run(path: path)")
-//		} else {
-//			response.send("Invalid request.")
-//		}
-//		let str = String("Hello")
-//		str.de
-		response.send(String(decoding: jsonDate!, as: UTF8.self))
-		next()
+	
+	let tascmaster: Taskmaster
+	let router: Router
+	let serverInfo: ServerInfo
+	
+	init?() {
+		let managerXML = XMLDataManager()
+		guard let serverInfo = managerXML.getServerInfo(xmlFile: "server_config.xml") else { return nil }
+		self.serverInfo = serverInfo
+		guard let taskmaster = Taskmaster(processesConfig: serverInfo.processFileConfig) else { return nil }
+		self.tascmaster = taskmaster
+		self.router = Router()
 	}
-	// 3
-	Kitura.run()
-  }
+	
+	struct ServerInfo {
+		var processFileConfig: String = "precesses_config.xml"
+		var fileLogs: String = "taskmaster.log"
+		var port: Int = 8080
+	}
+	
+	public func run() {
+		
+		//self.tascmaster.runTaskmaster()
+		Kitura.addHTTPServer(onPort: self.serverInfo.port, with: router)
+		// Handle HTTP GET requests to /
+		router.get("/") {
+			request, response, next in
+			print("Request received:", request)
+			guard let parametersCommand = request.queryParameters["command"] else { next(); return }
+			guard let command = Taskmaster.Command(rawValue: parametersCommand) else { next(); return }
+			print(Taskmaster.Command.RawValue())
+			switch command {
+			case .status:
+				self.sendStatus(response: response)
+			case .exit:
+				Taskmaster.exitTaskmaster()
+			default:
+				let parametersArguments = request.queryParameters["arguments"]
+				self.tascmaster.executeCommand(command: command, arguments: parametersArguments)
+				self.sendStatus(response: response)
+			}
+			//response.send(String(decoding: jsonDate!, as: UTF8.self))
+			//next()
+		}
+		// 3
+		Kitura.run()
+	}
+	
+	private func getAllInfoString() -> String? {
+		guard let infoProcesses = self.tascmaster.allInfoPrecesses() else { return nil }
+		guard let dataJSON = try? JSONEncoder().encode(infoProcesses) else { return nil }
+		return String(decoding: dataJSON, as: UTF8.self)
+	}
+	
+	private func sendStatus(response: RouterResponse) {
+		guard let infoString = self.getAllInfoString() else { return }
+		response.send(infoString)
+	}
 }

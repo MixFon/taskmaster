@@ -9,8 +9,9 @@ import Foundation
 
 class XMLDataManager: NSObject  {
 	var parser: XMLParser?
-	var pracesses: [DataProcess] = []
-	var process: DataProcess?
+	var processes: [DataProcess] = []
+	var infoProcesses: InfoProcess?
+	var infoServer = ServerTM.ServerInfo()
 	var fillData: ((String, Int, Int) -> Void)?
 	
 	enum Element: String {
@@ -30,25 +31,49 @@ class XMLDataManager: NSObject  {
 		case environmenst
 		case workingdir
 		case umask
+
+		// Ниже поля для настроек файла конфигураций сервера.
+		case filelogs
+		case port
+		case crocessconfig
 	}
 	
 	/// Считывает xml файл настроек и возвращает массив процессов
 	/// - Parameters:
 	///   - xmlFile: Относительный путь до файла.
 	/// - Returns: Массив процессов, считанных из файла.
-	func getProcesses(xmlFile: String) -> [DataProcess]? {
-		let manager = FileManager.default
-		let currentDirURL = URL(fileURLWithPath: manager.currentDirectoryPath)
-		let fileURL = currentDirURL.appendingPathComponent(xmlFile)
+	func getDataProcesses(xmlFile: String) -> [DataProcess]? {
+		let fileName = "/Users/mixfon/MyFiles/Swift/taskmaster/taskmaster/taskmaster/precesses_config.xml"
+		if !parsingXML(xmlFile: fileName) {
+			return nil
+		}
+		return self.processes
+	}
+	
+	/// Парсит файл настроек сервера.
+	func getServerInfo(xmlFile: String) -> ServerTM.ServerInfo? {
+		let fileName = "/Users/mixfon/MyFiles/Swift/taskmaster/taskmaster/taskmaster/server_config.xml"
+		if !parsingXML(xmlFile: fileName) {
+			return nil
+		}
+		return self.infoServer
+	}
+	
+	/// Производит парсинг xml файла
+	private func parsingXML(xmlFile: String) -> Bool {
+		let fileURL = URL(fileURLWithPath: xmlFile)
 		guard let parser = XMLParser(contentsOf: fileURL) else {
-			fatalError("Invalid opened \(xmlFile)")
+			print("Invalid opened \(xmlFile)")
+			return false
 		}
 		self.parser = XMLParser(contentsOf: fileURL)
 		parser.delegate = self
 		if !parser.parse() {
-			return nil
+			print("Error read xml file.")
+			Logs.writeLogsToFileLogs("Error read xml file.")
+			return false
 		}
-		return self.pracesses
+		return true
 	}
 	
 	/// Парсит путь до команды и возвращает имя запускаемой программы
@@ -61,42 +86,42 @@ class XMLDataManager: NSObject  {
 	
 	/// Считывает имя программы
 	private func readName(data: String, line: Int, column: Int) {
-		if self.process == nil { return }
-		self.process?.nameProcess = data
+		if self.infoProcesses == nil { return }
+		self.infoProcesses?.nameProcess = data
 		Logs.writeLogsToFileLogs("The following program name was read: \(data)")
 	}
 	
 	/// Считывает путь до программы, которую. необходимо запустить. Так же заполняет имя процесса.
 	private func readCommand(data: String, line: Int, column: Int) {
-		if self.process == nil { return }
-		self.process?.command = data
-		if self.process?.nameProcess == nil {
-			self.process?.nameProcess = getProcessName(command: data)
+		if self.infoProcesses == nil { return }
+		self.infoProcesses?.command = data
+		if self.infoProcesses?.nameProcess == nil {
+			self.infoProcesses?.nameProcess = getProcessName(command: data)
 		}
-		if self.process?.nameProcess == nil {
-			self.process?.nameProcess = self.process?.command
+		if self.infoProcesses?.nameProcess == nil {
+			self.infoProcesses?.nameProcess = self.infoProcesses?.command
 		}
 		Logs.writeLogsToFileLogs("The following program command was read: \(data)")
 	}
 	
 	/// Считывает аргументы предаваемые в запускаемый процесс.
 	private func readArguments(data: String, line: Int, column: Int) {
-		if self.process == nil { return }
-		self.process?.arguments = data.split() { $0 == " " }.map{ String($0) }
+		if self.infoProcesses == nil { return }
+		self.infoProcesses?.arguments = data.split() { $0 == " " }.map{ String($0) }
 		Logs.writeLogsToFileLogs("The following program arguments were read: \(data)")
 	}
 	
 	/// Считывает  количество процессов, которое нужно запустить и поддерживать работу
 	private func readNumberProcess(data: String, line: Int, column: Int) {
-		if self.process == nil { return }
-		self.process?.numberProcess = convertStringToInt(data: data, line: line, column: column)
+		if self.infoProcesses == nil { return }
+		self.infoProcesses?.numberProcess = convertStringToInt(data: data, line: line, column: column)
 	}
 	
 	/// Считывает переменную bool для определения нужно ли запускать приложение при старте.
 	private func readAautoStart(data: String, line: Int, column: Int) {
-		if self.process == nil { return }
-		self.process?.autoStart = Bool(data)
-		if self.process?.autoStart == nil {
+		if self.infoProcesses == nil { return }
+		self.infoProcesses?.autoStart = Bool(data)
+		if self.infoProcesses?.autoStart == nil {
 			Logs.writeLogsToFileLogs(
 				"Error reading a variable of type bool. \(data) line \(line), collumn \(column)")
 		} else {
@@ -106,9 +131,9 @@ class XMLDataManager: NSObject  {
 	
 	/// Считывает переменную never, always, или unexpected которая горит, слудует ли перезагружать программу.
 	private func readAutoRestart(data: String, line: Int, column: Int) {
-		if self.process == nil { return }
-		if let autoRestart = DataProcess.AutoRestart(rawValue: data) {
-			self.process?.autoRestart = autoRestart
+		if self.infoProcesses == nil { return }
+		if let autoRestart = InfoProcess.AutoRestart(rawValue: data) {
+			self.infoProcesses?.autoRestart = autoRestart
 			Logs.writeLogsToFileLogs("The reboot option has been read: \(data)")
 		}
 		else {
@@ -119,9 +144,9 @@ class XMLDataManager: NSObject  {
 	
 	/// Считывает ожидаемые коды возврата приложения.
 	private func readExitCodes(data: String, line: Int, column: Int) {
-		if self.process == nil { return }
-		self.process?.exitCodes = data.split() { $0 == " " }.compactMap{ Int32($0) }
-		if self.process?.exitCodes == nil {
+		if self.infoProcesses == nil { return }
+		self.infoProcesses?.exitCodes = data.split() { $0 == " " }.compactMap{ Int32($0) }
+		if self.infoProcesses?.exitCodes == nil {
 			Logs.writeLogsToFileLogs(
 				"Error reading the return codes. \(data) line \(line), collumn \(column)")
 		} else {
@@ -131,59 +156,59 @@ class XMLDataManager: NSObject  {
 	
 	/// Считывает как долго должна быть запущена программа, чтобы считалсть успешно запущенной..
 	private func readStartTime(data: String, line: Int, column: Int) {
-		if self.process == nil { return }
+		if self.infoProcesses == nil { return }
 		//self.process?.startTime = convertStringToInt(data: data, line: line, column: column)
-		self.process?.startTime = UInt64(data)
+		self.infoProcesses?.startTime = UInt64(data)
 	}
 	
 	/// Считывает как долго ждать после остановки программы перед тем как убить процесс
 	private func readStopTime(data: String, line: Int, column: Int) {
-		if self.process == nil { return }
+		if self.infoProcesses == nil { return }
 		//self.process?.stopTime = convertStringToInt(data: data, line: line, column: column)
-		self.process?.stopTime = Double(data)
+		self.infoProcesses?.stopTime = Double(data)
 	}
 	
 	/// Считывает количество повторов перезапуска программы.
 	private func readStartRetries(data: String, line: Int, column: Int) {
-		if self.process == nil { return }
-		self.process?.startRetries = convertStringToInt(data: data, line: line, column: column)
+		if self.infoProcesses == nil { return }
+		self.infoProcesses?.startRetries = convertStringToInt(data: data, line: line, column: column)
 	}
 	
 	/// Считывает сигнал, используемый для остановки программы.
 	private func readStopSignal(data: String, line: Int, column: Int) {
-		if self.process == nil { return }
+		if self.infoProcesses == nil { return }
 //		guard let dataInt = Int32(data) else { return }
-//		//let temp = DataProcess.Signals(
-		guard let sgnl = DataProcess.Signals(signal: data) else { return }
-		self.process?.stopSignal = sgnl
+//		//let temp = InfoProcess.Signals(
+		guard let sgnl = InfoProcess.Signals(signal: data) else { return }
+		self.infoProcesses?.stopSignal = sgnl
 		Logs.writeLogsToFileLogs("Read stop signal: \(data)")
 	}
 	
 	/// Считывает куда направлять выходной поток программы.
 	private func readStdOut(data: String, line: Int, column: Int) {
-		if self.process == nil { return }
-		self.process?.stdOut = data
+		if self.infoProcesses == nil { return }
+		self.infoProcesses?.stdOut = data
 		Logs.writeLogsToFileLogs("The following stdout was read: \(data)")
 	}
 	
 	/// Считывает куда направлять выходной поток программы.
 	private func readStdErr(data: String, line: Int, column: Int) {
-		if self.process == nil { return }
-		self.process?.stdErr = data
+		if self.infoProcesses == nil { return }
+		self.infoProcesses?.stdErr = data
 		Logs.writeLogsToFileLogs("The following stderr was read: \(data)")
 	}
 	
 	/// Считывает переменные окружения
 	private func readEnvironmenst(data: String, line: Int, column: Int) {
-		if self.process == nil { return }
+		if self.infoProcesses == nil { return }
 		let words = data.split(){ $0 == " " }.map( { String($0) } )
 		for word in words {
 			let env = word.split(){ $0 == "=" }.map( { String($0) } )
 			if env.count == 2 {
-				if self.process?.environmenst == nil {
-					self.process?.environmenst = [String: String]()
+				if self.infoProcesses?.environmenst == nil {
+					self.infoProcesses?.environmenst = [String: String]()
 				}
-				self.process?.environmenst?[env[0]] = env[1]
+				self.infoProcesses?.environmenst?[env[0]] = env[1]
 				Logs.writeLogsToFileLogs("The following Environmenst was read: \(env[0]):\(env[1])")
 			}
 		}
@@ -191,15 +216,15 @@ class XMLDataManager: NSObject  {
 	
 	/// Считывает рабочую директорию запускаемой программы.
 	private func readWorkingDir(data: String, line: Int, column: Int) {
-		if self.process == nil { return }
-		self.process?.workingDir = data
+		if self.infoProcesses == nil { return }
+		self.infoProcesses?.workingDir = data
 		Logs.writeLogsToFileLogs("The following working dir was read: \(data)")
 	}
 	
 	/// Считывает права доступа
 	private func readUMask(data: String, line: Int, column: Int) {
-		if self.process == nil { return }
-		self.process?.umask = convertStringToInt(data: data, line: line, column: column)
+		if self.infoProcesses == nil { return }
+		self.infoProcesses?.umask = convertStringToInt(data: data, line: line, column: column)
 	}
 	
 	/// Переводит строку в целочисленный тип
@@ -217,13 +242,26 @@ class XMLDataManager: NSObject  {
 		}
 		return number
 	}
+	
+	/// Чтение имени файла лога.
+	private func readNameFileLogs(data: String, line: Int, column: Int) {
+		self.infoServer.processFileConfig = data
+		Logs.writeLogsToFileLogs("Read name file logs: \(data)")
+	}
+	
+	/// Чтение порта.
+	private func readPort(data: String, line: Int, column: Int) {
+		if let port = convertStringToInt(data: data, line: line, column: column) {
+			self.infoServer.port = port
+		}
+	}
 }
 
 extension XMLDataManager: XMLParserDelegate {
 	// Called when opening tag (`<elementName>`) is found
 	func parser(_ parser: XMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [String : String] = [:]) {
-		if self.process == nil {
-			self.process = DataProcess()
+		if self.infoProcesses == nil {
+			self.infoProcesses = InfoProcess()
 		}
 		switch Element(rawValue: elementName) {
 		case .name:
@@ -258,6 +296,12 @@ extension XMLDataManager: XMLParserDelegate {
 			self.fillData = readWorkingDir
 		case .umask:
 			self.fillData = readUMask
+		
+		// Поля конфигурации сервера.
+		case .filelogs:
+			self.fillData = readNameFileLogs
+		case .port:
+			self.fillData = readPort
 		default:
 			break
 		}
@@ -266,9 +310,10 @@ extension XMLDataManager: XMLParserDelegate {
 	// Called when closing tag (`</elementName>`) is found
 	func parser(_ parser: XMLParser, didEndElement elementName: String, namespaceURI: String?, qualifiedName qName: String?) {
 		if elementName == "process" {
-			guard let process = self.process else { return }
-			self.pracesses.append(process)
-			self.process = nil
+			guard let info = self.infoProcesses else { return }
+			let dataProcess = DataProcess(process: nil, info: info)
+			self.processes.append(dataProcess)
+			self.infoProcesses = nil
 		}
 	}
 	
