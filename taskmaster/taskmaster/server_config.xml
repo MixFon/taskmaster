@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <configuration>
-	<crocessconfig>precesses_config.xml</crocessconfig>
+	<processconfig>precesses_config.xml</processconfig>
 	<filelogs>taskmaster.log</filelogs>
 	<port>8080</port>
 </configuration>

@@ -13,17 +13,13 @@ public class ServerTM {
 	
 	let tascmaster: Taskmaster
 	let router: Router
-	var serverInfo: ServerInfo
+	let serverInfo: ServerInfo
 	
 	init?() {
 		let managerXML = XMLDataManager()
 		guard let serverInfo = managerXML.getServerInfo(xmlFile: "server_config.xml") else { return nil }
 		self.serverInfo = serverInfo
-		let argumentsCommandLine = CommandLine.arguments
-		if argumentsCommandLine.count == 2 {
-			self.serverInfo.processFileConfig = argumentsCommandLine[1]
-		}
-		guard let taskmaster = Taskmaster(processesConfig: self.serverInfo.processFileConfig) else { return nil }
+		guard let taskmaster = Taskmaster(processesConfig: serverInfo.processFileConfig) else { return nil }
 		self.tascmaster = taskmaster
 		self.router = Router()
 	}

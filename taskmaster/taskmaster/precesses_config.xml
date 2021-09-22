@@ -22,7 +22,7 @@
 		<name>one</name>
 		<command>/Users/mixfon/MyFiles/Swift/taskmaster/taskmaster/taskmaster/test_tasks/one</command>
 		<numberprocces>1</numberprocces>
-		<autostart>true</autostart>
+		<autostart>false</autostart>
 		<stopsignal>SIGUSR1</stopsignal>
 		<stoptime>1</stoptime>
 	</process>

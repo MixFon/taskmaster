@@ -3,18 +3,22 @@
 
 import PackageDescription
 
+let namePac = "Taskmaster"
+
 let package = Package(
-    name: "Kitura_dir",
+    name: namePac,
+	products: [
+		.executable(name: namePac, targets: [namePac])
+	],
     dependencies: [
-        .package(url: "https://github.com/Kitura/Kitura", from: "2.8.0")
         // Dependencies declare other packages that this package depends on.
-        // .package(url: /* package url */, from: "1.0.0"),
+		.package(url: "https://github.com/Kitura/Kitura", from: "2.8.0"),
     ],
     targets: [
         // Targets are the basic building blocks of a package. A target can define a module or a test suite.
         // Targets can depend on other targets in this package, and on products in packages this package depends on.
         .target(
-            name: "Kitura_dir",
-            dependencies: ["Kitura"]),
+            name: "Taskmaster",
+			dependencies: ["Kitura"]),
     ]
 )
