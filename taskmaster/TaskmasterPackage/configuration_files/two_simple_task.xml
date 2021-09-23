@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<configuration>
+	<process>
+		<!-- Имя программы -->
+		<name>print_time</name>
+		<!-- Путь до исполняемой программы -->
+		<command>/Users/mixfon/TaskmasterTasks/print_time</command>
+		<!-- Аргументы передаваемые в программу -->
+		<arguments>arg_one arg_two conf</arguments>
+		<!-- Запуск со стартом основного приложения -->
+		<autostart>false</autostart>
+		<!-- Ожидаемые коды завершения программы -->
+		<exitcodes>-1 2 0</exitcodes>
+		<!-- Время успешного старта программы (ms)  -->
+		<starttime>4000</starttime>
+		<!-- Количество попыток перезапуска программы при провалившемся старте -->
+		<startretries>1</startretries>
+		<!-- Сигнал прирывания процесса -->
+		<stopsignal>SIGUSR1</stopsignal>
+		<!-- Время по истечении которого нужно принудительно завешить прог. -->
+		<stoptime>1</stoptime>
+		<!-- Количество процессов программы (копий) -->
+		<numberprocces>1</numberprocces>
+		<!-- Перезапуск программы после завершения работы программы -->
+		<!-- always never unexpected -->
+		<autorestart>unexpected</autorestart>
+		<!-- Файл в который будет записан выходной поток -->
+		<stdout>/Users/mixfon/TaskmasterTasks/stdout.log</stdout>
+		<!-- Файл в который будет записан поток ошибок -->
+		<stderr>/Users/mixfon/TaskmasterTasks/stderr.log</stderr>
+		<!-- Переменные окружения -->
+		<environmenst>HOME=/tmp</environmenst>
+		<!-- Рабочая дериктория процесса -->
+		<workingdir>/Users/mixfon/TaskmasterTasks/</workingdir>
+		<!-- umask -->
+		<umask>022</umask>
+	</process>
+	<process>
+		<name>block_signal</name>
+		<command>/Users/mixfon/TaskmasterTasks/block_signal</command>
+		<arguments>arg_one arg_two conf</arguments>
+		<autostart>true</autostart>
+		<exitcodes>-20</exitcodes>
+		<startretries>1</startretries>
+		<stopsignal>SIGUSR1</stopsignal>
+		<stoptime>5</stoptime>
+		<numberprocces>1</numberprocces>
+		<autorestart>unexpected</autorestart>
+		<stdout>/Users/mixfon/TaskmasterTasks/stdout.log</stdout>
+		<stderr>/Users/mixfon/TaskmasterTasks/stderr.log</stderr>
+		<environmenst>HOME=/tmp</environmenst>
+		<workingdir>/Users/mixfon/TaskmasterTasks/</workingdir>
+		<umask>022</umask>
+	</process>
+</configuration>

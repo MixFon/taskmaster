@@ -266,7 +266,7 @@ struct Taskmaster {
 		Taskmaster.dataProcesses?[index].info.status = status
 	}
 	
-	/// Запускает одит переданный процесс
+	/// Запускает один переданный процесс
 	private func startProcess(_ dataProcess: DataProcess) {
 		guard let process = dataProcess.process else { return }
 		do {
@@ -280,6 +280,7 @@ struct Taskmaster {
 			if let startingTime = dataProcess.info.startTime {
 				let diff = DispatchTime(uptimeNanoseconds: startingTime)
 				if diff.uptimeNanoseconds < end.uptimeNanoseconds - start.uptimeNanoseconds {
+					process.terminate()
 					throw "Error start time"
 				}
 			}
@@ -292,7 +293,7 @@ struct Taskmaster {
 			setStatus(dataProcess: dataProcess, status: .running)
 			self.lock.unlock()
 			guard let name = Taskmaster.dataProcesses?[index].info.nameProcess else { print("Err4"); return }
-			print("run process \(process.processIdentifier)", name)
+			print("run process \(process.processIdentifier) (\(name))")
 			Logs.writeLogsToFileLogs("Start task: \(process.processIdentifier) \(name)")
 		} catch {
 			if let index = findElement(dataProcess: dataProcess) {
