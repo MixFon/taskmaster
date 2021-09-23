@@ -516,3 +516,1320 @@
 [23/09/2021 11:59:45] Invalid run process: 22532
 [23/09/2021 12:00:10] Finish task: 22531 (block_signal)
 [23/09/2021 12:00:21] Taskmaster stop
+[23/09/2021 18:16:27] Read name file logs: precesses_config.xml
+[23/09/2021 18:16:27] Read name file logs: taskmaster.log
+[23/09/2021 18:16:27] A integer variable has been read: 8080
+[23/09/2021 18:16:27] The following program name was read: print_time
+[23/09/2021 18:16:27] The following program command was read: /Users/mixfon/TaskmasterTasks/print_time
+[23/09/2021 18:16:27] The following program arguments were read: arg_one arg_two conf
+[23/09/2021 18:16:27] A boolean variable has been read: false
+[23/09/2021 18:16:27] The return codes were read: 100
+[23/09/2021 18:16:27] A integer variable has been read: 1
+[23/09/2021 18:16:27] Read stop signal: SIGUSR1
+[23/09/2021 18:16:27] A integer variable has been read: 1
+[23/09/2021 18:16:27] The reboot option has been read: unexpected
+[23/09/2021 18:16:27] The following stdout was read: /Users/mixfon/TaskmasterTasks/stdout.log
+[23/09/2021 18:16:27] The following stderr was read: /Users/mixfon/TaskmasterTasks/stderr.log
+[23/09/2021 18:16:27] The following Environmenst was read: HOME:/tmp
+[23/09/2021 18:16:27] The following working dir was read: /Users/mixfon/TaskmasterTasks/
+[23/09/2021 18:16:27] A integer variable has been read: 022
+[23/09/2021 18:16:27] The following program name was read: block_signal
+[23/09/2021 18:16:27] The following program command was read: /Users/mixfon/TaskmasterTasks/block_signal
+[23/09/2021 18:16:27] The following program arguments were read: arg_one arg_two conf
+[23/09/2021 18:16:27] A boolean variable has been read: true
+[23/09/2021 18:16:27] The return codes were read: -20
+[23/09/2021 18:16:27] A integer variable has been read: 1
+[23/09/2021 18:16:27] Read stop signal: SIGUSR1
+[23/09/2021 18:16:27] A integer variable has been read: 1
+[23/09/2021 18:16:27] The reboot option has been read: unexpected
+[23/09/2021 18:16:27] The following stdout was read: /Users/mixfon/TaskmasterTasks/stdout.log
+[23/09/2021 18:16:27] The following stderr was read: /Users/mixfon/TaskmasterTasks/stderr.log
+[23/09/2021 18:16:27] The following Environmenst was read: HOME:/tmp
+[23/09/2021 18:16:27] The following working dir was read: /Users/mixfon/TaskmasterTasks/
+[23/09/2021 18:16:27] A integer variable has been read: 022
+[23/09/2021 18:16:27] Start task: 23665 block_signal
+[23/09/2021 18:16:34] Invalid run process: 23669
+[23/09/2021 18:16:54] The following program name was read: print_time
+[23/09/2021 18:16:54] The following program command was read: /Users/mixfon/TaskmasterTasks/print_time
+[23/09/2021 18:16:54] The following program arguments were read: arg_one arg_two conf
+[23/09/2021 18:16:54] A boolean variable has been read: false
+[23/09/2021 18:16:54] The return codes were read: 100
+[23/09/2021 18:16:54] A integer variable has been read: 1
+[23/09/2021 18:16:54] Read stop signal: SIGUSR1
+[23/09/2021 18:16:54] A integer variable has been read: 1
+[23/09/2021 18:16:54] The reboot option has been read: unexpected
+[23/09/2021 18:16:54] The following stdout was read: /Users/mixfon/TaskmasterTasks/stdout.log
+[23/09/2021 18:16:54] The following stderr was read: /Users/mixfon/TaskmasterTasks/stderr.log
+[23/09/2021 18:16:54] The following Environmenst was read: HOME:/tmp
+[23/09/2021 18:16:54] The following working dir was read: /Users/mixfon/TaskmasterTasks/
+[23/09/2021 18:16:54] A integer variable has been read: 022
+[23/09/2021 18:16:54] The following program name was read: block_signal
+[23/09/2021 18:16:54] The following program command was read: /Users/mixfon/TaskmasterTasks/block_signal
+[23/09/2021 18:16:54] The following program arguments were read: arg_one arg_two conf
+[23/09/2021 18:16:54] A boolean variable has been read: true
+[23/09/2021 18:16:54] The return codes were read: -20
+[23/09/2021 18:16:54] A integer variable has been read: 1
+[23/09/2021 18:16:54] Read stop signal: SIGUSR1
+[23/09/2021 18:16:54] A integer variable has been read: 1
+[23/09/2021 18:16:54] The reboot option has been read: unexpected
+[23/09/2021 18:16:54] The following stdout was read: /Users/mixfon/TaskmasterTasks/stdout.log
+[23/09/2021 18:16:54] The following stderr was read: /Users/mixfon/TaskmasterTasks/stderr.log
+[23/09/2021 18:16:54] The following Environmenst was read: HOME:/tmp
+[23/09/2021 18:16:54] The following working dir was read: /Users/mixfon/TaskmasterTasks/
+[23/09/2021 18:16:54] A integer variable has been read: 022
+[23/09/2021 18:16:59] Start task: 23672 print_time
+[23/09/2021 18:17:07] Finish task: 23672 (print_time)
+[23/09/2021 18:17:36] Start task: 23673 print_time
+[23/09/2021 18:17:45] Finish task: 23673 (print_time)
+[23/09/2021 18:17:45] Start task: 23674 print_time
+[23/09/2021 18:17:48] Finish task: 23674 (print_time)
+[23/09/2021 18:18:16] The following program name was read: print_time
+[23/09/2021 18:18:16] The following program command was read: /Users/mixfon/TaskmasterTasks/print_time
+[23/09/2021 18:18:16] The following program arguments were read: arg_one arg_two conf
+[23/09/2021 18:18:16] A boolean variable has been read: false
+[23/09/2021 18:18:16] The return codes were read: 100
+[23/09/2021 18:18:16] A integer variable has been read: 1
+[23/09/2021 18:18:16] Read stop signal: SIGUSR1
+[23/09/2021 18:18:16] A integer variable has been read: 1
+[23/09/2021 18:18:16] The reboot option has been read: unexpected
+[23/09/2021 18:18:16] The following stdout was read: /Users/mixfon/TaskmasterTasks/stdout.log
+[23/09/2021 18:18:16] The following stderr was read: /Users/mixfon/TaskmasterTasks/stderr.log
+[23/09/2021 18:18:16] The following Environmenst was read: HOME:/tmp
+[23/09/2021 18:18:16] The following working dir was read: /Users/mixfon/TaskmasterTasks/
+[23/09/2021 18:18:16] A integer variable has been read: 022
+[23/09/2021 18:18:16] The following program name was read: block_signal
+[23/09/2021 18:18:16] The following program command was read: /Users/mixfon/TaskmasterTasks/block_signal
+[23/09/2021 18:18:16] The following program arguments were read: arg_one arg_two conf
+[23/09/2021 18:18:16] A boolean variable has been read: true
+[23/09/2021 18:18:16] The return codes were read: -20
+[23/09/2021 18:18:16] A integer variable has been read: 1
+[23/09/2021 18:18:16] Read stop signal: SIGUSR1
+[23/09/2021 18:18:16] A integer variable has been read: 1
+[23/09/2021 18:18:16] The reboot option has been read: unexpected
+[23/09/2021 18:18:16] The following stdout was read: /Users/mixfon/TaskmasterTasks/stdout.log
+[23/09/2021 18:18:16] The following stderr was read: /Users/mixfon/TaskmasterTasks/stderr.log
+[23/09/2021 18:18:16] The following Environmenst was read: HOME:/tmp
+[23/09/2021 18:18:16] The following working dir was read: /Users/mixfon/TaskmasterTasks/
+[23/09/2021 18:18:16] A integer variable has been read: 022
+[23/09/2021 18:18:17] Start task: 23675 print_time
+[23/09/2021 18:18:40] Taskmaster stop
+[23/09/2021 18:20:30] Read name file logs: precesses_config.xml
+[23/09/2021 18:20:30] Read name file logs: taskmaster.log
+[23/09/2021 18:20:30] A integer variable has been read: 8080
+[23/09/2021 18:20:30] The following program name was read: print_time
+[23/09/2021 18:20:30] The following program command was read: /Users/mixfon/TaskmasterTasks/print_time
+[23/09/2021 18:20:30] The following program arguments were read: arg_one arg_two conf
+[23/09/2021 18:20:30] A boolean variable has been read: false
+[23/09/2021 18:20:30] The return codes were read: 100
+[23/09/2021 18:20:30] A integer variable has been read: 1
+[23/09/2021 18:20:30] Read stop signal: SIGUSR1
+[23/09/2021 18:20:30] A integer variable has been read: 1
+[23/09/2021 18:20:30] The reboot option has been read: unexpected
+[23/09/2021 18:20:30] The following stdout was read: /Users/mixfon/TaskmasterTasks/stdout.log
+[23/09/2021 18:20:30] The following stderr was read: /Users/mixfon/TaskmasterTasks/stderr.log
+[23/09/2021 18:20:30] The following Environmenst was read: HOME:/tmp
+[23/09/2021 18:20:30] The following working dir was read: /Users/mixfon/TaskmasterTasks/
+[23/09/2021 18:20:30] A integer variable has been read: 022
+[23/09/2021 18:20:30] The following program name was read: block_signal
+[23/09/2021 18:20:30] The following program command was read: /Users/mixfon/TaskmasterTasks/block_signal
+[23/09/2021 18:20:30] The following program arguments were read: arg_one arg_two conf
+[23/09/2021 18:20:30] A boolean variable has been read: true
+[23/09/2021 18:20:30] The return codes were read: -20
+[23/09/2021 18:20:30] A integer variable has been read: 1
+[23/09/2021 18:20:30] Read stop signal: SIGUSR1
+[23/09/2021 18:20:30] A integer variable has been read: 1
+[23/09/2021 18:20:30] The reboot option has been read: unexpected
+[23/09/2021 18:20:30] The following stdout was read: /Users/mixfon/TaskmasterTasks/stdout.log
+[23/09/2021 18:20:30] The following stderr was read: /Users/mixfon/TaskmasterTasks/stderr.log
+[23/09/2021 18:20:30] The following Environmenst was read: HOME:/tmp
+[23/09/2021 18:20:30] The following working dir was read: /Users/mixfon/TaskmasterTasks/
+[23/09/2021 18:20:30] A integer variable has been read: 022
+[23/09/2021 18:20:52] Taskmaster stop
+[23/09/2021 18:21:00] Read name file logs: precesses_config.xml
+[23/09/2021 18:21:00] Read name file logs: taskmaster.log
+[23/09/2021 18:21:00] A integer variable has been read: 8080
+[23/09/2021 18:21:00] The following program name was read: print_time
+[23/09/2021 18:21:00] The following program command was read: /Users/mixfon/TaskmasterTasks/print_time
+[23/09/2021 18:21:00] The following program arguments were read: arg_one arg_two conf
+[23/09/2021 18:21:00] A boolean variable has been read: false
+[23/09/2021 18:21:00] The return codes were read: 100
+[23/09/2021 18:21:00] A integer variable has been read: 1
+[23/09/2021 18:21:00] Read stop signal: SIGUSR1
+[23/09/2021 18:21:00] A integer variable has been read: 1
+[23/09/2021 18:21:00] The reboot option has been read: unexpected
+[23/09/2021 18:21:00] The following stdout was read: /Users/mixfon/TaskmasterTasks/stdout.log
+[23/09/2021 18:21:00] The following stderr was read: /Users/mixfon/TaskmasterTasks/stderr.log
+[23/09/2021 18:21:00] The following Environmenst was read: HOME:/tmp
+[23/09/2021 18:21:00] The following working dir was read: /Users/mixfon/TaskmasterTasks/
+[23/09/2021 18:21:00] A integer variable has been read: 022
+[23/09/2021 18:21:00] The following program name was read: block_signal
+[23/09/2021 18:21:00] The following program command was read: /Users/mixfon/TaskmasterTasks/block_signal
+[23/09/2021 18:21:00] The following program arguments were read: arg_one arg_two conf
+[23/09/2021 18:21:00] A boolean variable has been read: true
+[23/09/2021 18:21:00] The return codes were read: -20
+[23/09/2021 18:21:00] A integer variable has been read: 1
+[23/09/2021 18:21:00] Read stop signal: SIGUSR1
+[23/09/2021 18:21:00] A integer variable has been read: 1
+[23/09/2021 18:21:00] The reboot option has been read: unexpected
+[23/09/2021 18:21:00] The following stdout was read: /Users/mixfon/TaskmasterTasks/stdout.log
+[23/09/2021 18:21:00] The following stderr was read: /Users/mixfon/TaskmasterTasks/stderr.log
+[23/09/2021 18:21:00] The following Environmenst was read: HOME:/tmp
+[23/09/2021 18:21:00] The following working dir was read: /Users/mixfon/TaskmasterTasks/
+[23/09/2021 18:21:00] A integer variable has been read: 022
+[23/09/2021 18:21:26] Taskmaster stop
+[23/09/2021 18:21:52] Read name file logs: precesses_config.xml
+[23/09/2021 18:21:52] Read name file logs: taskmaster.log
+[23/09/2021 18:21:52] A integer variable has been read: 8080
+[23/09/2021 18:21:52] The following program name was read: print_time
+[23/09/2021 18:21:52] The following program command was read: /Users/mixfon/TaskmasterTasks/print_time
+[23/09/2021 18:21:52] The following program arguments were read: arg_one arg_two conf
+[23/09/2021 18:21:52] A boolean variable has been read: false
+[23/09/2021 18:21:52] The return codes were read: 100
+[23/09/2021 18:21:52] A integer variable has been read: 1
+[23/09/2021 18:21:52] Read stop signal: SIGUSR1
+[23/09/2021 18:21:52] A integer variable has been read: 1
+[23/09/2021 18:21:52] The reboot option has been read: unexpected
+[23/09/2021 18:21:52] The following stdout was read: /Users/mixfon/TaskmasterTasks/stdout.log
+[23/09/2021 18:21:52] The following stderr was read: /Users/mixfon/TaskmasterTasks/stderr.log
+[23/09/2021 18:21:52] The following Environmenst was read: HOME:/tmp
+[23/09/2021 18:21:52] The following working dir was read: /Users/mixfon/TaskmasterTasks/
+[23/09/2021 18:21:52] A integer variable has been read: 022
+[23/09/2021 18:21:52] The following program name was read: block_signal
+[23/09/2021 18:21:52] The following program command was read: /Users/mixfon/TaskmasterTasks/block_signal
+[23/09/2021 18:21:52] The following program arguments were read: arg_one arg_two conf
+[23/09/2021 18:21:52] A boolean variable has been read: true
+[23/09/2021 18:21:52] The return codes were read: -20
+[23/09/2021 18:21:52] A integer variable has been read: 1
+[23/09/2021 18:21:52] Read stop signal: SIGUSR1
+[23/09/2021 18:21:52] A integer variable has been read: 1
+[23/09/2021 18:21:52] The reboot option has been read: unexpected
+[23/09/2021 18:21:52] The following stdout was read: /Users/mixfon/TaskmasterTasks/stdout.log
+[23/09/2021 18:21:52] The following stderr was read: /Users/mixfon/TaskmasterTasks/stderr.log
+[23/09/2021 18:21:52] The following Environmenst was read: HOME:/tmp
+[23/09/2021 18:21:52] The following working dir was read: /Users/mixfon/TaskmasterTasks/
+[23/09/2021 18:21:52] A integer variable has been read: 022
+[23/09/2021 18:21:52] Start task: 24124 block_signal
+[23/09/2021 18:22:17] The following program name was read: print_time
+[23/09/2021 18:22:17] The following program command was read: /Users/mixfon/TaskmasterTasks/print_time
+[23/09/2021 18:22:17] The following program arguments were read: arg_one arg_two conf
+[23/09/2021 18:22:17] A boolean variable has been read: false
+[23/09/2021 18:22:17] The return codes were read: 100
+[23/09/2021 18:22:17] A integer variable has been read: 1
+[23/09/2021 18:22:17] Read stop signal: SIGUSR1
+[23/09/2021 18:22:17] A integer variable has been read: 1
+[23/09/2021 18:22:17] The reboot option has been read: unexpected
+[23/09/2021 18:22:17] The following stdout was read: /Users/mixfon/TaskmasterTasks/stdout.log
+[23/09/2021 18:22:17] The following stderr was read: /Users/mixfon/TaskmasterTasks/stderr.log
+[23/09/2021 18:22:17] The following Environmenst was read: HOME:/tmp
+[23/09/2021 18:22:17] The following working dir was read: /Users/mixfon/TaskmasterTasks/
+[23/09/2021 18:22:17] A integer variable has been read: 022
+[23/09/2021 18:22:17] The following program name was read: block_signal
+[23/09/2021 18:22:17] The following program command was read: /Users/mixfon/TaskmasterTasks/block_signal
+[23/09/2021 18:22:17] The following program arguments were read: arg_one arg_two
+[23/09/2021 18:22:17] A boolean variable has been read: true
+[23/09/2021 18:22:17] The return codes were read: -20
+[23/09/2021 18:22:17] A integer variable has been read: 1
+[23/09/2021 18:22:17] Read stop signal: SIGUSR1
+[23/09/2021 18:22:17] A integer variable has been read: 1
+[23/09/2021 18:22:17] The reboot option has been read: unexpected
+[23/09/2021 18:22:17] The following stdout was read: /Users/mixfon/TaskmasterTasks/stdout.log
+[23/09/2021 18:22:17] The following stderr was read: /Users/mixfon/TaskmasterTasks/stderr.log
+[23/09/2021 18:22:17] The following Environmenst was read: HOME:/tmp
+[23/09/2021 18:22:17] The following working dir was read: /Users/mixfon/TaskmasterTasks/
+[23/09/2021 18:22:17] A integer variable has been read: 022
+[23/09/2021 18:22:22] Start task: 24136 block_signal
+[23/09/2021 18:22:22] Start task: 24137 print_time
+[23/09/2021 18:22:26] Finish task: 24137 (print_time)
+[23/09/2021 18:22:31] Finish task: 24136 (block_signal)
+[23/09/2021 18:22:36] The following program name was read: print_time
+[23/09/2021 18:22:36] The following program command was read: /Users/mixfon/TaskmasterTasks/print_time
+[23/09/2021 18:22:36] The following program arguments were read: arg_one arg_two conf
+[23/09/2021 18:22:36] A boolean variable has been read: false
+[23/09/2021 18:22:36] The return codes were read: 100
+[23/09/2021 18:22:36] A integer variable has been read: 1
+[23/09/2021 18:22:36] Read stop signal: SIGUSR1
+[23/09/2021 18:22:36] A integer variable has been read: 1
+[23/09/2021 18:22:36] The reboot option has been read: unexpected
+[23/09/2021 18:22:36] The following stdout was read: /Users/mixfon/TaskmasterTasks/stdout.log
+[23/09/2021 18:22:36] The following stderr was read: /Users/mixfon/TaskmasterTasks/stderr.log
+[23/09/2021 18:22:36] The following Environmenst was read: HOME:/tmp
+[23/09/2021 18:22:36] The following working dir was read: /Users/mixfon/TaskmasterTasks/
+[23/09/2021 18:22:36] A integer variable has been read: 022
+[23/09/2021 18:22:36] The following program name was read: block_signal
+[23/09/2021 18:22:36] The following program command was read: /Users/mixfon/TaskmasterTasks/block_signal
+[23/09/2021 18:22:36] The following program arguments were read: arg_one arg_two
+[23/09/2021 18:22:36] A boolean variable has been read: true
+[23/09/2021 18:22:36] The return codes were read: -20
+[23/09/2021 18:22:36] A integer variable has been read: 1
+[23/09/2021 18:22:36] Read stop signal: SIGUSR1
+[23/09/2021 18:22:36] A integer variable has been read: 1
+[23/09/2021 18:22:36] The reboot option has been read: unexpected
+[23/09/2021 18:22:36] The following stdout was read: /Users/mixfon/TaskmasterTasks/stdout.log
+[23/09/2021 18:22:36] The following stderr was read: /Users/mixfon/TaskmasterTasks/stderr.log
+[23/09/2021 18:22:36] The following Environmenst was read: HOME:/tmp
+[23/09/2021 18:22:36] The following working dir was read: /Users/mixfon/TaskmasterTasks/
+[23/09/2021 18:22:36] A integer variable has been read: 022
+[23/09/2021 18:22:40] Start task: 24138 block_signal
+[23/09/2021 18:22:40] Start task: 24139 print_time
+[23/09/2021 18:22:43] The following program name was read: print_time
+[23/09/2021 18:22:43] The following program command was read: /Users/mixfon/TaskmasterTasks/print_time
+[23/09/2021 18:22:43] The following program arguments were read: arg_one arg_two conf
+[23/09/2021 18:22:43] A boolean variable has been read: false
+[23/09/2021 18:22:43] The return codes were read: 100
+[23/09/2021 18:22:43] A integer variable has been read: 1
+[23/09/2021 18:22:43] Read stop signal: SIGUSR1
+[23/09/2021 18:22:43] A integer variable has been read: 1
+[23/09/2021 18:22:43] The reboot option has been read: unexpected
+[23/09/2021 18:22:43] The following stdout was read: /Users/mixfon/TaskmasterTasks/stdout.log
+[23/09/2021 18:22:43] The following stderr was read: /Users/mixfon/TaskmasterTasks/stderr.log
+[23/09/2021 18:22:43] The following Environmenst was read: HOME:/tmp
+[23/09/2021 18:22:43] The following working dir was read: /Users/mixfon/TaskmasterTasks/
+[23/09/2021 18:22:43] A integer variable has been read: 022
+[23/09/2021 18:22:43] The following program name was read: block_signal
+[23/09/2021 18:22:43] The following program command was read: /Users/mixfon/TaskmasterTasks/block_signal
+[23/09/2021 18:22:43] The following program arguments were read: arg_one arg_two
+[23/09/2021 18:22:43] A boolean variable has been read: true
+[23/09/2021 18:22:43] The return codes were read: -20
+[23/09/2021 18:22:43] A integer variable has been read: 1
+[23/09/2021 18:22:43] Read stop signal: SIGUSR1
+[23/09/2021 18:22:43] A integer variable has been read: 1
+[23/09/2021 18:22:43] The reboot option has been read: unexpected
+[23/09/2021 18:22:43] The following stdout was read: /Users/mixfon/TaskmasterTasks/stdout.log
+[23/09/2021 18:22:43] The following stderr was read: /Users/mixfon/TaskmasterTasks/stderr.log
+[23/09/2021 18:22:43] The following Environmenst was read: HOME:/tmp
+[23/09/2021 18:22:43] The following working dir was read: /Users/mixfon/TaskmasterTasks/
+[23/09/2021 18:22:43] A integer variable has been read: 022
+[23/09/2021 18:23:30] Taskmaster stop
+[23/09/2021 18:33:11] Read name file logs: precesses_config.xml
+[23/09/2021 18:33:11] Read name file logs: taskmaster.log
+[23/09/2021 18:33:11] A integer variable has been read: 8080
+[23/09/2021 18:33:11] The following program name was read: print_time
+[23/09/2021 18:33:11] The following program command was read: /Users/mixfon/TaskmasterTasks/print_time
+[23/09/2021 18:33:11] The following program arguments were read: arg_one arg_two conf
+[23/09/2021 18:33:11] A boolean variable has been read: false
+[23/09/2021 18:33:11] The return codes were read: 100
+[23/09/2021 18:33:11] A integer variable has been read: 1
+[23/09/2021 18:33:11] Read stop signal: SIGUSR1
+[23/09/2021 18:33:11] A integer variable has been read: 1
+[23/09/2021 18:33:11] The reboot option has been read: unexpected
+[23/09/2021 18:33:11] The following stdout was read: /Users/mixfon/TaskmasterTasks/stdout.log
+[23/09/2021 18:33:11] The following stderr was read: /Users/mixfon/TaskmasterTasks/stderr.log
+[23/09/2021 18:33:11] The following Environmenst was read: HOME:/tmp
+[23/09/2021 18:33:11] The following working dir was read: /Users/mixfon/TaskmasterTasks/
+[23/09/2021 18:33:11] A integer variable has been read: 022
+[23/09/2021 18:33:11] The following program name was read: block_signal
+[23/09/2021 18:33:11] The following program command was read: /Users/mixfon/TaskmasterTasks/block_signal
+[23/09/2021 18:33:11] The following program arguments were read: arg_one arg_two
+[23/09/2021 18:33:11] A boolean variable has been read: true
+[23/09/2021 18:33:11] The return codes were read: -20
+[23/09/2021 18:33:11] A integer variable has been read: 1
+[23/09/2021 18:33:11] Read stop signal: SIGUSR1
+[23/09/2021 18:33:11] A integer variable has been read: 1
+[23/09/2021 18:33:11] The reboot option has been read: unexpected
+[23/09/2021 18:33:11] The following stdout was read: /Users/mixfon/TaskmasterTasks/stdout.log
+[23/09/2021 18:33:11] The following stderr was read: /Users/mixfon/TaskmasterTasks/stderr.log
+[23/09/2021 18:33:11] The following Environmenst was read: HOME:/tmp
+[23/09/2021 18:33:11] The following working dir was read: /Users/mixfon/TaskmasterTasks/
+[23/09/2021 18:33:11] A integer variable has been read: 022
+[23/09/2021 18:33:11] Start task: 24637 block_signal
+[23/09/2021 18:33:18] Start task: 24640 print_time
+[23/09/2021 18:33:22] The following program name was read: print_time
+[23/09/2021 18:33:22] The following program command was read: /Users/mixfon/TaskmasterTasks/print_time
+[23/09/2021 18:33:22] The following program arguments were read: arg_one arg_two conf
+[23/09/2021 18:33:22] A boolean variable has been read: false
+[23/09/2021 18:33:22] The return codes were read: 100
+[23/09/2021 18:33:22] A integer variable has been read: 1
+[23/09/2021 18:33:22] Read stop signal: SIGUSR1
+[23/09/2021 18:33:22] A integer variable has been read: 1
+[23/09/2021 18:33:22] The reboot option has been read: unexpected
+[23/09/2021 18:33:22] The following stdout was read: /Users/mixfon/TaskmasterTasks/stdout.log
+[23/09/2021 18:33:22] The following stderr was read: /Users/mixfon/TaskmasterTasks/stderr.log
+[23/09/2021 18:33:22] The following Environmenst was read: HOME:/tmp
+[23/09/2021 18:33:22] The following working dir was read: /Users/mixfon/TaskmasterTasks/
+[23/09/2021 18:33:22] A integer variable has been read: 022
+[23/09/2021 18:33:22] The following program name was read: block_signal
+[23/09/2021 18:33:22] The following program command was read: /Users/mixfon/TaskmasterTasks/block_signal
+[23/09/2021 18:33:22] The following program arguments were read: arg_one arg_two
+[23/09/2021 18:33:22] A boolean variable has been read: true
+[23/09/2021 18:33:22] The return codes were read: -20
+[23/09/2021 18:33:22] A integer variable has been read: 1
+[23/09/2021 18:33:22] Read stop signal: SIGUSR1
+[23/09/2021 18:33:22] A integer variable has been read: 1
+[23/09/2021 18:33:22] The reboot option has been read: unexpected
+[23/09/2021 18:33:22] The following stdout was read: /Users/mixfon/TaskmasterTasks/stdout.log
+[23/09/2021 18:33:22] The following stderr was read: /Users/mixfon/TaskmasterTasks/stderr.log
+[23/09/2021 18:33:22] The following Environmenst was read: HOME:/tmp
+[23/09/2021 18:33:22] The following working dir was read: /Users/mixfon/TaskmasterTasks/
+[23/09/2021 18:33:22] A integer variable has been read: 022
+[23/09/2021 18:33:26] Start task: 24641 print_time
+[23/09/2021 18:33:26] Start task: 24642 block_signal
+[23/09/2021 18:33:29] Finish task: 24641 (print_time)
+[23/09/2021 18:33:34] Finish task: 24642 (block_signal)
+[23/09/2021 18:33:38] The following program name was read: print_time
+[23/09/2021 18:33:38] The following program command was read: /Users/mixfon/TaskmasterTasks/print_time
+[23/09/2021 18:33:38] The following program arguments were read: arg_one arg_two conf
+[23/09/2021 18:33:38] A boolean variable has been read: false
+[23/09/2021 18:33:38] The return codes were read: 100
+[23/09/2021 18:33:38] A integer variable has been read: 1
+[23/09/2021 18:33:38] Read stop signal: SIGUSR1
+[23/09/2021 18:33:38] A integer variable has been read: 1
+[23/09/2021 18:33:38] The reboot option has been read: unexpected
+[23/09/2021 18:33:38] The following stdout was read: /Users/mixfon/TaskmasterTasks/stdout.log
+[23/09/2021 18:33:38] The following stderr was read: /Users/mixfon/TaskmasterTasks/stderr.log
+[23/09/2021 18:33:38] The following Environmenst was read: HOME:/tmp
+[23/09/2021 18:33:38] The following working dir was read: /Users/mixfon/TaskmasterTasks/
+[23/09/2021 18:33:38] A integer variable has been read: 022
+[23/09/2021 18:33:38] The following program name was read: block_signal
+[23/09/2021 18:33:38] The following program command was read: /Users/mixfon/TaskmasterTasks/block_signal
+[23/09/2021 18:33:38] The following program arguments were read: arg_one arg_two
+[23/09/2021 18:33:38] A boolean variable has been read: true
+[23/09/2021 18:33:38] The return codes were read: -20
+[23/09/2021 18:33:38] A integer variable has been read: 1
+[23/09/2021 18:33:38] Read stop signal: SIGUSR1
+[23/09/2021 18:33:38] A integer variable has been read: 1
+[23/09/2021 18:33:38] The reboot option has been read: unexpected
+[23/09/2021 18:33:38] The following stdout was read: /Users/mixfon/TaskmasterTasks/stdout.log
+[23/09/2021 18:33:38] The following stderr was read: /Users/mixfon/TaskmasterTasks/stderr.log
+[23/09/2021 18:33:38] The following Environmenst was read: HOME:/tmp
+[23/09/2021 18:33:38] The following working dir was read: /Users/mixfon/TaskmasterTasks/
+[23/09/2021 18:33:38] A integer variable has been read: 022
+[23/09/2021 18:33:39] Start task: 24643 print_time
+[23/09/2021 18:33:39] Start task: 24644 block_signal
+[23/09/2021 18:33:43] The following program name was read: print_time
+[23/09/2021 18:33:43] The following program command was read: /Users/mixfon/TaskmasterTasks/print_time
+[23/09/2021 18:33:43] The following program arguments were read: arg_one arg_two conf
+[23/09/2021 18:33:43] A boolean variable has been read: false
+[23/09/2021 18:33:43] The return codes were read: 100
+[23/09/2021 18:33:43] A integer variable has been read: 1
+[23/09/2021 18:33:43] Read stop signal: SIGUSR1
+[23/09/2021 18:33:43] A integer variable has been read: 1
+[23/09/2021 18:33:43] The reboot option has been read: unexpected
+[23/09/2021 18:33:43] The following stdout was read: /Users/mixfon/TaskmasterTasks/stdout.log
+[23/09/2021 18:33:43] The following stderr was read: /Users/mixfon/TaskmasterTasks/stderr.log
+[23/09/2021 18:33:43] The following Environmenst was read: HOME:/tmp
+[23/09/2021 18:33:43] The following working dir was read: /Users/mixfon/TaskmasterTasks/
+[23/09/2021 18:33:43] A integer variable has been read: 022
+[23/09/2021 18:33:43] The following program name was read: block_signal
+[23/09/2021 18:33:43] The following program command was read: /Users/mixfon/TaskmasterTasks/block_signal
+[23/09/2021 18:33:43] The following program arguments were read: arg_one arg_two
+[23/09/2021 18:33:43] A boolean variable has been read: true
+[23/09/2021 18:33:43] The return codes were read: -20
+[23/09/2021 18:33:43] A integer variable has been read: 1
+[23/09/2021 18:33:43] Read stop signal: SIGUSR1
+[23/09/2021 18:33:43] A integer variable has been read: 1
+[23/09/2021 18:33:43] The reboot option has been read: unexpected
+[23/09/2021 18:33:43] The following stdout was read: /Users/mixfon/TaskmasterTasks/stdout.log
+[23/09/2021 18:33:43] The following stderr was read: /Users/mixfon/TaskmasterTasks/stderr.log
+[23/09/2021 18:33:43] The following Environmenst was read: HOME:/tmp
+[23/09/2021 18:33:43] The following working dir was read: /Users/mixfon/TaskmasterTasks/
+[23/09/2021 18:33:43] A integer variable has been read: 022
+[23/09/2021 18:33:44] Start task: 24645 print_time
+[23/09/2021 18:33:44] Start task: 24646 block_signal
+[23/09/2021 18:33:47] Finish task: 24645 (print_time)
+[23/09/2021 18:33:49] Start task: 24647 print_time
+[23/09/2021 18:33:52] Finish task: 24646 (block_signal)
+[23/09/2021 18:33:59] Finish task: 24647 (print_time)
+[23/09/2021 18:33:59] Start task: 24648 print_time
+[23/09/2021 18:33:59] Start task: 24649 block_signal
+[23/09/2021 18:34:02] The following program name was read: print_time
+[23/09/2021 18:34:02] The following program command was read: /Users/mixfon/TaskmasterTasks/print_time
+[23/09/2021 18:34:02] The following program arguments were read: arg_one arg_two conf
+[23/09/2021 18:34:02] A boolean variable has been read: false
+[23/09/2021 18:34:02] The return codes were read: 100
+[23/09/2021 18:34:02] A integer variable has been read: 1
+[23/09/2021 18:34:02] Read stop signal: SIGUSR1
+[23/09/2021 18:34:02] A integer variable has been read: 1
+[23/09/2021 18:34:02] The reboot option has been read: unexpected
+[23/09/2021 18:34:02] The following stdout was read: /Users/mixfon/TaskmasterTasks/stdout.log
+[23/09/2021 18:34:02] The following stderr was read: /Users/mixfon/TaskmasterTasks/stderr.log
+[23/09/2021 18:34:02] The following Environmenst was read: HOME:/tmp
+[23/09/2021 18:34:02] The following working dir was read: /Users/mixfon/TaskmasterTasks/
+[23/09/2021 18:34:02] A integer variable has been read: 022
+[23/09/2021 18:34:02] The following program name was read: block_signal
+[23/09/2021 18:34:02] The following program command was read: /Users/mixfon/TaskmasterTasks/block_signal
+[23/09/2021 18:34:02] The following program arguments were read: arg_one arg_two
+[23/09/2021 18:34:02] A boolean variable has been read: true
+[23/09/2021 18:34:02] The return codes were read: -20
+[23/09/2021 18:34:02] A integer variable has been read: 1
+[23/09/2021 18:34:02] Read stop signal: SIGUSR1
+[23/09/2021 18:34:02] A integer variable has been read: 1
+[23/09/2021 18:34:02] The reboot option has been read: unexpected
+[23/09/2021 18:34:02] The following stdout was read: /Users/mixfon/TaskmasterTasks/stdout.log
+[23/09/2021 18:34:02] The following stderr was read: /Users/mixfon/TaskmasterTasks/stderr.log
+[23/09/2021 18:34:02] The following Environmenst was read: HOME:/tmp
+[23/09/2021 18:34:02] The following working dir was read: /Users/mixfon/TaskmasterTasks/
+[23/09/2021 18:34:02] A integer variable has been read: 022
+[23/09/2021 18:34:02] Start task: 24650 print_time
+[23/09/2021 18:34:03] Start task: 24651 block_signal
+[23/09/2021 18:34:03] Finish task: 24650 (print_time)
+[23/09/2021 18:34:08] Finish task: 24651 (block_signal)
+[23/09/2021 18:34:14] Start task: 24652 print_time
+[23/09/2021 18:34:14] Start task: 24653 block_signal
+[23/09/2021 18:34:16] Finish task: 24652 (print_time)
+[23/09/2021 18:34:17] The following program name was read: print_time
+[23/09/2021 18:34:17] The following program command was read: /Users/mixfon/TaskmasterTasks/print_time
+[23/09/2021 18:34:17] The following program arguments were read: arg_one arg_two conf
+[23/09/2021 18:34:17] A boolean variable has been read: false
+[23/09/2021 18:34:17] The return codes were read: 100
+[23/09/2021 18:34:17] A integer variable has been read: 1
+[23/09/2021 18:34:17] Read stop signal: SIGUSR1
+[23/09/2021 18:34:17] A integer variable has been read: 1
+[23/09/2021 18:34:17] The reboot option has been read: unexpected
+[23/09/2021 18:34:17] The following stdout was read: /Users/mixfon/TaskmasterTasks/stdout.log
+[23/09/2021 18:34:17] The following stderr was read: /Users/mixfon/TaskmasterTasks/stderr.log
+[23/09/2021 18:34:17] The following Environmenst was read: HOME:/tmp
+[23/09/2021 18:34:17] The following working dir was read: /Users/mixfon/TaskmasterTasks/
+[23/09/2021 18:34:17] A integer variable has been read: 022
+[23/09/2021 18:34:17] The following program name was read: block_signal
+[23/09/2021 18:34:17] The following program command was read: /Users/mixfon/TaskmasterTasks/block_signal
+[23/09/2021 18:34:17] The following program arguments were read: arg_one arg_two
+[23/09/2021 18:34:17] A boolean variable has been read: true
+[23/09/2021 18:34:17] The return codes were read: -20
+[23/09/2021 18:34:17] A integer variable has been read: 1
+[23/09/2021 18:34:17] Read stop signal: SIGUSR1
+[23/09/2021 18:34:17] A integer variable has been read: 1
+[23/09/2021 18:34:17] The reboot option has been read: unexpected
+[23/09/2021 18:34:17] The following stdout was read: /Users/mixfon/TaskmasterTasks/stdout.log
+[23/09/2021 18:34:17] The following stderr was read: /Users/mixfon/TaskmasterTasks/stderr.log
+[23/09/2021 18:34:17] The following Environmenst was read: HOME:/tmp
+[23/09/2021 18:34:17] The following working dir was read: /Users/mixfon/TaskmasterTasks/
+[23/09/2021 18:34:17] A integer variable has been read: 022
+[23/09/2021 18:35:52] Start task: 24676 print_time
+[23/09/2021 18:35:59] Finish task: 24676 (print_time)
+[23/09/2021 18:36:02] The following program name was read: print_time
+[23/09/2021 18:36:02] The following program command was read: /Users/mixfon/TaskmasterTasks/print_time
+[23/09/2021 18:36:02] The following program arguments were read: arg_one arg_two conf
+[23/09/2021 18:36:02] A boolean variable has been read: false
+[23/09/2021 18:36:02] The return codes were read: 100
+[23/09/2021 18:36:02] A integer variable has been read: 1
+[23/09/2021 18:36:02] Read stop signal: SIGUSR1
+[23/09/2021 18:36:02] A integer variable has been read: 1
+[23/09/2021 18:36:02] The reboot option has been read: unexpected
+[23/09/2021 18:36:02] The following stdout was read: /Users/mixfon/TaskmasterTasks/stdout.log
+[23/09/2021 18:36:02] The following stderr was read: /Users/mixfon/TaskmasterTasks/stderr.log
+[23/09/2021 18:36:02] The following Environmenst was read: HOME:/tmp
+[23/09/2021 18:36:02] The following working dir was read: /Users/mixfon/TaskmasterTasks/
+[23/09/2021 18:36:02] A integer variable has been read: 022
+[23/09/2021 18:36:02] The following program name was read: block_signal
+[23/09/2021 18:36:02] The following program command was read: /Users/mixfon/TaskmasterTasks/block_signal
+[23/09/2021 18:36:02] The following program arguments were read: arg_one arg_two
+[23/09/2021 18:36:02] A boolean variable has been read: true
+[23/09/2021 18:36:02] The return codes were read: -20
+[23/09/2021 18:36:02] A integer variable has been read: 1
+[23/09/2021 18:36:02] Read stop signal: SIGUSR1
+[23/09/2021 18:36:02] A integer variable has been read: 1
+[23/09/2021 18:36:02] The reboot option has been read: unexpected
+[23/09/2021 18:36:02] The following stdout was read: /Users/mixfon/TaskmasterTasks/stdout.log
+[23/09/2021 18:36:02] The following stderr was read: /Users/mixfon/TaskmasterTasks/stderr.log
+[23/09/2021 18:36:02] The following Environmenst was read: HOME:/tmp
+[23/09/2021 18:36:02] The following working dir was read: /Users/mixfon/TaskmasterTasks/
+[23/09/2021 18:36:02] A integer variable has been read: 022
+[23/09/2021 18:36:05] Start task: 24680 print_time
+[23/09/2021 18:36:13] Taskmaster stop
+[23/09/2021 18:37:03] Read name file logs: precesses_config.xml
+[23/09/2021 18:37:03] Read name file logs: taskmaster.log
+[23/09/2021 18:37:03] A integer variable has been read: 8080
+[23/09/2021 18:37:03] The following program name was read: print_time
+[23/09/2021 18:37:03] The following program command was read: /Users/mixfon/TaskmasterTasks/print_time
+[23/09/2021 18:37:03] The following program arguments were read: arg_one arg_two conf
+[23/09/2021 18:37:03] A boolean variable has been read: false
+[23/09/2021 18:37:03] The return codes were read: 100
+[23/09/2021 18:37:03] A integer variable has been read: 1
+[23/09/2021 18:37:03] Read stop signal: SIGUSR1
+[23/09/2021 18:37:03] A integer variable has been read: 1
+[23/09/2021 18:37:03] The reboot option has been read: never
+[23/09/2021 18:37:03] The following stdout was read: /Users/mixfon/TaskmasterTasks/stdout.log
+[23/09/2021 18:37:03] The following stderr was read: /Users/mixfon/TaskmasterTasks/stderr.log
+[23/09/2021 18:37:03] The following Environmenst was read: HOME:/tmp
+[23/09/2021 18:37:03] The following working dir was read: /Users/mixfon/TaskmasterTasks/
+[23/09/2021 18:37:03] A integer variable has been read: 022
+[23/09/2021 18:37:03] The following program name was read: block_signal
+[23/09/2021 18:37:03] The following program command was read: /Users/mixfon/TaskmasterTasks/block_signal
+[23/09/2021 18:37:03] The following program arguments were read: arg_one arg_two
+[23/09/2021 18:37:03] A boolean variable has been read: true
+[23/09/2021 18:37:03] The return codes were read: -20
+[23/09/2021 18:37:03] A integer variable has been read: 1
+[23/09/2021 18:37:03] Read stop signal: SIGUSR1
+[23/09/2021 18:37:03] A integer variable has been read: 1
+[23/09/2021 18:37:03] The reboot option has been read: unexpected
+[23/09/2021 18:37:03] The following stdout was read: /Users/mixfon/TaskmasterTasks/stdout.log
+[23/09/2021 18:37:03] The following stderr was read: /Users/mixfon/TaskmasterTasks/stderr.log
+[23/09/2021 18:37:03] The following Environmenst was read: HOME:/tmp
+[23/09/2021 18:37:03] The following working dir was read: /Users/mixfon/TaskmasterTasks/
+[23/09/2021 18:37:03] A integer variable has been read: 022
+[23/09/2021 18:37:03] Start task: 24713 block_signal
+[23/09/2021 18:37:10] Start task: 24714 print_time
+[23/09/2021 18:37:11] Finish task: 24713 (block_signal)
+[23/09/2021 18:37:16] Finish task: 24714 (print_time)
+[23/09/2021 18:37:16] Start task: 24715 block_signal
+[23/09/2021 18:37:22] Start task: 24716 print_time
+[23/09/2021 18:37:22] Start task: 24717 block_signal
+[23/09/2021 18:37:31] Finish task: 24716 (print_time)
+[23/09/2021 18:37:36] Finish task: 24717 (block_signal)
+[23/09/2021 18:38:08] Start task: 24720 print_time
+[23/09/2021 18:38:08] Start task: 24721 block_signal
+[23/09/2021 18:38:22] Finish task: 24720 (print_time)
+[23/09/2021 18:38:24] The following program name was read: print_time
+[23/09/2021 18:38:24] The following program command was read: /Users/mixfon/TaskmasterTasks/print_time
+[23/09/2021 18:38:24] The following program arguments were read: arg_one arg_two conf
+[23/09/2021 18:38:24] A boolean variable has been read: false
+[23/09/2021 18:38:24] The return codes were read: 100
+[23/09/2021 18:38:24] A integer variable has been read: 1
+[23/09/2021 18:38:24] Read stop signal: SIGUSR1
+[23/09/2021 18:38:24] A integer variable has been read: 1
+[23/09/2021 18:38:24] The reboot option has been read: never
+[23/09/2021 18:38:24] The following stdout was read: /Users/mixfon/TaskmasterTasks/stdout.log
+[23/09/2021 18:38:24] The following stderr was read: /Users/mixfon/TaskmasterTasks/stderr.log
+[23/09/2021 18:38:24] The following Environmenst was read: HOME:/tmp
+[23/09/2021 18:38:24] The following working dir was read: /Users/mixfon/TaskmasterTasks/
+[23/09/2021 18:38:24] A integer variable has been read: 022
+[23/09/2021 18:38:24] The following program name was read: block_signal
+[23/09/2021 18:38:24] The following program command was read: /Users/mixfon/TaskmasterTasks/block_signal
+[23/09/2021 18:38:24] The following program arguments were read: arg_one arg_two
+[23/09/2021 18:38:24] A boolean variable has been read: true
+[23/09/2021 18:38:24] The return codes were read: -20
+[23/09/2021 18:38:24] A integer variable has been read: 1
+[23/09/2021 18:38:24] Read stop signal: SIGUSR1
+[23/09/2021 18:38:24] A integer variable has been read: 1
+[23/09/2021 18:38:24] The reboot option has been read: unexpected
+[23/09/2021 18:38:24] The following stdout was read: /Users/mixfon/TaskmasterTasks/stdout.log
+[23/09/2021 18:38:24] The following stderr was read: /Users/mixfon/TaskmasterTasks/stderr.log
+[23/09/2021 18:38:24] The following Environmenst was read: HOME:/tmp
+[23/09/2021 18:38:24] The following working dir was read: /Users/mixfon/TaskmasterTasks/
+[23/09/2021 18:38:24] A integer variable has been read: 022
+[23/09/2021 18:38:52] Taskmaster stop
+[23/09/2021 18:40:13] Read name file logs: precesses_config.xml
+[23/09/2021 18:40:13] Read name file logs: taskmaster.log
+[23/09/2021 18:40:13] A integer variable has been read: 8080
+[23/09/2021 18:40:13] The following program name was read: print_time
+[23/09/2021 18:40:13] The following program command was read: /Users/mixfon/TaskmasterTasks/print_time
+[23/09/2021 18:40:13] The following program arguments were read: arg_one arg_two conf
+[23/09/2021 18:40:13] A boolean variable has been read: false
+[23/09/2021 18:40:13] The return codes were read: 100
+[23/09/2021 18:40:13] A integer variable has been read: 1
+[23/09/2021 18:40:13] Read stop signal: SIGUSR1
+[23/09/2021 18:40:13] A integer variable has been read: 1
+[23/09/2021 18:40:13] The reboot option has been read: never
+[23/09/2021 18:40:13] The following stdout was read: /Users/mixfon/TaskmasterTasks/stdout.log
+[23/09/2021 18:40:13] The following stderr was read: /Users/mixfon/TaskmasterTasks/stderr.log
+[23/09/2021 18:40:13] The following Environmenst was read: HOME:/tmp
+[23/09/2021 18:40:13] The following working dir was read: /Users/mixfon/TaskmasterTasks/
+[23/09/2021 18:40:13] A integer variable has been read: 022
+[23/09/2021 18:40:13] The following program name was read: block_signal
+[23/09/2021 18:40:13] The following program command was read: /Users/mixfon/TaskmasterTasks/block_signal
+[23/09/2021 18:40:13] The following program arguments were read: arg_one arg_two
+[23/09/2021 18:40:13] A boolean variable has been read: true
+[23/09/2021 18:40:13] The return codes were read: -20
+[23/09/2021 18:40:13] A integer variable has been read: 1
+[23/09/2021 18:40:13] Read stop signal: SIGUSR1
+[23/09/2021 18:40:13] A integer variable has been read: 1
+[23/09/2021 18:40:13] The reboot option has been read: unexpected
+[23/09/2021 18:40:13] The following stdout was read: /Users/mixfon/TaskmasterTasks/stdout.log
+[23/09/2021 18:40:13] The following stderr was read: /Users/mixfon/TaskmasterTasks/stderr.log
+[23/09/2021 18:40:13] The following Environmenst was read: HOME:/tmp
+[23/09/2021 18:40:13] The following working dir was read: /Users/mixfon/TaskmasterTasks/
+[23/09/2021 18:40:13] A integer variable has been read: 022
+[23/09/2021 18:40:13] Start task: 24852 block_signal
+[23/09/2021 18:40:22] Start task: 24855 print_time
+[23/09/2021 18:40:24] Finish task: 24855 (print_time)
+[23/09/2021 18:40:25] The following program name was read: print_time
+[23/09/2021 18:40:25] The following program command was read: /Users/mixfon/TaskmasterTasks/print_time
+[23/09/2021 18:40:25] The following program arguments were read: arg_one arg_two conf
+[23/09/2021 18:40:25] A boolean variable has been read: false
+[23/09/2021 18:40:25] The return codes were read: 100
+[23/09/2021 18:40:25] A integer variable has been read: 1
+[23/09/2021 18:40:25] Read stop signal: SIGUSR1
+[23/09/2021 18:40:25] A integer variable has been read: 1
+[23/09/2021 18:40:25] The reboot option has been read: never
+[23/09/2021 18:40:25] The following stdout was read: /Users/mixfon/TaskmasterTasks/stdout.log
+[23/09/2021 18:40:25] The following stderr was read: /Users/mixfon/TaskmasterTasks/stderr.log
+[23/09/2021 18:40:25] The following Environmenst was read: HOME:/tmp
+[23/09/2021 18:40:25] The following working dir was read: /Users/mixfon/TaskmasterTasks/
+[23/09/2021 18:40:25] A integer variable has been read: 022
+[23/09/2021 18:40:25] The following program name was read: block_signal
+[23/09/2021 18:40:25] The following program command was read: /Users/mixfon/TaskmasterTasks/block_signal
+[23/09/2021 18:40:25] The following program arguments were read: arg_one arg_two
+[23/09/2021 18:40:25] A boolean variable has been read: true
+[23/09/2021 18:40:25] The return codes were read: -20
+[23/09/2021 18:40:25] A integer variable has been read: 1
+[23/09/2021 18:40:25] Read stop signal: SIGUSR1
+[23/09/2021 18:40:25] A integer variable has been read: 1
+[23/09/2021 18:40:25] The reboot option has been read: unexpected
+[23/09/2021 18:40:25] The following stdout was read: /Users/mixfon/TaskmasterTasks/stdout.log
+[23/09/2021 18:40:25] The following stderr was read: /Users/mixfon/TaskmasterTasks/stderr.log
+[23/09/2021 18:40:25] The following Environmenst was read: HOME:/tmp
+[23/09/2021 18:40:25] The following working dir was read: /Users/mixfon/TaskmasterTasks/
+[23/09/2021 18:40:25] A integer variable has been read: 022
+[23/09/2021 18:40:54] Start task: 24856 print_time
+[23/09/2021 18:40:55] The following program name was read: print_time
+[23/09/2021 18:40:55] The following program command was read: /Users/mixfon/TaskmasterTasks/print_time
+[23/09/2021 18:40:55] The following program arguments were read: arg_one arg_two conf
+[23/09/2021 18:40:55] A boolean variable has been read: false
+[23/09/2021 18:40:55] The return codes were read: 100
+[23/09/2021 18:40:55] A integer variable has been read: 1
+[23/09/2021 18:40:55] Read stop signal: SIGUSR1
+[23/09/2021 18:40:55] A integer variable has been read: 1
+[23/09/2021 18:40:55] The reboot option has been read: never
+[23/09/2021 18:40:55] The following stdout was read: /Users/mixfon/TaskmasterTasks/stdout.log
+[23/09/2021 18:40:55] The following stderr was read: /Users/mixfon/TaskmasterTasks/stderr.log
+[23/09/2021 18:40:55] The following Environmenst was read: HOME:/tmp
+[23/09/2021 18:40:55] The following working dir was read: /Users/mixfon/TaskmasterTasks/
+[23/09/2021 18:40:55] A integer variable has been read: 022
+[23/09/2021 18:40:55] The following program name was read: block_signal
+[23/09/2021 18:40:55] The following program command was read: /Users/mixfon/TaskmasterTasks/block_signal
+[23/09/2021 18:40:55] The following program arguments were read: arg_one arg_two
+[23/09/2021 18:40:55] A boolean variable has been read: true
+[23/09/2021 18:40:55] The return codes were read: -20
+[23/09/2021 18:40:55] A integer variable has been read: 1
+[23/09/2021 18:40:55] Read stop signal: SIGUSR1
+[23/09/2021 18:40:55] A integer variable has been read: 1
+[23/09/2021 18:40:55] The reboot option has been read: unexpected
+[23/09/2021 18:40:55] The following stdout was read: /Users/mixfon/TaskmasterTasks/stdout.log
+[23/09/2021 18:40:55] The following stderr was read: /Users/mixfon/TaskmasterTasks/stderr.log
+[23/09/2021 18:40:55] The following Environmenst was read: HOME:/tmp
+[23/09/2021 18:40:55] The following working dir was read: /Users/mixfon/TaskmasterTasks/
+[23/09/2021 18:40:55] A integer variable has been read: 022
+[23/09/2021 18:40:58] The following program name was read: print_time
+[23/09/2021 18:40:58] The following program command was read: /Users/mixfon/TaskmasterTasks/print_time
+[23/09/2021 18:40:58] The following program arguments were read: arg_one arg_two conf
+[23/09/2021 18:40:58] A boolean variable has been read: false
+[23/09/2021 18:40:58] The return codes were read: 100
+[23/09/2021 18:40:58] A integer variable has been read: 1
+[23/09/2021 18:40:58] Read stop signal: SIGUSR1
+[23/09/2021 18:40:58] A integer variable has been read: 1
+[23/09/2021 18:40:58] The reboot option has been read: never
+[23/09/2021 18:40:58] The following stdout was read: /Users/mixfon/TaskmasterTasks/stdout.log
+[23/09/2021 18:40:58] The following stderr was read: /Users/mixfon/TaskmasterTasks/stderr.log
+[23/09/2021 18:40:58] The following Environmenst was read: HOME:/tmp
+[23/09/2021 18:40:58] The following working dir was read: /Users/mixfon/TaskmasterTasks/
+[23/09/2021 18:40:58] A integer variable has been read: 022
+[23/09/2021 18:40:58] The following program name was read: block_signal
+[23/09/2021 18:40:58] The following program command was read: /Users/mixfon/TaskmasterTasks/block_signal
+[23/09/2021 18:40:58] The following program arguments were read: arg_one arg_two
+[23/09/2021 18:40:58] A boolean variable has been read: true
+[23/09/2021 18:40:58] The return codes were read: -20
+[23/09/2021 18:40:58] A integer variable has been read: 1
+[23/09/2021 18:40:58] Read stop signal: SIGUSR1
+[23/09/2021 18:40:58] A integer variable has been read: 1
+[23/09/2021 18:40:58] The reboot option has been read: unexpected
+[23/09/2021 18:40:58] The following stdout was read: /Users/mixfon/TaskmasterTasks/stdout.log
+[23/09/2021 18:40:58] The following stderr was read: /Users/mixfon/TaskmasterTasks/stderr.log
+[23/09/2021 18:40:58] The following Environmenst was read: HOME:/tmp
+[23/09/2021 18:40:58] The following working dir was read: /Users/mixfon/TaskmasterTasks/
+[23/09/2021 18:40:58] A integer variable has been read: 022
+[23/09/2021 18:41:09] The following program name was read: print_time
+[23/09/2021 18:41:09] The following program command was read: /Users/mixfon/TaskmasterTasks/print_time
+[23/09/2021 18:41:09] The following program arguments were read: arg_one arg_two conf
+[23/09/2021 18:41:09] A boolean variable has been read: false
+[23/09/2021 18:41:09] The return codes were read: 100
+[23/09/2021 18:41:09] A integer variable has been read: 1
+[23/09/2021 18:41:09] Read stop signal: SIGUSR1
+[23/09/2021 18:41:09] A integer variable has been read: 1
+[23/09/2021 18:41:09] The reboot option has been read: never
+[23/09/2021 18:41:09] The following stdout was read: /Users/mixfon/TaskmasterTasks/stdout.log
+[23/09/2021 18:41:09] The following stderr was read: /Users/mixfon/TaskmasterTasks/stderr.log
+[23/09/2021 18:41:09] The following Environmenst was read: HOME:/tmp
+[23/09/2021 18:41:09] The following working dir was read: /Users/mixfon/TaskmasterTasks/
+[23/09/2021 18:41:09] A integer variable has been read: 022
+[23/09/2021 18:41:09] The following program name was read: block_signal
+[23/09/2021 18:41:09] The following program command was read: /Users/mixfon/TaskmasterTasks/block_signal
+[23/09/2021 18:41:09] The following program arguments were read: arg_one arg_two
+[23/09/2021 18:41:09] A boolean variable has been read: true
+[23/09/2021 18:41:09] The return codes were read: -20
+[23/09/2021 18:41:09] A integer variable has been read: 1
+[23/09/2021 18:41:09] Read stop signal: SIGUSR1
+[23/09/2021 18:41:09] A integer variable has been read: 1
+[23/09/2021 18:41:09] The reboot option has been read: unexpected
+[23/09/2021 18:41:09] The following stdout was read: /Users/mixfon/TaskmasterTasks/stdout.log
+[23/09/2021 18:41:09] The following stderr was read: /Users/mixfon/TaskmasterTasks/stderr.log
+[23/09/2021 18:41:09] The following Environmenst was read: HOME:/tmp
+[23/09/2021 18:41:09] The following working dir was read: /Users/mixfon/TaskmasterTasks/
+[23/09/2021 18:41:09] A integer variable has been read: 022
+[23/09/2021 18:41:12] Taskmaster stop
+[23/09/2021 18:42:21] Read name file logs: precesses_config.xml
+[23/09/2021 18:42:21] Read name file logs: taskmaster.log
+[23/09/2021 18:42:21] A integer variable has been read: 8080
+[23/09/2021 18:42:21] The following program name was read: print_time
+[23/09/2021 18:42:21] The following program command was read: /Users/mixfon/TaskmasterTasks/print_time
+[23/09/2021 18:42:21] The following program arguments were read: arg_one arg_two conf
+[23/09/2021 18:42:21] A boolean variable has been read: false
+[23/09/2021 18:42:21] The return codes were read: 100
+[23/09/2021 18:42:21] A integer variable has been read: 1
+[23/09/2021 18:42:21] Read stop signal: SIGUSR1
+[23/09/2021 18:42:21] A integer variable has been read: 1
+[23/09/2021 18:42:21] The reboot option has been read: never
+[23/09/2021 18:42:21] The following stdout was read: /Users/mixfon/TaskmasterTasks/stdout.log
+[23/09/2021 18:42:21] The following stderr was read: /Users/mixfon/TaskmasterTasks/stderr.log
+[23/09/2021 18:42:21] The following Environmenst was read: HOME:/tmp
+[23/09/2021 18:42:21] The following working dir was read: /Users/mixfon/TaskmasterTasks/
+[23/09/2021 18:42:21] A integer variable has been read: 022
+[23/09/2021 18:42:21] The following program name was read: block_signal
+[23/09/2021 18:42:21] The following program command was read: /Users/mixfon/TaskmasterTasks/block_signal
+[23/09/2021 18:42:21] The following program arguments were read: arg_one arg_two
+[23/09/2021 18:42:21] A boolean variable has been read: true
+[23/09/2021 18:42:21] The return codes were read: -20
+[23/09/2021 18:42:21] A integer variable has been read: 1
+[23/09/2021 18:42:21] Read stop signal: SIGUSR1
+[23/09/2021 18:42:21] A integer variable has been read: 1
+[23/09/2021 18:42:21] The reboot option has been read: unexpected
+[23/09/2021 18:42:21] The following stdout was read: /Users/mixfon/TaskmasterTasks/stdout.log
+[23/09/2021 18:42:21] The following stderr was read: /Users/mixfon/TaskmasterTasks/stderr.log
+[23/09/2021 18:42:21] The following Environmenst was read: HOME:/tmp
+[23/09/2021 18:42:21] The following working dir was read: /Users/mixfon/TaskmasterTasks/
+[23/09/2021 18:42:21] A integer variable has been read: 022
+[23/09/2021 18:42:21] Start task: 24975 block_signal
+[23/09/2021 18:42:27] Start task: 24977 print_time
+[23/09/2021 18:42:28] Finish task: 24977 (print_time)
+[23/09/2021 18:42:29] The following program name was read: print_time
+[23/09/2021 18:42:29] The following program command was read: /Users/mixfon/TaskmasterTasks/print_time
+[23/09/2021 18:42:29] The following program arguments were read: arg_one arg_two conf
+[23/09/2021 18:42:29] A boolean variable has been read: false
+[23/09/2021 18:42:29] The return codes were read: 100
+[23/09/2021 18:42:29] A integer variable has been read: 1
+[23/09/2021 18:42:29] Read stop signal: SIGUSR1
+[23/09/2021 18:42:29] A integer variable has been read: 1
+[23/09/2021 18:42:29] The reboot option has been read: never
+[23/09/2021 18:42:29] The following stdout was read: /Users/mixfon/TaskmasterTasks/stdout.log
+[23/09/2021 18:42:29] The following stderr was read: /Users/mixfon/TaskmasterTasks/stderr.log
+[23/09/2021 18:42:29] The following Environmenst was read: HOME:/tmp
+[23/09/2021 18:42:29] The following working dir was read: /Users/mixfon/TaskmasterTasks/
+[23/09/2021 18:42:29] A integer variable has been read: 022
+[23/09/2021 18:42:29] The following program name was read: block_signal
+[23/09/2021 18:42:29] The following program command was read: /Users/mixfon/TaskmasterTasks/block_signal
+[23/09/2021 18:42:29] The following program arguments were read: arg_one arg_two
+[23/09/2021 18:42:29] A boolean variable has been read: true
+[23/09/2021 18:42:29] The return codes were read: -20
+[23/09/2021 18:42:29] A integer variable has been read: 1
+[23/09/2021 18:42:29] Read stop signal: SIGUSR1
+[23/09/2021 18:42:29] A integer variable has been read: 1
+[23/09/2021 18:42:29] The reboot option has been read: unexpected
+[23/09/2021 18:42:29] The following stdout was read: /Users/mixfon/TaskmasterTasks/stdout.log
+[23/09/2021 18:42:29] The following stderr was read: /Users/mixfon/TaskmasterTasks/stderr.log
+[23/09/2021 18:42:29] The following Environmenst was read: HOME:/tmp
+[23/09/2021 18:42:29] The following working dir was read: /Users/mixfon/TaskmasterTasks/
+[23/09/2021 18:42:29] A integer variable has been read: 022
+[23/09/2021 18:43:08] Taskmaster stop
+[23/09/2021 18:44:43] Read name file logs: precesses_config.xml
+[23/09/2021 18:44:43] Read name file logs: taskmaster.log
+[23/09/2021 18:44:43] A integer variable has been read: 8080
+[23/09/2021 18:44:43] The following program name was read: print_time
+[23/09/2021 18:44:43] The following program command was read: /Users/mixfon/TaskmasterTasks/print_time
+[23/09/2021 18:44:43] The following program arguments were read: arg_one arg_two conf
+[23/09/2021 18:44:43] A boolean variable has been read: false
+[23/09/2021 18:44:43] The return codes were read: 100
+[23/09/2021 18:44:43] A integer variable has been read: 1
+[23/09/2021 18:44:43] Read stop signal: SIGUSR1
+[23/09/2021 18:44:43] A integer variable has been read: 1
+[23/09/2021 18:44:43] The reboot option has been read: never
+[23/09/2021 18:44:43] The following stdout was read: /Users/mixfon/TaskmasterTasks/stdout.log
+[23/09/2021 18:44:43] The following stderr was read: /Users/mixfon/TaskmasterTasks/stderr.log
+[23/09/2021 18:44:43] The following Environmenst was read: HOME:/tmp
+[23/09/2021 18:44:43] The following working dir was read: /Users/mixfon/TaskmasterTasks/
+[23/09/2021 18:44:43] A integer variable has been read: 022
+[23/09/2021 18:44:43] The following program name was read: block_signal
+[23/09/2021 18:44:43] The following program command was read: /Users/mixfon/TaskmasterTasks/block_signal
+[23/09/2021 18:44:43] The following program arguments were read: arg_one arg_two
+[23/09/2021 18:44:43] A boolean variable has been read: true
+[23/09/2021 18:44:43] The return codes were read: -20
+[23/09/2021 18:44:43] A integer variable has been read: 1
+[23/09/2021 18:44:43] Read stop signal: SIGUSR1
+[23/09/2021 18:44:43] A integer variable has been read: 1
+[23/09/2021 18:44:43] The reboot option has been read: unexpected
+[23/09/2021 18:44:43] The following stdout was read: /Users/mixfon/TaskmasterTasks/stdout.log
+[23/09/2021 18:44:43] The following stderr was read: /Users/mixfon/TaskmasterTasks/stderr.log
+[23/09/2021 18:44:43] The following Environmenst was read: HOME:/tmp
+[23/09/2021 18:44:43] The following working dir was read: /Users/mixfon/TaskmasterTasks/
+[23/09/2021 18:44:43] A integer variable has been read: 022
+[23/09/2021 18:44:43] Start task: 25178 block_signal
+[23/09/2021 18:44:48] Start task: 25181 print_time
+[23/09/2021 18:44:50] Finish task: 25181 (print_time)
+[23/09/2021 18:44:51] The following program name was read: print_time
+[23/09/2021 18:44:51] The following program command was read: /Users/mixfon/TaskmasterTasks/print_time
+[23/09/2021 18:44:51] The following program arguments were read: arg_one arg_two conf
+[23/09/2021 18:44:51] A boolean variable has been read: false
+[23/09/2021 18:44:51] The return codes were read: 100
+[23/09/2021 18:44:51] A integer variable has been read: 1
+[23/09/2021 18:44:51] Read stop signal: SIGUSR1
+[23/09/2021 18:44:51] A integer variable has been read: 1
+[23/09/2021 18:44:51] The reboot option has been read: never
+[23/09/2021 18:44:51] The following stdout was read: /Users/mixfon/TaskmasterTasks/stdout.log
+[23/09/2021 18:44:51] The following stderr was read: /Users/mixfon/TaskmasterTasks/stderr.log
+[23/09/2021 18:44:51] The following Environmenst was read: HOME:/tmp
+[23/09/2021 18:44:51] The following working dir was read: /Users/mixfon/TaskmasterTasks/
+[23/09/2021 18:44:51] A integer variable has been read: 022
+[23/09/2021 18:44:51] The following program name was read: block_signal
+[23/09/2021 18:44:51] The following program command was read: /Users/mixfon/TaskmasterTasks/block_signal
+[23/09/2021 18:44:51] The following program arguments were read: arg_one arg_two
+[23/09/2021 18:44:51] A boolean variable has been read: true
+[23/09/2021 18:44:51] The return codes were read: -20
+[23/09/2021 18:44:51] A integer variable has been read: 1
+[23/09/2021 18:44:51] Read stop signal: SIGUSR1
+[23/09/2021 18:44:51] A integer variable has been read: 1
+[23/09/2021 18:44:51] The reboot option has been read: unexpected
+[23/09/2021 18:44:51] The following stdout was read: /Users/mixfon/TaskmasterTasks/stdout.log
+[23/09/2021 18:44:51] The following stderr was read: /Users/mixfon/TaskmasterTasks/stderr.log
+[23/09/2021 18:44:51] The following Environmenst was read: HOME:/tmp
+[23/09/2021 18:44:51] The following working dir was read: /Users/mixfon/TaskmasterTasks/
+[23/09/2021 18:44:51] A integer variable has been read: 022
+[23/09/2021 18:45:24] Start task: 25182 print_time
+[23/09/2021 18:45:36] Taskmaster stop
+[23/09/2021 18:48:51] Read name file logs: precesses_config.xml
+[23/09/2021 18:48:51] Read name file logs: taskmaster.log
+[23/09/2021 18:48:51] A integer variable has been read: 8080
+[23/09/2021 18:48:51] The following program name was read: print_time
+[23/09/2021 18:48:51] The following program command was read: /Users/mixfon/TaskmasterTasks/print_time
+[23/09/2021 18:48:51] The following program arguments were read: arg_one arg_two conf
+[23/09/2021 18:48:51] A boolean variable has been read: false
+[23/09/2021 18:48:51] The return codes were read: 100
+[23/09/2021 18:48:51] A integer variable has been read: 1
+[23/09/2021 18:48:51] Read stop signal: SIGUSR1
+[23/09/2021 18:48:51] A integer variable has been read: 1
+[23/09/2021 18:48:51] The reboot option has been read: never
+[23/09/2021 18:48:51] The following stdout was read: /Users/mixfon/TaskmasterTasks/stdout.log
+[23/09/2021 18:48:51] The following stderr was read: /Users/mixfon/TaskmasterTasks/stderr.log
+[23/09/2021 18:48:51] The following Environmenst was read: HOME:/tmp
+[23/09/2021 18:48:51] The following working dir was read: /Users/mixfon/TaskmasterTasks/
+[23/09/2021 18:48:51] A integer variable has been read: 022
+[23/09/2021 18:48:51] The following program name was read: block_signal
+[23/09/2021 18:48:51] The following program command was read: /Users/mixfon/TaskmasterTasks/block_signal
+[23/09/2021 18:48:51] The following program arguments were read: arg_one arg_two
+[23/09/2021 18:48:51] A boolean variable has been read: true
+[23/09/2021 18:48:51] The return codes were read: -20
+[23/09/2021 18:48:51] A integer variable has been read: 1
+[23/09/2021 18:48:51] Read stop signal: SIGUSR1
+[23/09/2021 18:48:51] A integer variable has been read: 1
+[23/09/2021 18:48:51] The reboot option has been read: unexpected
+[23/09/2021 18:48:51] The following stdout was read: /Users/mixfon/TaskmasterTasks/stdout.log
+[23/09/2021 18:48:51] The following stderr was read: /Users/mixfon/TaskmasterTasks/stderr.log
+[23/09/2021 18:48:51] The following Environmenst was read: HOME:/tmp
+[23/09/2021 18:48:51] The following working dir was read: /Users/mixfon/TaskmasterTasks/
+[23/09/2021 18:48:51] A integer variable has been read: 022
+[23/09/2021 18:48:51] Start task: 25379 block_signal
+[23/09/2021 18:48:54] Start task: 25382 print_time
+[23/09/2021 18:48:58] Finish task: 25382 (print_time)
+[23/09/2021 18:48:59] The following program name was read: print_time
+[23/09/2021 18:48:59] The following program command was read: /Users/mixfon/TaskmasterTasks/print_time
+[23/09/2021 18:48:59] The following program arguments were read: arg_one arg_two conf
+[23/09/2021 18:48:59] A boolean variable has been read: false
+[23/09/2021 18:48:59] The return codes were read: 100
+[23/09/2021 18:48:59] A integer variable has been read: 1
+[23/09/2021 18:48:59] Read stop signal: SIGUSR1
+[23/09/2021 18:48:59] A integer variable has been read: 1
+[23/09/2021 18:48:59] The reboot option has been read: never
+[23/09/2021 18:48:59] The following stdout was read: /Users/mixfon/TaskmasterTasks/stdout.log
+[23/09/2021 18:48:59] The following stderr was read: /Users/mixfon/TaskmasterTasks/stderr.log
+[23/09/2021 18:48:59] The following Environmenst was read: HOME:/tmp
+[23/09/2021 18:48:59] The following working dir was read: /Users/mixfon/TaskmasterTasks/
+[23/09/2021 18:48:59] A integer variable has been read: 022
+[23/09/2021 18:48:59] The following program name was read: block_signal
+[23/09/2021 18:48:59] The following program command was read: /Users/mixfon/TaskmasterTasks/block_signal
+[23/09/2021 18:48:59] The following program arguments were read: arg_one arg_two
+[23/09/2021 18:48:59] A boolean variable has been read: true
+[23/09/2021 18:48:59] The return codes were read: -20
+[23/09/2021 18:48:59] A integer variable has been read: 1
+[23/09/2021 18:48:59] Read stop signal: SIGUSR1
+[23/09/2021 18:48:59] A integer variable has been read: 1
+[23/09/2021 18:48:59] The reboot option has been read: unexpected
+[23/09/2021 18:48:59] The following stdout was read: /Users/mixfon/TaskmasterTasks/stdout.log
+[23/09/2021 18:48:59] The following stderr was read: /Users/mixfon/TaskmasterTasks/stderr.log
+[23/09/2021 18:48:59] The following Environmenst was read: HOME:/tmp
+[23/09/2021 18:48:59] The following working dir was read: /Users/mixfon/TaskmasterTasks/
+[23/09/2021 18:48:59] A integer variable has been read: 022
+[23/09/2021 18:49:36] Taskmaster stop
+[23/09/2021 18:52:04] Read name file logs: precesses_config.xml
+[23/09/2021 18:52:04] Read name file logs: taskmaster.log
+[23/09/2021 18:52:04] A integer variable has been read: 8080
+[23/09/2021 18:52:04] The following program name was read: print_time
+[23/09/2021 18:52:04] The following program command was read: /Users/mixfon/TaskmasterTasks/print_time
+[23/09/2021 18:52:04] The following program arguments were read: arg_one arg_two conf
+[23/09/2021 18:52:04] A boolean variable has been read: false
+[23/09/2021 18:52:04] The return codes were read: 100
+[23/09/2021 18:52:04] A integer variable has been read: 1
+[23/09/2021 18:52:04] Read stop signal: SIGUSR1
+[23/09/2021 18:52:04] A integer variable has been read: 1
+[23/09/2021 18:52:04] The reboot option has been read: never
+[23/09/2021 18:52:04] The following stdout was read: /Users/mixfon/TaskmasterTasks/stdout.log
+[23/09/2021 18:52:04] The following stderr was read: /Users/mixfon/TaskmasterTasks/stderr.log
+[23/09/2021 18:52:04] The following Environmenst was read: HOME:/tmp
+[23/09/2021 18:52:04] The following working dir was read: /Users/mixfon/TaskmasterTasks/
+[23/09/2021 18:52:04] A integer variable has been read: 022
+[23/09/2021 18:52:04] The following program name was read: block_signal
+[23/09/2021 18:52:04] The following program command was read: /Users/mixfon/TaskmasterTasks/block_signal
+[23/09/2021 18:52:04] The following program arguments were read: arg_one arg_two
+[23/09/2021 18:52:04] A boolean variable has been read: true
+[23/09/2021 18:52:04] The return codes were read: -20
+[23/09/2021 18:52:04] A integer variable has been read: 1
+[23/09/2021 18:52:04] Read stop signal: SIGUSR1
+[23/09/2021 18:52:04] A integer variable has been read: 1
+[23/09/2021 18:52:04] The reboot option has been read: unexpected
+[23/09/2021 18:52:04] The following stdout was read: /Users/mixfon/TaskmasterTasks/stdout.log
+[23/09/2021 18:52:04] The following stderr was read: /Users/mixfon/TaskmasterTasks/stderr.log
+[23/09/2021 18:52:04] The following Environmenst was read: HOME:/tmp
+[23/09/2021 18:52:04] The following working dir was read: /Users/mixfon/TaskmasterTasks/
+[23/09/2021 18:52:04] A integer variable has been read: 022
+[23/09/2021 18:52:04] Start task: 25574 block_signal
+[23/09/2021 18:52:10] The following program name was read: print_time
+[23/09/2021 18:52:10] The following program command was read: /Users/mixfon/TaskmasterTasks/print_time
+[23/09/2021 18:52:10] The following program arguments were read: arg_one arg_two conf
+[23/09/2021 18:52:10] A boolean variable has been read: false
+[23/09/2021 18:52:10] The return codes were read: 100
+[23/09/2021 18:52:10] A integer variable has been read: 1
+[23/09/2021 18:52:10] Read stop signal: SIGUSR1
+[23/09/2021 18:52:10] A integer variable has been read: 1
+[23/09/2021 18:52:10] The reboot option has been read: never
+[23/09/2021 18:52:10] The following stdout was read: /Users/mixfon/TaskmasterTasks/stdout.log
+[23/09/2021 18:52:10] The following stderr was read: /Users/mixfon/TaskmasterTasks/stderr.log
+[23/09/2021 18:52:10] The following Environmenst was read: HOME:/tmp
+[23/09/2021 18:52:10] The following working dir was read: /Users/mixfon/TaskmasterTasks/
+[23/09/2021 18:52:10] A integer variable has been read: 022
+[23/09/2021 18:52:10] The following program name was read: block_signal
+[23/09/2021 18:52:10] The following program command was read: /Users/mixfon/TaskmasterTasks/block_signal
+[23/09/2021 18:52:10] The following program arguments were read: arg_one arg_two
+[23/09/2021 18:52:10] A boolean variable has been read: true
+[23/09/2021 18:52:10] The return codes were read: -20
+[23/09/2021 18:52:10] A integer variable has been read: 1
+[23/09/2021 18:52:10] Read stop signal: SIGUSR1
+[23/09/2021 18:52:10] A integer variable has been read: 1
+[23/09/2021 18:52:10] The reboot option has been read: unexpected
+[23/09/2021 18:52:10] The following stdout was read: /Users/mixfon/TaskmasterTasks/stdout.log
+[23/09/2021 18:52:10] The following stderr was read: /Users/mixfon/TaskmasterTasks/stderr.log
+[23/09/2021 18:52:10] The following Environmenst was read: HOME:/tmp
+[23/09/2021 18:52:10] The following working dir was read: /Users/mixfon/TaskmasterTasks/
+[23/09/2021 18:52:10] A integer variable has been read: 022
+[23/09/2021 18:52:24] Start task: 25578 print_time
+[23/09/2021 18:52:27] Finish task: 25578 (print_time)
+[23/09/2021 18:52:28] The following program name was read: print_time
+[23/09/2021 18:52:28] The following program command was read: /Users/mixfon/TaskmasterTasks/print_time
+[23/09/2021 18:52:28] The following program arguments were read: arg_one arg_two conf
+[23/09/2021 18:52:28] A boolean variable has been read: false
+[23/09/2021 18:52:28] The return codes were read: 100
+[23/09/2021 18:52:28] A integer variable has been read: 1
+[23/09/2021 18:52:28] Read stop signal: SIGUSR1
+[23/09/2021 18:52:28] A integer variable has been read: 1
+[23/09/2021 18:52:28] The reboot option has been read: never
+[23/09/2021 18:52:28] The following stdout was read: /Users/mixfon/TaskmasterTasks/stdout.log
+[23/09/2021 18:52:28] The following stderr was read: /Users/mixfon/TaskmasterTasks/stderr.log
+[23/09/2021 18:52:28] The following Environmenst was read: HOME:/tmp
+[23/09/2021 18:52:28] The following working dir was read: /Users/mixfon/TaskmasterTasks/
+[23/09/2021 18:52:28] A integer variable has been read: 022
+[23/09/2021 18:52:28] The following program name was read: block_signal
+[23/09/2021 18:52:28] The following program command was read: /Users/mixfon/TaskmasterTasks/block_signal
+[23/09/2021 18:52:28] The following program arguments were read: arg_one arg_two
+[23/09/2021 18:52:28] A boolean variable has been read: true
+[23/09/2021 18:52:28] The return codes were read: -20
+[23/09/2021 18:52:28] A integer variable has been read: 1
+[23/09/2021 18:52:28] Read stop signal: SIGUSR1
+[23/09/2021 18:52:28] A integer variable has been read: 1
+[23/09/2021 18:52:28] The reboot option has been read: unexpected
+[23/09/2021 18:52:28] The following stdout was read: /Users/mixfon/TaskmasterTasks/stdout.log
+[23/09/2021 18:52:28] The following stderr was read: /Users/mixfon/TaskmasterTasks/stderr.log
+[23/09/2021 18:52:28] The following Environmenst was read: HOME:/tmp
+[23/09/2021 18:52:28] The following working dir was read: /Users/mixfon/TaskmasterTasks/
+[23/09/2021 18:52:28] A integer variable has been read: 022
+[23/09/2021 18:53:09] Taskmaster stop
+[23/09/2021 18:56:16] Read name file logs: precesses_config.xml
+[23/09/2021 18:56:16] Read name file logs: taskmaster.log
+[23/09/2021 18:56:16] A integer variable has been read: 8080
+[23/09/2021 18:56:16] The following program name was read: print_time
+[23/09/2021 18:56:16] The following program command was read: /Users/mixfon/TaskmasterTasks/print_time
+[23/09/2021 18:56:16] The following program arguments were read: arg_one arg_two conf
+[23/09/2021 18:56:16] A boolean variable has been read: false
+[23/09/2021 18:56:16] The return codes were read: 100
+[23/09/2021 18:56:16] A integer variable has been read: 1
+[23/09/2021 18:56:16] Read stop signal: SIGUSR1
+[23/09/2021 18:56:16] A integer variable has been read: 1
+[23/09/2021 18:56:16] The reboot option has been read: never
+[23/09/2021 18:56:16] The following stdout was read: /Users/mixfon/TaskmasterTasks/stdout.log
+[23/09/2021 18:56:16] The following stderr was read: /Users/mixfon/TaskmasterTasks/stderr.log
+[23/09/2021 18:56:16] The following Environmenst was read: HOME:/tmp
+[23/09/2021 18:56:16] The following working dir was read: /Users/mixfon/TaskmasterTasks/
+[23/09/2021 18:56:16] A integer variable has been read: 022
+[23/09/2021 18:56:16] The following program name was read: block_signal
+[23/09/2021 18:56:16] The following program command was read: /Users/mixfon/TaskmasterTasks/block_signal
+[23/09/2021 18:56:16] The following program arguments were read: arg_one arg_two
+[23/09/2021 18:56:16] A boolean variable has been read: true
+[23/09/2021 18:56:16] The return codes were read: -20
+[23/09/2021 18:56:16] A integer variable has been read: 1
+[23/09/2021 18:56:16] Read stop signal: SIGUSR1
+[23/09/2021 18:56:16] A integer variable has been read: 1
+[23/09/2021 18:56:16] The reboot option has been read: unexpected
+[23/09/2021 18:56:16] The following stdout was read: /Users/mixfon/TaskmasterTasks/stdout.log
+[23/09/2021 18:56:16] The following stderr was read: /Users/mixfon/TaskmasterTasks/stderr.log
+[23/09/2021 18:56:16] The following Environmenst was read: HOME:/tmp
+[23/09/2021 18:56:16] The following working dir was read: /Users/mixfon/TaskmasterTasks/
+[23/09/2021 18:56:16] A integer variable has been read: 022
+[23/09/2021 18:56:16] Start task: 25779 block_signal
+[23/09/2021 18:56:21] Start task: 25782 print_time
+[23/09/2021 18:56:23] Finish task: 25782 (print_time)
+[23/09/2021 18:56:24] The following program name was read: print_time
+[23/09/2021 18:56:24] The following program command was read: /Users/mixfon/TaskmasterTasks/print_time
+[23/09/2021 18:56:24] The following program arguments were read: arg_one arg_two conf
+[23/09/2021 18:56:24] A boolean variable has been read: false
+[23/09/2021 18:56:24] The return codes were read: 100
+[23/09/2021 18:56:24] A integer variable has been read: 1
+[23/09/2021 18:56:24] Read stop signal: SIGUSR1
+[23/09/2021 18:56:24] A integer variable has been read: 1
+[23/09/2021 18:56:24] The reboot option has been read: never
+[23/09/2021 18:56:24] The following stdout was read: /Users/mixfon/TaskmasterTasks/stdout.log
+[23/09/2021 18:56:24] The following stderr was read: /Users/mixfon/TaskmasterTasks/stderr.log
+[23/09/2021 18:56:24] The following Environmenst was read: HOME:/tmp
+[23/09/2021 18:56:24] The following working dir was read: /Users/mixfon/TaskmasterTasks/
+[23/09/2021 18:56:24] A integer variable has been read: 022
+[23/09/2021 18:56:24] The following program name was read: block_signal
+[23/09/2021 18:56:24] The following program command was read: /Users/mixfon/TaskmasterTasks/block_signal
+[23/09/2021 18:56:24] The following program arguments were read: arg_one arg_two
+[23/09/2021 18:56:24] A boolean variable has been read: true
+[23/09/2021 18:56:24] The return codes were read: -20
+[23/09/2021 18:56:24] A integer variable has been read: 1
+[23/09/2021 18:56:24] Read stop signal: SIGUSR1
+[23/09/2021 18:56:24] A integer variable has been read: 1
+[23/09/2021 18:56:24] The reboot option has been read: unexpected
+[23/09/2021 18:56:24] The following stdout was read: /Users/mixfon/TaskmasterTasks/stdout.log
+[23/09/2021 18:56:24] The following stderr was read: /Users/mixfon/TaskmasterTasks/stderr.log
+[23/09/2021 18:56:24] The following Environmenst was read: HOME:/tmp
+[23/09/2021 18:56:24] The following working dir was read: /Users/mixfon/TaskmasterTasks/
+[23/09/2021 18:56:24] A integer variable has been read: 022
+[23/09/2021 18:56:32] Start task: 25783 block_signal
+[23/09/2021 18:56:32] Start task: 25784 print_time
+[23/09/2021 18:56:42] Finish task: 25783 (block_signal)
+[23/09/2021 18:56:42] Finish task: 25784 (print_time)
+[23/09/2021 18:56:42] Start task: 25785 block_signal
+[23/09/2021 18:56:42] Start task: 25786 print_time
+[23/09/2021 18:56:44] Finish task: 25786 (print_time)
+[23/09/2021 18:56:45] The following program name was read: print_time
+[23/09/2021 18:56:45] The following program command was read: /Users/mixfon/TaskmasterTasks/print_time
+[23/09/2021 18:56:45] The following program arguments were read: arg_one arg_two conf
+[23/09/2021 18:56:45] A boolean variable has been read: false
+[23/09/2021 18:56:45] The return codes were read: 100
+[23/09/2021 18:56:45] A integer variable has been read: 1
+[23/09/2021 18:56:45] Read stop signal: SIGUSR1
+[23/09/2021 18:56:45] A integer variable has been read: 1
+[23/09/2021 18:56:45] The reboot option has been read: never
+[23/09/2021 18:56:45] The following stdout was read: /Users/mixfon/TaskmasterTasks/stdout.log
+[23/09/2021 18:56:45] The following stderr was read: /Users/mixfon/TaskmasterTasks/stderr.log
+[23/09/2021 18:56:45] The following Environmenst was read: HOME:/tmp
+[23/09/2021 18:56:45] The following working dir was read: /Users/mixfon/TaskmasterTasks/
+[23/09/2021 18:56:45] A integer variable has been read: 022
+[23/09/2021 18:56:45] The following program name was read: block_signal
+[23/09/2021 18:56:45] The following program command was read: /Users/mixfon/TaskmasterTasks/block_signal
+[23/09/2021 18:56:45] The following program arguments were read: arg_one arg_two
+[23/09/2021 18:56:45] A boolean variable has been read: true
+[23/09/2021 18:56:45] The return codes were read: -20
+[23/09/2021 18:56:45] A integer variable has been read: 1
+[23/09/2021 18:56:45] Read stop signal: SIGUSR1
+[23/09/2021 18:56:45] A integer variable has been read: 1
+[23/09/2021 18:56:45] The reboot option has been read: unexpected
+[23/09/2021 18:56:45] The following stdout was read: /Users/mixfon/TaskmasterTasks/stdout.log
+[23/09/2021 18:56:45] The following stderr was read: /Users/mixfon/TaskmasterTasks/stderr.log
+[23/09/2021 18:56:45] The following Environmenst was read: HOME:/tmp
+[23/09/2021 18:56:45] The following working dir was read: /Users/mixfon/TaskmasterTasks/
+[23/09/2021 18:56:45] A integer variable has been read: 022
+[23/09/2021 18:56:45] Start task: 25787 block_signal
+[23/09/2021 18:56:45] Start task: 25788 print_time
+[23/09/2021 18:56:50] Taskmaster stop
+[23/09/2021 18:59:20] Read name file logs: precesses_config.xml
+[23/09/2021 18:59:20] Read name file logs: taskmaster.log
+[23/09/2021 18:59:20] A integer variable has been read: 8080
+[23/09/2021 18:59:20] The following program name was read: print_time
+[23/09/2021 18:59:20] The following program command was read: /Users/mixfon/TaskmasterTasks/print_time
+[23/09/2021 18:59:20] The following program arguments were read: arg_one arg_two conf
+[23/09/2021 18:59:20] A boolean variable has been read: false
+[23/09/2021 18:59:20] The return codes were read: 100
+[23/09/2021 18:59:20] A integer variable has been read: 1
+[23/09/2021 18:59:20] Read stop signal: SIGUSR1
+[23/09/2021 18:59:20] A integer variable has been read: 1
+[23/09/2021 18:59:20] The reboot option has been read: never
+[23/09/2021 18:59:20] The following stdout was read: /Users/mixfon/TaskmasterTasks/stdout.log
+[23/09/2021 18:59:20] The following stderr was read: /Users/mixfon/TaskmasterTasks/stderr.log
+[23/09/2021 18:59:20] The following Environmenst was read: HOME:/tmp
+[23/09/2021 18:59:20] The following working dir was read: /Users/mixfon/TaskmasterTasks/
+[23/09/2021 18:59:20] A integer variable has been read: 022
+[23/09/2021 18:59:20] The following program name was read: block_signal
+[23/09/2021 18:59:20] The following program command was read: /Users/mixfon/TaskmasterTasks/block_signal
+[23/09/2021 18:59:20] The following program arguments were read: arg_one arg_two
+[23/09/2021 18:59:20] A boolean variable has been read: true
+[23/09/2021 18:59:20] The return codes were read: -20
+[23/09/2021 18:59:20] A integer variable has been read: 1
+[23/09/2021 18:59:20] Read stop signal: SIGUSR1
+[23/09/2021 18:59:20] A integer variable has been read: 1
+[23/09/2021 18:59:20] The reboot option has been read: unexpected
+[23/09/2021 18:59:20] The following stdout was read: /Users/mixfon/TaskmasterTasks/stdout.log
+[23/09/2021 18:59:20] The following stderr was read: /Users/mixfon/TaskmasterTasks/stderr.log
+[23/09/2021 18:59:20] The following Environmenst was read: HOME:/tmp
+[23/09/2021 18:59:20] The following working dir was read: /Users/mixfon/TaskmasterTasks/
+[23/09/2021 18:59:20] A integer variable has been read: 022
+[23/09/2021 18:59:20] Start task: 25837 block_signal
+[23/09/2021 18:59:30] Start task: 25841 print_time
+[23/09/2021 18:59:36] Finish task: 25841 (print_time)
+[23/09/2021 18:59:41] Finish task: 25837 (block_signal)
+[23/09/2021 18:59:45] Start task: 25842 block_signal
+[23/09/2021 18:59:45] Start task: 25843 print_time
+[23/09/2021 18:59:50] Finish task: 25842 (block_signal)
+[23/09/2021 18:59:50] Finish task: 25843 (print_time)
+[23/09/2021 18:59:50] Start task: 25844 print_time
+[23/09/2021 18:59:59] Finish task: 25844 (print_time)
+[23/09/2021 18:59:59] Start task: 25845 block_signal
+[23/09/2021 18:59:59] Start task: 25846 print_time
+[23/09/2021 19:00:06] Finish task: 25846 (print_time)
+[23/09/2021 19:00:11] Finish task: 25845 (block_signal)
+[23/09/2021 19:00:17] The following program name was read: print_time
+[23/09/2021 19:00:17] The following program command was read: /Users/mixfon/TaskmasterTasks/print_time
+[23/09/2021 19:00:17] The following program arguments were read: arg_one arg_two conf
+[23/09/2021 19:00:17] A boolean variable has been read: false
+[23/09/2021 19:00:17] The return codes were read: 100
+[23/09/2021 19:00:17] A integer variable has been read: 1
+[23/09/2021 19:00:17] Read stop signal: SIGUSR1
+[23/09/2021 19:00:17] A integer variable has been read: 1
+[23/09/2021 19:00:17] The reboot option has been read: never
+[23/09/2021 19:00:17] The following stdout was read: /Users/mixfon/TaskmasterTasks/stdout.log
+[23/09/2021 19:00:17] The following stderr was read: /Users/mixfon/TaskmasterTasks/stderr.log
+[23/09/2021 19:00:17] The following Environmenst was read: HOME:/tmp
+[23/09/2021 19:00:17] The following working dir was read: /Users/mixfon/TaskmasterTasks/
+[23/09/2021 19:00:17] A integer variable has been read: 022
+[23/09/2021 19:00:17] The following program name was read: block_signal
+[23/09/2021 19:00:17] The following program command was read: /Users/mixfon/TaskmasterTasks/block_signal
+[23/09/2021 19:00:17] The following program arguments were read: arg_one arg_two
+[23/09/2021 19:00:17] A boolean variable has been read: true
+[23/09/2021 19:00:17] The return codes were read: -20
+[23/09/2021 19:00:17] A integer variable has been read: 1
+[23/09/2021 19:00:17] Read stop signal: SIGUSR1
+[23/09/2021 19:00:17] A integer variable has been read: 1
+[23/09/2021 19:00:17] The reboot option has been read: unexpected
+[23/09/2021 19:00:17] The following stdout was read: /Users/mixfon/TaskmasterTasks/stdout.log
+[23/09/2021 19:00:17] The following stderr was read: /Users/mixfon/TaskmasterTasks/stderr.log
+[23/09/2021 19:00:17] The following Environmenst was read: HOME:/tmp
+[23/09/2021 19:00:17] The following working dir was read: /Users/mixfon/TaskmasterTasks/
+[23/09/2021 19:00:17] A integer variable has been read: 022
+[23/09/2021 19:00:21] Start task: 25847 block_signal
+[23/09/2021 19:00:21] Start task: 25848 print_time
+[23/09/2021 19:00:26] Finish task: 25848 (print_time)
+[23/09/2021 19:00:26] Finish task: 25847 (block_signal)
+[23/09/2021 19:00:26] Start task: 25849 block_signal
+[23/09/2021 19:00:26] Start task: 25850 print_time
+[23/09/2021 19:00:33] Finish task: 25850 (print_time)
+[23/09/2021 19:00:38] Finish task: 25849 (block_signal)
+[23/09/2021 19:00:47] Start task: 25851 block_signal
+[23/09/2021 19:00:47] Start task: 25852 print_time
+[23/09/2021 19:00:49] Finish task: 25852 (print_time)
+[23/09/2021 19:00:50] The following program name was read: print_time
+[23/09/2021 19:00:50] The following program command was read: /Users/mixfon/TaskmasterTasks/print_time
+[23/09/2021 19:00:50] The following program arguments were read: arg_one arg_two conf
+[23/09/2021 19:00:50] A boolean variable has been read: false
+[23/09/2021 19:00:50] The return codes were read: 100
+[23/09/2021 19:00:50] A integer variable has been read: 1
+[23/09/2021 19:00:50] Read stop signal: SIGUSR1
+[23/09/2021 19:00:50] A integer variable has been read: 1
+[23/09/2021 19:00:50] The reboot option has been read: never
+[23/09/2021 19:00:50] The following stdout was read: /Users/mixfon/TaskmasterTasks/stdout.log
+[23/09/2021 19:00:50] The following stderr was read: /Users/mixfon/TaskmasterTasks/stderr.log
+[23/09/2021 19:00:50] The following Environmenst was read: HOME:/tmp
+[23/09/2021 19:00:50] The following working dir was read: /Users/mixfon/TaskmasterTasks/
+[23/09/2021 19:00:50] A integer variable has been read: 022
+[23/09/2021 19:00:50] The following program name was read: block_signal
+[23/09/2021 19:00:50] The following program command was read: /Users/mixfon/TaskmasterTasks/block_signal
+[23/09/2021 19:00:50] The following program arguments were read: arg_one arg_two
+[23/09/2021 19:00:50] A boolean variable has been read: true
+[23/09/2021 19:00:50] The return codes were read: -20
+[23/09/2021 19:00:50] A integer variable has been read: 1
+[23/09/2021 19:00:50] Read stop signal: SIGUSR1
+[23/09/2021 19:00:50] A integer variable has been read: 1
+[23/09/2021 19:00:50] The reboot option has been read: unexpected
+[23/09/2021 19:00:50] The following stdout was read: /Users/mixfon/TaskmasterTasks/stdout.log
+[23/09/2021 19:00:50] The following stderr was read: /Users/mixfon/TaskmasterTasks/stderr.log
+[23/09/2021 19:00:50] The following Environmenst was read: HOME:/tmp
+[23/09/2021 19:00:50] The following working dir was read: /Users/mixfon/TaskmasterTasks/
+[23/09/2021 19:00:50] A integer variable has been read: 022
+[23/09/2021 19:01:25] Start task: 25853 block_signal
+[23/09/2021 19:01:25] Start task: 25854 print_time
+[23/09/2021 19:01:28] Finish task: 25854 (print_time)
+[23/09/2021 19:01:29] The following program name was read: print_time
+[23/09/2021 19:01:29] The following program command was read: /Users/mixfon/TaskmasterTasks/print_time
+[23/09/2021 19:01:29] The following program arguments were read: arg_one arg_two conf
+[23/09/2021 19:01:29] A boolean variable has been read: false
+[23/09/2021 19:01:29] The return codes were read: 100
+[23/09/2021 19:01:29] A integer variable has been read: 1
+[23/09/2021 19:01:29] Read stop signal: SIGUSR1
+[23/09/2021 19:01:29] A integer variable has been read: 1
+[23/09/2021 19:01:29] The reboot option has been read: never
+[23/09/2021 19:01:29] The following stdout was read: /Users/mixfon/TaskmasterTasks/stdout.log
+[23/09/2021 19:01:29] The following stderr was read: /Users/mixfon/TaskmasterTasks/stderr.log
+[23/09/2021 19:01:29] The following Environmenst was read: HOME:/tmp
+[23/09/2021 19:01:29] The following working dir was read: /Users/mixfon/TaskmasterTasks/
+[23/09/2021 19:01:29] A integer variable has been read: 022
+[23/09/2021 19:01:29] The following program name was read: block_signal
+[23/09/2021 19:01:29] The following program command was read: /Users/mixfon/TaskmasterTasks/block_signal
+[23/09/2021 19:01:29] The following program arguments were read: arg_one arg_two
+[23/09/2021 19:01:29] A boolean variable has been read: true
+[23/09/2021 19:01:29] The return codes were read: -20
+[23/09/2021 19:01:29] A integer variable has been read: 1
+[23/09/2021 19:01:29] Read stop signal: SIGUSR1
+[23/09/2021 19:01:29] A integer variable has been read: 1
+[23/09/2021 19:01:29] The reboot option has been read: unexpected
+[23/09/2021 19:01:29] The following stdout was read: /Users/mixfon/TaskmasterTasks/stdout.log
+[23/09/2021 19:01:29] The following stderr was read: /Users/mixfon/TaskmasterTasks/stderr.log
+[23/09/2021 19:01:29] The following Environmenst was read: HOME:/tmp
+[23/09/2021 19:01:29] The following working dir was read: /Users/mixfon/TaskmasterTasks/
+[23/09/2021 19:01:29] A integer variable has been read: 022
+[23/09/2021 19:01:38] Start task: 25856 block_signal
+[23/09/2021 19:01:38] Start task: 25857 print_time
+[23/09/2021 19:01:41] Finish task: 25857 (print_time)
+[23/09/2021 19:01:41] The following program name was read: print_time
+[23/09/2021 19:01:41] The following program command was read: /Users/mixfon/TaskmasterTasks/print_time
+[23/09/2021 19:01:41] The following program arguments were read: arg_one arg_two conf
+[23/09/2021 19:01:41] A boolean variable has been read: false
+[23/09/2021 19:01:41] The return codes were read: 100
+[23/09/2021 19:01:41] A integer variable has been read: 1
+[23/09/2021 19:01:41] Read stop signal: SIGUSR1
+[23/09/2021 19:01:41] A integer variable has been read: 1
+[23/09/2021 19:01:41] The reboot option has been read: never
+[23/09/2021 19:01:41] The following stdout was read: /Users/mixfon/TaskmasterTasks/stdout.log
+[23/09/2021 19:01:41] The following stderr was read: /Users/mixfon/TaskmasterTasks/stderr.log
+[23/09/2021 19:01:41] The following Environmenst was read: HOME:/tmp
+[23/09/2021 19:01:41] The following working dir was read: /Users/mixfon/TaskmasterTasks/
+[23/09/2021 19:01:41] A integer variable has been read: 022
+[23/09/2021 19:01:41] The following program name was read: block_signal
+[23/09/2021 19:01:41] The following program command was read: /Users/mixfon/TaskmasterTasks/block_signal
+[23/09/2021 19:01:41] The following program arguments were read: arg_one arg_two
+[23/09/2021 19:01:41] A boolean variable has been read: true
+[23/09/2021 19:01:41] The return codes were read: -20
+[23/09/2021 19:01:41] A integer variable has been read: 1
+[23/09/2021 19:01:41] Read stop signal: SIGUSR1
+[23/09/2021 19:01:41] A integer variable has been read: 1
+[23/09/2021 19:01:41] The reboot option has been read: unexpected
+[23/09/2021 19:01:41] The following stdout was read: /Users/mixfon/TaskmasterTasks/stdout.log
+[23/09/2021 19:01:41] The following stderr was read: /Users/mixfon/TaskmasterTasks/stderr.log
+[23/09/2021 19:01:41] The following Environmenst was read: HOME:/tmp
+[23/09/2021 19:01:41] The following working dir was read: /Users/mixfon/TaskmasterTasks/
+[23/09/2021 19:01:41] A integer variable has been read: 022
+[23/09/2021 19:01:44] Start task: 25858 block_signal
+[23/09/2021 19:01:44] Start task: 25859 print_time
+[23/09/2021 19:01:45] Finish task: 25859 (print_time)
+[23/09/2021 19:01:46] The following program name was read: print_time
+[23/09/2021 19:01:46] The following program command was read: /Users/mixfon/TaskmasterTasks/print_time
+[23/09/2021 19:01:46] The following program arguments were read: arg_one arg_two conf
+[23/09/2021 19:01:46] A boolean variable has been read: false
+[23/09/2021 19:01:46] The return codes were read: 100
+[23/09/2021 19:01:46] A integer variable has been read: 1
+[23/09/2021 19:01:46] Read stop signal: SIGUSR1
+[23/09/2021 19:01:46] A integer variable has been read: 1
+[23/09/2021 19:01:46] The reboot option has been read: never
+[23/09/2021 19:01:46] The following stdout was read: /Users/mixfon/TaskmasterTasks/stdout.log
+[23/09/2021 19:01:46] The following stderr was read: /Users/mixfon/TaskmasterTasks/stderr.log
+[23/09/2021 19:01:46] The following Environmenst was read: HOME:/tmp
+[23/09/2021 19:01:46] The following working dir was read: /Users/mixfon/TaskmasterTasks/
+[23/09/2021 19:01:46] A integer variable has been read: 022
+[23/09/2021 19:01:46] The following program name was read: block_signal
+[23/09/2021 19:01:46] The following program command was read: /Users/mixfon/TaskmasterTasks/block_signal
+[23/09/2021 19:01:46] The following program arguments were read: arg_one arg_two
+[23/09/2021 19:01:46] A boolean variable has been read: true
+[23/09/2021 19:01:46] The return codes were read: -20
+[23/09/2021 19:01:46] A integer variable has been read: 1
+[23/09/2021 19:01:46] Read stop signal: SIGUSR1
+[23/09/2021 19:01:46] A integer variable has been read: 1
+[23/09/2021 19:01:46] The reboot option has been read: unexpected
+[23/09/2021 19:01:46] The following stdout was read: /Users/mixfon/TaskmasterTasks/stdout.log
+[23/09/2021 19:01:46] The following stderr was read: /Users/mixfon/TaskmasterTasks/stderr.log
+[23/09/2021 19:01:46] The following Environmenst was read: HOME:/tmp
+[23/09/2021 19:01:46] The following working dir was read: /Users/mixfon/TaskmasterTasks/
+[23/09/2021 19:01:46] A integer variable has been read: 022
+[23/09/2021 19:01:58] Taskmaster stop

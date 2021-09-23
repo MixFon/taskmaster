@@ -79,26 +79,12 @@ struct Taskmaster {
 		}
 	}
 	
-	/// Чтение и исполнение команд.
-//	func runTaskmaster() {
-//		while let line = readLine() {
-//			let commands = getCommands(line: line)
-//			if commands.count < 1 { continue }
-//			guard let first = commands.first else { continue }
-//			guard let command = Command(rawValue: first) else {
-//				Logs.writeLogsToFileLogs("Invalid command: \(line)")
-//				continue
-//			}
-//			let arguments = commands[1...].map( {String($0)} )
-//			print("command: \(command.rawValue)")
-//			executeCommand(command: command, arguments: arguments)
-//		}
-//	}
-	
 	/// Перезагружает файл с конфигурациями и обновляет данные процессов.
 	private func reloadConfigFile() {
 		let xmlManager = XMLDataManager()
+		print("0000")
 		guard let newProcess = xmlManager.getDataProcesses(xmlFile: self.processesConfig) else { return }
+		print("1111")
 		guard let oldProcess = Taskmaster.dataProcesses else { return }
 		let newSet = Set<DataProcess>(newProcess)
 		let oldSet = Set<DataProcess>(oldProcess)
@@ -106,6 +92,7 @@ struct Taskmaster {
 		let arrSub = [DataProcess](sub)
 		Taskmaster.dataProcesses?.append(contentsOf: arrSub)
 		creatingArrayProcesses(dataProcesses: arrSub)
+		print("arrSub", arrSub)
 		let newArrayProcess = [DataProcess](newSet)
 		updateDataProcesses(newProcesses: newArrayProcess)
 	}
@@ -138,7 +125,7 @@ struct Taskmaster {
 			return
 		}
 		let processes = getProcessesToName(arguments: arguments)
-		let finishRunningProcesses = processes.filter( { $0.info.status == .running || $0.info.status == .finish || $0.info.status == .fatal })
+		let finishRunningProcesses = processes.filter( { $0.info.status == .running || $0.info.status == .finish || $0.info.status == .fatal || $0.info.status == .stoping})
 		stopArrayProcess(runingProcess: finishRunningProcesses)
 		creatingArrayProcesses(dataProcesses: finishRunningProcesses)
 		commandStart(arguments: arguments)
@@ -284,8 +271,8 @@ struct Taskmaster {
 					throw "Error start time"
 				}
 			}
-			guard let index = findElement(dataProcess: dataProcess) else { return }
 			self.lock.lock()
+			guard let index = findElement(dataProcess: dataProcess) else { return }
 			Taskmaster.dataProcesses?[index].info.idProcess = Int(process.processIdentifier)
 			Taskmaster.dataProcesses?[index].info.timeStartProcess = Date()
 			Taskmaster.dataProcesses?[index].info.timeStopProcess = nil
@@ -318,7 +305,9 @@ struct Taskmaster {
 			guard let id = elem.info.idProcess else { return false }
 			return id == process.processIdentifier
 		} ) else {
-			print("Error 00")
+			print(process.processIdentifier)
+			print("Error 00!!!")
+			Taskmaster.dataProcesses?.forEach({print($0.info.idProcess ?? -1)})
 			self.lock.unlock()
 			return
 		}
@@ -472,6 +461,7 @@ struct Taskmaster {
 	/// - Returns:
 	/// 	Созданый процесс
 	private func getProcess(dataProcess: DataProcess) -> Process? {
+		terminateRunProcess(dataProcess: dataProcess)
 		let process = Process()
 		guard let command = dataProcess.info.command else { return nil }
 		if #available(OSX 10.13, *) {
@@ -502,6 +492,14 @@ struct Taskmaster {
 			process.standardOutput = FileHandle.nullDevice
 		}
 		return process
+	}
+	
+	/// Если процесс запущен останавливаеют его, чтобы он не стал мертвым.
+	private func terminateRunProcess(dataProcess: DataProcess) {
+		guard let process = dataProcess.process else { return }
+		if process.isRunning {
+			process.terminate()
+		}
 	}
 	
 	/// Останавливает один процесс

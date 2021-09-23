@@ -10,9 +10,9 @@
 		<!-- Запуск со стартом основного приложения -->
 		<autostart>false</autostart>
 		<!-- Ожидаемые коды завершения программы -->
-		<exitcodes>-1 2 0</exitcodes>
+		<exitcodes>100</exitcodes>
 		<!-- Время успешного старта программы (ms)  -->
-		<starttime>4000</starttime>
+		<starttime>4000000000</starttime>
 		<!-- Количество попыток перезапуска программы при провалившемся старте -->
 		<startretries>1</startretries>
 		<!-- Сигнал прирывания процесса -->
@@ -23,7 +23,7 @@
 		<numberprocces>1</numberprocces>
 		<!-- Перезапуск программы после завершения работы программы -->
 		<!-- always never unexpected -->
-		<autorestart>unexpected</autorestart>
+		<autorestart>never</autorestart>
 		<!-- Файл в который будет записан выходной поток -->
 		<stdout>/Users/mixfon/TaskmasterTasks/stdout.log</stdout>
 		<!-- Файл в который будет записан поток ошибок -->
@@ -38,7 +38,7 @@
 	<process>
 		<name>block_signal</name>
 		<command>/Users/mixfon/TaskmasterTasks/block_signal</command>
-		<arguments>arg_one arg_two conf</arguments>
+		<arguments>arg_one arg_two </arguments>
 		<autostart>true</autostart>
 		<exitcodes>-20</exitcodes>
 		<startretries>1</startretries>
