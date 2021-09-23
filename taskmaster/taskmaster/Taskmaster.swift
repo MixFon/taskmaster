@@ -37,8 +37,8 @@ struct Taskmaster {
 		return Taskmaster.dataProcesses?.map({$0.info})
 	}
 	
+	/// Перехват сигналов.
 	static func signalHandler(signal: Int32)->Void {
-		//Taskmaster.lock.lock()
 		guard let sgnl = InfoProcess.Signals(rawValue: signal) else { print("ErrSig01"); return }
 		if sgnl == .SIGINT || sgnl == .SIGTERM {
 			Taskmaster.exitTaskmaster()
@@ -47,7 +47,6 @@ struct Taskmaster {
 			print("ErrSig01")
 			return
 		}
-		print("Couns elemts:", stopProcesses.count)
 		for process in stopProcesses {
 			guard let index = self.dataProcesses?.firstIndex(where:
 				{ $0.info.nameProcess == process.info.nameProcess } ) else { print("ErrFind"); continue }
@@ -57,7 +56,6 @@ struct Taskmaster {
 				}
 			}
 		}
-		print("Signal", sgnl, signal)
 	}
 
 	/// Выполнение заданной программы.
@@ -215,8 +213,6 @@ struct Taskmaster {
 	private func startAllProcess() {
 		guard let dataProcesses = Taskmaster.dataProcesses else { return }
 		let dataProcessNoStart = dataProcesses.filter( { $0.info.status == .no_start } )
-		//creatingArrayProcesses(dataProcesses: dataProcessNoStart)
-		//let process = dataProcessNoStart.compactMap( { $0.process } )
 		startArrayProcesses(dataProcesses: dataProcessNoStart)
 	}
 	
@@ -278,18 +274,22 @@ struct Taskmaster {
 			try process.run()
 			let end = DispatchTime.now()
 			if let startingTime = dataProcess.info.startTime {
-				print("startingTime", startingTime)
 				let diff = DispatchTime(uptimeNanoseconds: startingTime)
-				if diff.uptimeNanoseconds < end.uptimeNanoseconds - start.uptimeNanoseconds { throw "Hello" }
+				if diff.uptimeNanoseconds < end.uptimeNanoseconds - start.uptimeNanoseconds {
+					throw "Error start time"
+				}
 			}
 			guard let index = findElement(dataProcess: dataProcess) else { return }
+			self.lock.lock()
+			Taskmaster.dataProcesses?[index].info.idProcess = Int(process.processIdentifier)
 			Taskmaster.dataProcesses?[index].info.timeStartProcess = Date()
 			Taskmaster.dataProcesses?[index].info.timeStopProcess = nil
 			Taskmaster.dataProcesses?[index].info.statusFinish = nil
 			setStatus(dataProcess: dataProcess, status: .running)
+			self.lock.unlock()
 			guard let name = Taskmaster.dataProcesses?[index].info.nameProcess else { print("Err4"); return }
 			print("run process \(process.processIdentifier)", name)
-			Logs.writeLogsToFileLogs("Start task: \(process.processIdentifier)")
+			Logs.writeLogsToFileLogs("Start task: \(process.processIdentifier) \(name)")
 		} catch {
 			if let index = findElement(dataProcess: dataProcess) {
 				if let startRetries = Taskmaster.dataProcesses?[index].info.startRetries {
@@ -309,15 +309,28 @@ struct Taskmaster {
 	/// Вызивается при завершении работы процесса.
 	private func processFinish(process: Process) {
 		self.lock.lock()
-		guard let index = Taskmaster.dataProcesses?.firstIndex(where:
-			{ $0.process?.processIdentifier == process.processIdentifier } ) else { print("Error 00"); return }
+		guard let index = Taskmaster.dataProcesses?.firstIndex(where: { elem in
+			guard let id = elem.info.idProcess else { return false }
+			return id == process.processIdentifier
+		} ) else {
+			print("Error 00")
+			self.lock.unlock()
+			return
+		}
 		Taskmaster.dataProcesses?[index].info.timeStopProcess = Date()
-		guard let dataProcess = Taskmaster.dataProcesses?[index] else { print("Error 02"); return }
+		guard let dataProcess = Taskmaster.dataProcesses?[index] else {
+			print("Error 02")
+			self.lock.unlock()
+			return
+		}
 		Taskmaster.dataProcesses?[index].info.statusFinish = getStatusFinish(dataProcess, process)
 		Taskmaster.dataProcesses?[index].info.status = .finish
-		guard let name = dataProcess.info.nameProcess else { print("Error 01"); return }
-		print("finish:", name, process.processIdentifier)
-		print("terminatio Statio", process.terminationStatus)
+		guard let name = dataProcess.info.nameProcess else {
+			print("Error 01")
+			self.lock.unlock()
+			return
+		}
+		print("Finish task: \(process.processIdentifier) (\(name))")
 		Logs.writeLogsToFileLogs("Finish task: \(process.processIdentifier) (\(name))")
 		selectRestartMode(dataProcess: dataProcess)
 		self.lock.unlock()
@@ -363,7 +376,7 @@ struct Taskmaster {
 	
 	/// Остановка всех процессов.
 	static func stopAllProcesses() {
-		if Taskmaster.dataProcesses == nil { return }
+		if Taskmaster.dataProcesses != nil { return }
 		for dataProcess in Taskmaster.dataProcesses! {
 			if let process = dataProcess.process {
 				if process.isRunning {
@@ -396,16 +409,16 @@ struct Taskmaster {
 	
 	/// Создание одного процесса по заданной информации и добавление/обнавление в массиве
 	private func createProcess(dataProcess: DataProcess) {
-		//self.dataProcesses?.forEach({print($0.nameProcess)})
 		var dataProcess = dataProcess
 		guard let number = dataProcess.info.numberProcess else { return }
 		dataProcess.info.numberProcess = 1
 		guard let index = findElement(dataProcess: dataProcess) else { return }
 		if number > 1 {
-			if number - 1 < dataProcess.info.countCopies { return }
-			Taskmaster.dataProcesses?[index].info.countCopies = max(number - 1, dataProcess.info.countCopies)
+			let copies = number - 1
+			if copies < dataProcess.info.countCopies { return }
+			Taskmaster.dataProcesses?[index].info.countCopies = max(copies, dataProcess.info.countCopies)
 			Taskmaster.dataProcesses?[index].info.numberProcess = 1
-			creatingDublicateProcess(dataProcess: dataProcess, count: number - 1 - dataProcess.info.countCopies)
+			creatingDublicateProcess(dataProcess: dataProcess, count: copies - dataProcess.info.countCopies)
 		}
 		Taskmaster.dataProcesses?[index].process = getProcess(dataProcess: dataProcess)
 		setStatus(dataProcess: dataProcess, status: .no_start)
@@ -480,17 +493,22 @@ struct Taskmaster {
 	
 	/// Останавливает один процесс
 	private func stopProcess(dataProcess: DataProcess) {
-		let process = dataProcess.process
-		let timeInterval = dataProcess.info.stopTime
 		let index = findElement(dataProcess: dataProcess)!
-		Taskmaster.dataProcesses?[index].info.status = .stoping
 		let queue = DispatchQueue.global(qos: .default)
+		guard let process = dataProcess.process else { return }
+		if !process.isRunning { return }
+		Taskmaster.dataProcesses?[index].info.status = .stoping
+		let timeInterval = dataProcess.info.stopTime
 		queue.async {
 			let _ = Timer.scheduledTimer(withTimeInterval: timeInterval ?? 0.0, repeats: false, block: { timer in
-				process?.terminate()
+				if process.isRunning {
+					process.terminate()
+				}
 			})
-			process?.interrupt()
-			process?.waitUntilExit()
+			if process.isRunning {
+				process.interrupt()
+				process.waitUntilExit()
+			}
 		}
 	}
 	

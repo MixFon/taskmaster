@@ -43,19 +43,13 @@ class XMLDataManager: NSObject  {
 	///   - xmlFile: Относительный путь до файла.
 	/// - Returns: Массив процессов, считанных из файла.
 	func getDataProcesses(xmlFile: String) -> [DataProcess]? {
-		//let fileName = "/Users/mixfon/MyFiles/Swift/taskmaster/taskmaster/taskmaster/precesses_config.xml"
-		if !parsingXML(xmlFile: xmlFile) {
-			return nil
-		}
+		if !parsingXML(xmlFile: xmlFile) { return nil }
 		return self.processes
 	}
 	
 	/// Парсит файл настроек сервера.
 	func getServerInfo(xmlFile: String) -> ServerTM.ServerInfo? {
-		//let fileName = "/Users/mixfon/MyFiles/Swift/taskmaster/taskmaster/taskmaster/server_config.xml"
-		if !parsingXML(xmlFile: xmlFile) {
-			return nil
-		}
+		if !parsingXML(xmlFile: xmlFile) { return nil }
 		return self.infoServer
 	}
 	
@@ -64,16 +58,14 @@ class XMLDataManager: NSObject  {
 		let fileManager = FileManager.default
 		var currentDirUrl = URL(fileURLWithPath: fileManager.currentDirectoryPath)
 		currentDirUrl.appendPathComponent(xmlFile)
-		//let fileURL = URL(fileURLWithPath: currentDirUrl.absoluteString)
-		print(currentDirUrl.absoluteString)
 		guard let parser = XMLParser(contentsOf: currentDirUrl.absoluteURL) else {
-			print("Invalid opened \(xmlFile)")
+			print("Invalid opened xml file:", xmlFile)
 			return false
 		}
 		self.parser = XMLParser(contentsOf: currentDirUrl.absoluteURL)
 		parser.delegate = self
 		if !parser.parse() {
-			print("Error read xml file.")
+			print("Error read xml file:", xmlFile)
 			Logs.writeLogsToFileLogs("Error read xml file.")
 			return false
 		}
@@ -161,14 +153,12 @@ class XMLDataManager: NSObject  {
 	/// Считывает как долго должна быть запущена программа, чтобы считалсть успешно запущенной..
 	private func readStartTime(data: String, line: Int, column: Int) {
 		if self.infoProcesses == nil { return }
-		//self.process?.startTime = convertStringToInt(data: data, line: line, column: column)
 		self.infoProcesses?.startTime = UInt64(data)
 	}
 	
 	/// Считывает как долго ждать после остановки программы перед тем как убить процесс
 	private func readStopTime(data: String, line: Int, column: Int) {
 		if self.infoProcesses == nil { return }
-		//self.process?.stopTime = convertStringToInt(data: data, line: line, column: column)
 		self.infoProcesses?.stopTime = Double(data)
 	}
 	
@@ -181,8 +171,6 @@ class XMLDataManager: NSObject  {
 	/// Считывает сигнал, используемый для остановки программы.
 	private func readStopSignal(data: String, line: Int, column: Int) {
 		if self.infoProcesses == nil { return }
-//		guard let dataInt = Int32(data) else { return }
-//		//let temp = InfoProcess.Signals(
 		guard let sgnl = InfoProcess.Signals(signal: data) else { return }
 		self.infoProcesses?.stopSignal = sgnl
 		Logs.writeLogsToFileLogs("Read stop signal: \(data)")

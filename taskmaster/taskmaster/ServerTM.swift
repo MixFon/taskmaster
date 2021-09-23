@@ -43,7 +43,6 @@ public class ServerTM {
 			print("Request received:", request)
 			guard let parametersCommand = request.queryParameters["command"] else { next(); return }
 			guard let command = Taskmaster.Command(rawValue: parametersCommand) else { next(); return }
-			print(Taskmaster.Command.RawValue())
 			switch command {
 			case .status:
 				self.sendStatus(response: response)

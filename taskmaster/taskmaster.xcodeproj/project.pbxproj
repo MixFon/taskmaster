@@ -3,12 +3,17 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2994202026D39F24009D56DE /* Process.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2994201F26D39F24009D56DE /* Process.swift */; };
+		295C7D1226DB96E800BEF6FB /* Logs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 295C7D1126DB96E800BEF6FB /* Logs.swift */; };
+		295C7D1526DCB05F00BEF6FB /* Taskmaster.swift in Sources */ = {isa = PBXBuildFile; fileRef = 295C7D1426DCB05F00BEF6FB /* Taskmaster.swift */; };
+		298BE60826F0834700AFEBE1 /* ServerTM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298BE60726F0834700AFEBE1 /* ServerTM.swift */; };
+		298BE60C26F08F1900AFEBE1 /* Kitura in Frameworks */ = {isa = PBXBuildFile; productRef = 298BE60B26F08F1900AFEBE1 /* Kitura */; };
+		2994202026D39F24009D56DE /* DataProcess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2994201F26D39F24009D56DE /* DataProcess.swift */; };
 		2994202326D3F8BF009D56DE /* XMLDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2994202226D3F8BF009D56DE /* XMLDataManager.swift */; };
+		29AA088F26F0DB78006CBE92 /* InfoProcess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29AA088E26F0DB78006CBE92 /* InfoProcess.swift */; };
 		29F1A87726D0E5580063D4F8 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29F1A87626D0E5580063D4F8 /* main.swift */; };
 /* End PBXBuildFile section */
 
@@ -25,9 +30,14 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		29534AC626F9BE3000FA5C02 /* precesses_config.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = precesses_config.xml; sourceTree = "<group>"; };
+		295C7D1126DB96E800BEF6FB /* Logs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logs.swift; sourceTree = "<group>"; };
+		295C7D1426DCB05F00BEF6FB /* Taskmaster.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Taskmaster.swift; sourceTree = "<group>"; };
+		298BE60726F0834700AFEBE1 /* ServerTM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerTM.swift; sourceTree = "<group>"; };
 		2994201D26D3738A009D56DE /* server_config.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = server_config.xml; sourceTree = "<group>"; };
-		2994201F26D39F24009D56DE /* Process.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Process.swift; sourceTree = "<group>"; };
+		2994201F26D39F24009D56DE /* DataProcess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataProcess.swift; sourceTree = "<group>"; };
 		2994202226D3F8BF009D56DE /* XMLDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XMLDataManager.swift; sourceTree = "<group>"; };
+		29AA088E26F0DB78006CBE92 /* InfoProcess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoProcess.swift; sourceTree = "<group>"; };
 		29F1A87326D0E5580063D4F8 /* taskmaster */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = taskmaster; sourceTree = BUILT_PRODUCTS_DIR; };
 		29F1A87626D0E5580063D4F8 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -37,6 +47,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				298BE60C26F08F1900AFEBE1 /* Kitura in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -64,8 +75,13 @@
 			children = (
 				29F1A87626D0E5580063D4F8 /* main.swift */,
 				2994201D26D3738A009D56DE /* server_config.xml */,
-				2994201F26D39F24009D56DE /* Process.swift */,
+				29534AC626F9BE3000FA5C02 /* precesses_config.xml */,
+				2994201F26D39F24009D56DE /* DataProcess.swift */,
 				2994202226D3F8BF009D56DE /* XMLDataManager.swift */,
+				295C7D1126DB96E800BEF6FB /* Logs.swift */,
+				295C7D1426DCB05F00BEF6FB /* Taskmaster.swift */,
+				298BE60726F0834700AFEBE1 /* ServerTM.swift */,
+				29AA088E26F0DB78006CBE92 /* InfoProcess.swift */,
 			);
 			path = taskmaster;
 			sourceTree = "<group>";
@@ -86,6 +102,9 @@
 			dependencies = (
 			);
 			name = taskmaster;
+			packageProductDependencies = (
+				298BE60B26F08F1900AFEBE1 /* Kitura */,
+			);
 			productName = taskmaster;
 			productReference = 29F1A87326D0E5580063D4F8 /* taskmaster */;
 			productType = "com.apple.product-type.tool";
@@ -113,6 +132,9 @@
 				Base,
 			);
 			mainGroup = 29F1A86A26D0E5580063D4F8;
+			packageReferences = (
+				298BE60A26F08F1900AFEBE1 /* XCRemoteSwiftPackageReference "Kitura" */,
+			);
 			productRefGroup = 29F1A87426D0E5580063D4F8 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -127,9 +149,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				295C7D1526DCB05F00BEF6FB /* Taskmaster.swift in Sources */,
 				29F1A87726D0E5580063D4F8 /* main.swift in Sources */,
 				2994202326D3F8BF009D56DE /* XMLDataManager.swift in Sources */,
-				2994202026D39F24009D56DE /* Process.swift in Sources */,
+				29AA088F26F0DB78006CBE92 /* InfoProcess.swift in Sources */,
+				295C7D1226DB96E800BEF6FB /* Logs.swift in Sources */,
+				2994202026D39F24009D56DE /* DataProcess.swift in Sources */,
+				298BE60826F0834700AFEBE1 /* ServerTM.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -295,6 +321,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		298BE60A26F08F1900AFEBE1 /* XCRemoteSwiftPackageReference "Kitura" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Kitura/Kitura.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		298BE60B26F08F1900AFEBE1 /* Kitura */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 298BE60A26F08F1900AFEBE1 /* XCRemoteSwiftPackageReference "Kitura" */;
+			productName = Kitura;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 29F1A86B26D0E5580063D4F8 /* Project object */;
 }

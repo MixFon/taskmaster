@@ -9,6 +9,7 @@ import Foundation
 
 struct InfoProcess: Encodable {
 	var nameProcess: String?
+	var idProcess: Int?
 	var command: String?
 	var arguments: [String]?
 	var numberProcess: Int? = 1
