@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<configuration>
+	<process>
+		<!-- Создается 4 копии -->
+		<name>print_time</name>
+		<command>/Users/mixfon/TaskmasterTasks/print_time</command>
+		<arguments>arg_one arg_two conf</arguments>
+		<autostart>false</autostart>
+		<numberprocces>5</numberprocces>
+		<workingdir>/Users/mixfon/TaskmasterTasks/</workingdir>
+	</process>
+	<process>
+		<!-- Создается 3 копии -->
+		<name>block_signal</name>
+		<command>/Users/mixfon/TaskmasterTasks/block_signal</command>
+		<arguments>arg_one arg_two</arguments>
+		<autostart>false</autostart>
+		<numberprocces>4</numberprocces>
+		<workingdir>/Users/mixfon/TaskmasterTasks/</workingdir>
+	</process>
+</configuration>

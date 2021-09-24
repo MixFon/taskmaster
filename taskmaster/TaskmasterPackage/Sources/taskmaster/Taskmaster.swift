@@ -125,9 +125,8 @@ struct Taskmaster {
 			return
 		}
 		let processes = getProcessesToName(arguments: arguments)
-		let finishRunningProcesses = processes.filter( { $0.info.status == .running || $0.info.status == .finish || $0.info.status == .fatal || $0.info.status == .stoping})
-		stopArrayProcess(runingProcess: finishRunningProcesses)
-		creatingArrayProcesses(dataProcesses: finishRunningProcesses)
+		stopArrayProcess(runingProcess: processes)
+		creatingArrayProcesses(dataProcesses: processes)
 		commandStart(arguments: arguments)
 	}
 	
@@ -221,8 +220,8 @@ struct Taskmaster {
 	
 	/// Завершение работы основной программы
 	static func exitTaskmaster() {
-		Logs.writeLogsToFileLogs("Taskmaster stop")
 		stopAllProcesses()
+		Logs.writeLogsToFileLogs("Taskmaster stop")
 		exit(0)
 	}
 	
@@ -267,12 +266,13 @@ struct Taskmaster {
 			if let startingTime = dataProcess.info.startTime {
 				let diff = DispatchTime(uptimeNanoseconds: startingTime)
 				if diff.uptimeNanoseconds < end.uptimeNanoseconds - start.uptimeNanoseconds {
+					process.terminationHandler = nil
 					process.terminate()
 					throw "Error start time"
 				}
 			}
 			self.lock.lock()
-			guard let index = findElement(dataProcess: dataProcess) else { return }
+			guard let index = findElement(dataProcess: dataProcess) else { self.lock.unlock(); return }
 			Taskmaster.dataProcesses?[index].info.idProcess = Int(process.processIdentifier)
 			Taskmaster.dataProcesses?[index].info.timeStartProcess = Date()
 			Taskmaster.dataProcesses?[index].info.timeStopProcess = nil
@@ -287,7 +287,8 @@ struct Taskmaster {
 				if let startRetries = Taskmaster.dataProcesses?[index].info.startRetries {
 					if startRetries > 0 {
 						Taskmaster.dataProcesses?[index].info.startRetries! -= 1
-						print("Retry", Taskmaster.dataProcesses![index].info.startRetries!)
+						let nameProcess = Taskmaster.dataProcesses?[index].info.nameProcess
+						print("Retry", nameProcess ?? "nan", startRetries - 1)
 						startProcess(Taskmaster.dataProcesses![index])
 						return
 					}
@@ -326,12 +327,14 @@ struct Taskmaster {
 		}
 		print("Finish task: \(process.processIdentifier) (\(name))")
 		Logs.writeLogsToFileLogs("Finish task: \(process.processIdentifier) (\(name))")
-		selectRestartMode(dataProcess: dataProcess)
 		self.lock.unlock()
+		selectRestartMode(dataProcess: Taskmaster.dataProcesses?[index])
 	}
 	
 	/// Нужно ли перезапускать программу по завершении always, newer, unexpected
-	private func selectRestartMode(dataProcess: DataProcess) {
+	private func selectRestartMode(dataProcess: DataProcess?) {
+		guard let dataProcess = dataProcess else { return }
+		print(dataProcess.info.autoRestart ?? "nil")
 		switch dataProcess.info.autoRestart {
 		case .never:
 			return
@@ -347,13 +350,14 @@ struct Taskmaster {
 	/// Перезапуск процесса в случае флага always или unexpected
 	private func restarMode(dataProcess: DataProcess) {
 		createProcess(dataProcess: dataProcess)
-		guard let name = dataProcess.info.nameProcess else { return }
+		guard let name = dataProcess.info.nameProcess else { print("ErrorName"); return }
 		let processes = getProcessesToName(arguments: [name])
 		startArrayProcesses(dataProcesses: processes)
 	}
 	
 	/// Возвращает статус завершения программы. Успех если код найден, провал, если код не найден
 	private func getStatusFinish(_ dataProcess: DataProcess, _ process: Process) -> InfoProcess.Finish {
+		print("termination Reason:", process.terminationReason.rawValue)
 		if let codes = dataProcess.info.exitCodes {
 			if codes.contains(process.terminationStatus) {
 				return .success
@@ -368,12 +372,14 @@ struct Taskmaster {
 		}
 }
 	
-	/// Остановка всех процессов.
+	/// Полная остановка всех процессов.
 	static func stopAllProcesses() {
-		if Taskmaster.dataProcesses != nil { return }
-		for dataProcess in Taskmaster.dataProcesses! {
-			if let process = dataProcess.process {
+		guard let count = Taskmaster.dataProcesses?.count else { return }
+		for i in 0..<count {
+			//Taskmaster.dataProcesses?[i].info.autoRestart = .never
+			if let process = Taskmaster.dataProcesses?[i].process {
 				if process.isRunning {
+					process.terminationHandler = nil
 					process.terminate()
 				}
 			}
@@ -409,10 +415,10 @@ struct Taskmaster {
 		guard let index = findElement(dataProcess: dataProcess) else { return }
 		if number > 1 {
 			let copies = number - 1
-			if copies < dataProcess.info.countCopies { return }
-			Taskmaster.dataProcesses?[index].info.countCopies = max(copies, dataProcess.info.countCopies)
+			if copies <= dataProcess.info.countCopies { return }
+			Taskmaster.dataProcesses?[index].info.countCopies = copies
 			Taskmaster.dataProcesses?[index].info.numberProcess = 1
-			creatingDublicateProcess(dataProcess: dataProcess, count: copies - dataProcess.info.countCopies)
+			creatingDublicateProcess(dataProcess: dataProcess, count: copies)
 		}
 		Taskmaster.dataProcesses?[index].process = getProcess(dataProcess: dataProcess)
 		setStatus(dataProcess: dataProcess, status: .no_start)
@@ -498,6 +504,7 @@ struct Taskmaster {
 	private func terminateRunProcess(dataProcess: DataProcess) {
 		guard let process = dataProcess.process else { return }
 		if process.isRunning {
+			process.terminationHandler = nil
 			process.terminate()
 		}
 	}

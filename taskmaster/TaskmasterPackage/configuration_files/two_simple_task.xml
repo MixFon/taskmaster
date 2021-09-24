@@ -25,9 +25,9 @@
 		<!-- always never unexpected -->
 		<autorestart>never</autorestart>
 		<!-- Файл в который будет записан выходной поток -->
-		<stdout>/Users/mixfon/TaskmasterTasks/stdout.log</stdout>
+		<stdout>/Users/mixfon/TaskmasterTasks/print_time_stdout.log</stdout>
 		<!-- Файл в который будет записан поток ошибок -->
-		<stderr>/Users/mixfon/TaskmasterTasks/stderr.log</stderr>
+		<stderr>/Users/mixfon/TaskmasterTasks/print_time_stderr.log</stderr>
 		<!-- Переменные окружения -->
 		<environmenst>HOME=/tmp</environmenst>
 		<!-- Рабочая дериктория процесса -->
@@ -46,8 +46,8 @@
 		<stoptime>5</stoptime>
 		<numberprocces>1</numberprocces>
 		<autorestart>unexpected</autorestart>
-		<stdout>/Users/mixfon/TaskmasterTasks/stdout.log</stdout>
-		<stderr>/Users/mixfon/TaskmasterTasks/stderr.log</stderr>
+		<stdout>/Users/mixfon/TaskmasterTasks/block_signal_stdout.log</stdout>
+		<stderr>/Users/mixfon/TaskmasterTasks/block_signal_stderr.log</stderr>
 		<environmenst>HOME=/tmp</environmenst>
 		<workingdir>/Users/mixfon/TaskmasterTasks/</workingdir>
 		<umask>022</umask>

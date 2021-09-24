@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<configuration>
+	<!-- Бесконечно запускающийся процесс -->
+	<!-- Перезапуск по коду завершения -->
+	<process>
+		<name>pwd</name>
+		<numberprocces>1</numberprocces>
+		<command>/bin/pwd</command>
+		<exitcodes>0</exitcodes>
+		<autostart>false</autostart>
+		<autorestart>unexpected</autorestart>
+	</process>
+</configuration>

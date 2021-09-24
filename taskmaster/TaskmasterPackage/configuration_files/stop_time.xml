@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<configuration>
+	<process>
+		<!-- Создается 4 копии -->
+		<name>print_time</name>
+		<command>/Users/mixfon/TaskmasterTasks/print_time</command>
+		<stoptime>5</stoptime>
+		<workingdir>/Users/mixfon/TaskmasterTasks/</workingdir>
+	</process>
+	<process>
+		<!-- Создается 3 копии -->
+		<name>block_signal</name>
+		<command>/Users/mixfon/TaskmasterTasks/block_signal</command>
+		<stoptime>5</stoptime>
+		<workingdir>/Users/mixfon/TaskmasterTasks/</workingdir>
+	</process>
+	<process>
+		<!-- Создается 3 копии -->
+		<name>bs_new</name>
+		<command>/Users/mixfon/TaskmasterTasks/block_signal</command>
+		<stoptime>2</stoptime>
+		<workingdir>/Users/mixfon/TaskmasterTasks/</workingdir>
+	</process>
+</configuration>

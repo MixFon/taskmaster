@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<configuration>
+	<process>
+		<!-- Создается 4 копии -->
+		<name>print_time</name>
+		<command>/Users/mixfon/TaskmasterTasks/print_time</command>
+		<arguments>arg_one arg_two conf</arguments>
+		<autostart>false</autostart>
+		<autorestart>unexpected</autorestart>
+		<exitcodes>21</exitcodes>
+		<workingdir>/Users/mixfon/TaskmasterTasks/</workingdir>
+	</process>
+	<process>
+		<!-- Создается 3 копии -->
+		<name>block_signal</name>
+		<command>/Users/mixfon/TaskmasterTasks/block_signal</command>
+		<arguments>arg_one arg_two</arguments>
+		<autostart>false</autostart>
+		<exitcodes>-20</exitcodes>
+		<autorestart>unexpected</autorestart>
+		<workingdir>/Users/mixfon/TaskmasterTasks/</workingdir>
+	</process>
+	<process>
+		<name>pwd</name>
+		<numberprocces>1</numberprocces>
+		<command>/bin/pwd</command>
+		<exitcodes>0</exitcodes>
+		<autostart>false</autostart>
+		<autorestart>unexpected</autorestart>
+	</process>
+</configuration>
