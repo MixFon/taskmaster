@@ -40,7 +40,6 @@ public class ServerTM {
 		// Handle HTTP GET requests to /
 		router.get("/") {
 			request, response, next in
-			print("Request received:", request)
 			guard let parametersCommand = request.queryParameters["command"] else { next(); return }
 			guard let command = Taskmaster.Command(rawValue: parametersCommand) else { next(); return }
 			switch command {

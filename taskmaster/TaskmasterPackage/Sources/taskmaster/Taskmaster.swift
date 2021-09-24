@@ -65,7 +65,7 @@ struct Taskmaster {
 		case .help:
 			printHelp()
 		case .status:
-			printStatus()
+			break
 		case .exit:
 			Taskmaster.exitTaskmaster()
 		case .start:
@@ -82,9 +82,7 @@ struct Taskmaster {
 	/// Перезагружает файл с конфигурациями и обновляет данные процессов.
 	private func reloadConfigFile() {
 		let xmlManager = XMLDataManager()
-		print("0000")
 		guard let newProcess = xmlManager.getDataProcesses(xmlFile: self.processesConfig) else { return }
-		print("1111")
 		guard let oldProcess = Taskmaster.dataProcesses else { return }
 		let newSet = Set<DataProcess>(newProcess)
 		let oldSet = Set<DataProcess>(oldProcess)
@@ -92,7 +90,6 @@ struct Taskmaster {
 		let arrSub = [DataProcess](sub)
 		Taskmaster.dataProcesses?.append(contentsOf: arrSub)
 		creatingArrayProcesses(dataProcesses: arrSub)
-		print("arrSub", arrSub)
 		let newArrayProcess = [DataProcess](newSet)
 		updateDataProcesses(newProcesses: newArrayProcess)
 	}
@@ -170,7 +167,7 @@ struct Taskmaster {
 	
 	/// Печатает подсказку
 	private func printHelp() {
-		printMessage(
+		print(
 			"""
 			Commands:
 			help			: Show help
@@ -200,22 +197,6 @@ struct Taskmaster {
 		guard let dataProcesses = Taskmaster.dataProcesses else { return }
 		let dataProcessNoStart = dataProcesses.filter( { $0.info.status == .no_start } )
 		startArrayProcesses(dataProcesses: dataProcessNoStart)
-	}
-	
-	/// Вывод статуса по процессам.
-	private func printStatus() {
-		guard let dataProcesses = Taskmaster.dataProcesses else {print("ErrStat"); return }
-		printMessage("State\tPID\tName\tTime")
-		for data in dataProcesses {
-			guard let status = data.info.status else { print("Cont"); continue }
-			let time = DateFormatter.getTimeInterval(data.info.timeStartProcess, data.info.timeStopProcess)
-			printMessage(String(format:
-				"%@\t%5d\t%@\t%@", status.rawValue, data.process?.processIdentifier ?? -1, data.info.nameProcess ?? "", time))
-		}
-	}
-	
-	private func printMessage(_ string: String) {
-		print(string)
 	}
 	
 	/// Завершение работы основной программы
@@ -306,9 +287,7 @@ struct Taskmaster {
 			guard let id = elem.info.idProcess else { return false }
 			return id == process.processIdentifier
 		} ) else {
-			print(process.processIdentifier)
-			print("Error 00!!!")
-			Taskmaster.dataProcesses?.forEach({print($0.info.idProcess ?? -1)})
+			print("Error 00")
 			self.lock.unlock()
 			return
 		}
@@ -334,7 +313,6 @@ struct Taskmaster {
 	/// Нужно ли перезапускать программу по завершении always, newer, unexpected
 	private func selectRestartMode(dataProcess: DataProcess?) {
 		guard let dataProcess = dataProcess else { return }
-		print(dataProcess.info.autoRestart ?? "nil")
 		switch dataProcess.info.autoRestart {
 		case .never:
 			return
@@ -357,7 +335,6 @@ struct Taskmaster {
 	
 	/// Возвращает статус завершения программы. Успех если код найден, провал, если код не найден
 	private func getStatusFinish(_ dataProcess: DataProcess, _ process: Process) -> InfoProcess.Finish {
-		print("termination Reason:", process.terminationReason.rawValue)
 		if let codes = dataProcess.info.exitCodes {
 			if codes.contains(process.terminationStatus) {
 				return .success
@@ -376,7 +353,6 @@ struct Taskmaster {
 	static func stopAllProcesses() {
 		guard let count = Taskmaster.dataProcesses?.count else { return }
 		for i in 0..<count {
-			//Taskmaster.dataProcesses?[i].info.autoRestart = .never
 			if let process = Taskmaster.dataProcesses?[i].process {
 				if process.isRunning {
 					process.terminationHandler = nil
