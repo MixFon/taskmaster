@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import DataProcess
 
 class XMLDataManager: NSObject  {
 	var parser: XMLParser?
@@ -128,7 +129,7 @@ class XMLDataManager: NSObject  {
 	/// Считывает переменную never, always, или unexpected которая горит, слудует ли перезагружать программу.
 	private func readAutoRestart(data: String, line: Int, column: Int) {
 		if self.infoProcesses == nil { return }
-		if let autoRestart = InfoProcess.AutoRestart(rawValue: data) {
+		if let autoRestart = AutoRestart(rawValue: data) {
 			self.infoProcesses?.autoRestart = autoRestart
 			Logs.writeLogsToFileLogs("The reboot option has been read: \(data)")
 		}
@@ -171,7 +172,7 @@ class XMLDataManager: NSObject  {
 	/// Считывает сигнал, используемый для остановки программы.
 	private func readStopSignal(data: String, line: Int, column: Int) {
 		if self.infoProcesses == nil { return }
-		guard let sgnl = InfoProcess.Signals(signal: data) else { return }
+		guard let sgnl = Signals(signal: data) else { return }
 		self.infoProcesses?.stopSignal = sgnl
 		Logs.writeLogsToFileLogs("Read stop signal: \(data)")
 	}

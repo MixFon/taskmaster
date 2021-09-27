@@ -6,7 +6,9 @@ import PackageDescription
 let package = Package(
     name: "taskmaster",
 	products: [
-		.executable(name: "taskmaster", targets: ["taskmaster"])
+		.executable(name: "client", targets: ["client"]),
+		.executable(name: "taskmaster", targets: ["taskmaster"]),
+		.library(name: "DataProcess", targets: ["DataProcess"]),
 	],
     dependencies: [
         // Dependencies declare other packages that this package depends on.
@@ -17,6 +19,12 @@ let package = Package(
         // Targets can depend on other targets in this package, and on products in packages this package depends on.
         .target(
             name: "taskmaster",
-            dependencies: ["Kitura"]),
+			dependencies: ["Kitura", "DataProcess"]),
+		.target(
+			name: "DataProcess",
+			dependencies: []),
+		.target(
+			name: "client",
+			dependencies: ["DataProcess"]),
     ]
 )

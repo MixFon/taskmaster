@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import DataProcess
 
 print("Welcom to Taskmaster!")
 func signalHandler(signal: Int32)->Void {
@@ -13,7 +14,7 @@ func signalHandler(signal: Int32)->Void {
 	Taskmaster.signalHandler(signal: signal)
 }
 
-for sig in InfoProcess.Signals.allCases {
+for sig in Signals.allCases {
 	if sig == .SIGKILL || sig == .SIGSTOP || sig == .SIGABRT || sig == .SIGCHLD { continue }
 	signal(sig.rawValue, signalHandler)
 }

@@ -6,21 +6,12 @@
 //
 
 import Foundation
+import DataProcess
 
 struct Taskmaster {
 	static var dataProcesses: [DataProcess]?
 	private var processesConfig: String = "precesses_config.xml"
 	let lock = NSLock()
-
-	enum Command: String {
-		case help
-		case start
-		case status
-		case stop
-		case restart
-		case exit
-		case reload
-	}
 	
 	init?(processesConfig: String) {
 		let xmlManager = XMLDataManager()
@@ -39,7 +30,7 @@ struct Taskmaster {
 	
 	/// Перехват сигналов.
 	static func signalHandler(signal: Int32)->Void {
-		guard let sgnl = InfoProcess.Signals(rawValue: signal) else { print("ErrSig01"); return }
+		guard let sgnl = Signals(rawValue: signal) else { print("ErrSig01"); return }
 		if sgnl == .SIGINT || sgnl == .SIGTERM {
 			Taskmaster.exitTaskmaster()
 		}
@@ -65,6 +56,8 @@ struct Taskmaster {
 		case .help:
 			printHelp()
 		case .status:
+			break
+		case .stream:
 			break
 		case .exit:
 			Taskmaster.exitTaskmaster()
@@ -228,7 +221,7 @@ struct Taskmaster {
 	}
 	
 	/// Уставнока заданного статуса
-	private func setStatus(dataProcess: DataProcess, status: InfoProcess.Status) {
+	private func setStatus(dataProcess: DataProcess, status: Status) {
 		guard let index = findElement(dataProcess: dataProcess) else { return }
 		Taskmaster.dataProcesses?[index].info.status = status
 	}
@@ -334,7 +327,7 @@ struct Taskmaster {
 	}
 	
 	/// Возвращает статус завершения программы. Успех если код найден, провал, если код не найден
-	private func getStatusFinish(_ dataProcess: DataProcess, _ process: Process) -> InfoProcess.Finish {
+	private func getStatusFinish(_ dataProcess: DataProcess, _ process: Process) -> Finish {
 		if let codes = dataProcess.info.exitCodes {
 			if codes.contains(process.terminationStatus) {
 				return .success
@@ -533,5 +526,20 @@ struct Taskmaster {
 			return fileHandle
 		}
 		return nil
+	}
+	
+	/// Возвращфат содержимое файла потока вывода или потока ввода.
+	func getStream(nameProcess: String, type: ServerTM.QueryParameters.TypeStream) -> String? {
+		guard let dataProcess = Taskmaster.dataProcesses?.first(where: {$0.info.nameProcess == nameProcess}) else {
+			return nil
+		}
+		var streamURL: URL
+		switch type {
+		case .stderr:
+			streamURL = URL(fileURLWithPath: dataProcess.info.stdErr ?? "")
+		case .stdout:
+			streamURL = URL(fileURLWithPath: dataProcess.info.stdOut ?? "")
+		}
+		return try? String(contentsOf: streamURL)
 	}
 }
