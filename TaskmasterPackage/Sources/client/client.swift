@@ -87,7 +87,6 @@ class Client {
 			for (lable, value) in mirror.children {
 				guard let lable = lable else { continue }
 				guard let value = getValue(value: value) else { continue }
-				//self.array.append((lable.camelCaseToSnakeCase(), value))
 				print(lable.camelCaseToSnakeCase(), value)
 			}
 		}
