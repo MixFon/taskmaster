@@ -40,7 +40,7 @@
 		<command>/Users/mixfon/TaskmasterTasks/block_signal</command>
 		<arguments>arg_one arg_two </arguments>
 		<autostart>true</autostart>
-		<exitcodes>-20</exitcodes>
+		<exitcodes>0</exitcodes>
 		<startretries>1</startretries>
 		<stopsignal>SIGUSR1</stopsignal>
 		<stoptime>5</stoptime>

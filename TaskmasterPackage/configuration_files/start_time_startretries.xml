@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <configuration>
 	<process>
-		<!-- Создается 4 копии -->
+		<!-- Время требуемое для старта -->
 		<name>print_time</name>
 		<command>/Users/mixfon/TaskmasterTasks/print_time</command>
 		<starttime>400000000</starttime>
@@ -9,7 +9,7 @@
 		<workingdir>/Users/mixfon/TaskmasterTasks/</workingdir>
 	</process>
 	<process>
-		<!-- Создается 3 копии -->
+		<!-- Время требуемое для старта -->
 		<name>block_signal</name>
 		<command>/Users/mixfon/TaskmasterTasks/block_signal</command>
 		<starttime>4000</starttime>

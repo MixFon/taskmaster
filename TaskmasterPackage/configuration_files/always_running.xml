@@ -8,6 +8,6 @@
 		<command>/bin/pwd</command>
 		<exitcodes>0</exitcodes>
 		<autostart>false</autostart>
-		<autorestart>unexpected</autorestart>
+		<autorestart>always</autorestart>
 	</process>
 </configuration>

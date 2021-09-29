@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <configuration>
 	<process>
-		<!-- Запись входного и выходных потоков в файлы -->
+		<!-- Запись входного и потока ошибок в файлы -->
 		<name>print_time</name>
 		<command>/Users/mixfon/TaskmasterTasks/print_time</command>
 		<arguments>arg_one arg_two conf</arguments>
@@ -12,7 +12,7 @@
 		<stderr>/Users/mixfon/TaskmasterTasks/print_time_stderr.log</stderr>
 	</process>
 	<process>
-		<!-- Запись входного и выходных потоков в файлы -->
+		<!-- Запись входного и потока ошибок в файлы -->
 		<name>block_signal</name>
 		<command>/Users/mixfon/TaskmasterTasks/block_signal</command>
 		<arguments>arg_one arg_two</arguments>
